@@ -22,4 +22,4 @@ This group consists of Rajdeep, Fabio, Raj, and Travis.
 - The slider game has more than one difficulty and is decently appealing to the eye (C++ or Java)
 - Scores are submitted to a Python Flask backend using HTTP protocol
 - Scores are stored into either a local SQLite database or server-hosted PostgreSQL database
-- A website displays the leaderboard (HTTP, CSS, JavaScript), retrieved through HTTP
+- A website displays the leaderboard (HTML, CSS, JavaScript), retrieved through HTTP
