@@ -15,7 +15,7 @@ This group consists of Rajdeep, Fabio, Raj, and Travis.
 - The slider game has one difficulty (C++ or Java)
 - Scores are submitted to a Python Flask backend using HTTP protocol
 - Scores are stored into a local SQLite database
-- A website displays the unordered scores submitted (HTTP, CSS, JavaScript), retrieved through HTTP
+- A website displays the unordered scores submitted (HTML, CSS, JavaScript), retrieved through HTTP
 
 ## Desired Product
 
