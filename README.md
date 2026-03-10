@@ -1,6 +1,6 @@
 # CSCN71030 Project
 
-The goal is to create a slider-puzzle game that stores scores, measured in the amount of moves that occur, and then displays them on a website.
+The goal is to create a slider-puzzle game that stores scores, measured in the amount of moves that occur, and then displays them on a leaderboard (or website if possible).
 
 This group consists of Rajdeep, Fabio, and Raj.
 
