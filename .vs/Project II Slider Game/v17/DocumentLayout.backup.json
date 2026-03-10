@@ -1,0 +1,206 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\Users\\rajde\\source\\repos\\Project II Slider Game\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{1FE684B2-0EAD-4977-A2B8-D407FC40F180}|Project II Slider Game\\Project II Slider Game.vcxproj|C:\\Users\\rajde\\source\\repos\\Project II Slider Game\\Project II Slider Game\\Main.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{1FE684B2-0EAD-4977-A2B8-D407FC40F180}|Project II Slider Game\\Project II Slider Game.vcxproj|solutionrelative:Project II Slider Game\\Main.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{1FE684B2-0EAD-4977-A2B8-D407FC40F180}|Project II Slider Game\\Project II Slider Game.vcxproj|C:\\Users\\rajde\\source\\repos\\Project II Slider Game\\Project II Slider Game\\SlidingTilesData.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{1FE684B2-0EAD-4977-A2B8-D407FC40F180}|Project II Slider Game\\Project II Slider Game.vcxproj|solutionrelative:Project II Slider Game\\SlidingTilesData.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{1FE684B2-0EAD-4977-A2B8-D407FC40F180}|Project II Slider Game\\Project II Slider Game.vcxproj|C:\\Users\\rajde\\source\\repos\\Project II Slider Game\\Project II Slider Game\\Board.hpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{1FE684B2-0EAD-4977-A2B8-D407FC40F180}|Project II Slider Game\\Project II Slider Game.vcxproj|solutionrelative:Project II Slider Game\\Board.hpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{50E4480E-316F-C5F6-131B-DDDC92AB14F8}|UnitTests\\UnitTests.vcxproj|C:\\Users\\rajde\\source\\repos\\Project II Slider Game\\UnitTests\\UnitTests.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{50E4480E-316F-C5F6-131B-DDDC92AB14F8}|UnitTests\\UnitTests.vcxproj|solutionrelative:UnitTests\\UnitTests.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{1FE684B2-0EAD-4977-A2B8-D407FC40F180}|Project II Slider Game\\Project II Slider Game.vcxproj|C:\\Users\\rajde\\source\\repos\\Project II Slider Game\\Project II Slider Game\\UserFunctions.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{1FE684B2-0EAD-4977-A2B8-D407FC40F180}|Project II Slider Game\\Project II Slider Game.vcxproj|solutionrelative:Project II Slider Game\\UserFunctions.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{1FE684B2-0EAD-4977-A2B8-D407FC40F180}|Project II Slider Game\\Project II Slider Game.vcxproj|C:\\Users\\rajde\\source\\repos\\Project II Slider Game\\Project II Slider Game\\UserFunctions.hpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{1FE684B2-0EAD-4977-A2B8-D407FC40F180}|Project II Slider Game\\Project II Slider Game.vcxproj|solutionrelative:Project II Slider Game\\UserFunctions.hpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{1FE684B2-0EAD-4977-A2B8-D407FC40F180}|Project II Slider Game\\Project II Slider Game.vcxproj|C:\\Users\\rajde\\source\\repos\\Project II Slider Game\\Project II Slider Game\\SlidingTilesFunctions.hpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{1FE684B2-0EAD-4977-A2B8-D407FC40F180}|Project II Slider Game\\Project II Slider Game.vcxproj|solutionrelative:Project II Slider Game\\SlidingTilesFunctions.hpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{1FE684B2-0EAD-4977-A2B8-D407FC40F180}|Project II Slider Game\\Project II Slider Game.vcxproj|C:\\Users\\rajde\\source\\repos\\Project II Slider Game\\Project II Slider Game\\SlidingTilesData.hpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{1FE684B2-0EAD-4977-A2B8-D407FC40F180}|Project II Slider Game\\Project II Slider Game.vcxproj|solutionrelative:Project II Slider Game\\SlidingTilesData.hpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{1FE684B2-0EAD-4977-A2B8-D407FC40F180}|Project II Slider Game\\Project II Slider Game.vcxproj|C:\\Users\\rajde\\source\\repos\\Project II Slider Game\\Project II Slider Game\\SlidingTilesEnums.hpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{1FE684B2-0EAD-4977-A2B8-D407FC40F180}|Project II Slider Game\\Project II Slider Game.vcxproj|solutionrelative:Project II Slider Game\\SlidingTilesEnums.hpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{1FE684B2-0EAD-4977-A2B8-D407FC40F180}|Project II Slider Game\\Project II Slider Game.vcxproj|C:\\Users\\rajde\\source\\repos\\Project II Slider Game\\Project II Slider Game\\SlidingTilesFunctions.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{1FE684B2-0EAD-4977-A2B8-D407FC40F180}|Project II Slider Game\\Project II Slider Game.vcxproj|solutionrelative:Project II Slider Game\\SlidingTilesFunctions.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 2,
+          "Children": [
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{e1b7d1f8-9b3c-49b1-8f4f-bfc63a88835d}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "UnitTests.cpp",
+              "DocumentMoniker": "C:\\Users\\rajde\\source\\repos\\Project II Slider Game\\UnitTests\\UnitTests.cpp",
+              "RelativeDocumentMoniker": "UnitTests\\UnitTests.cpp",
+              "ToolTip": "C:\\Users\\rajde\\source\\repos\\Project II Slider Game\\UnitTests\\UnitTests.cpp",
+              "RelativeToolTip": "UnitTests\\UnitTests.cpp",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA4AAAACAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
+              "WhenOpened": "2026-03-10T23:34:29.935Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "Main.cpp",
+              "DocumentMoniker": "C:\\Users\\rajde\\source\\repos\\Project II Slider Game\\Project II Slider Game\\Main.cpp",
+              "RelativeDocumentMoniker": "Project II Slider Game\\Main.cpp",
+              "ToolTip": "C:\\Users\\rajde\\source\\repos\\Project II Slider Game\\Project II Slider Game\\Main.cpp",
+              "RelativeToolTip": "Project II Slider Game\\Main.cpp",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAoAAAAKAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
+              "WhenOpened": "2026-03-10T22:29:48.02Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "UserFunctions.cpp",
+              "DocumentMoniker": "C:\\Users\\rajde\\source\\repos\\Project II Slider Game\\Project II Slider Game\\UserFunctions.cpp",
+              "RelativeDocumentMoniker": "Project II Slider Game\\UserFunctions.cpp",
+              "ToolTip": "C:\\Users\\rajde\\source\\repos\\Project II Slider Game\\Project II Slider Game\\UserFunctions.cpp",
+              "RelativeToolTip": "Project II Slider Game\\UserFunctions.cpp",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAQAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
+              "WhenOpened": "2026-03-10T23:29:54.749Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 9,
+              "Title": "SlidingTilesFunctions.cpp",
+              "DocumentMoniker": "C:\\Users\\rajde\\source\\repos\\Project II Slider Game\\Project II Slider Game\\SlidingTilesFunctions.cpp",
+              "RelativeDocumentMoniker": "Project II Slider Game\\SlidingTilesFunctions.cpp",
+              "ToolTip": "C:\\Users\\rajde\\source\\repos\\Project II Slider Game\\Project II Slider Game\\SlidingTilesFunctions.cpp",
+              "RelativeToolTip": "Project II Slider Game\\SlidingTilesFunctions.cpp",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
+              "WhenOpened": "2026-03-10T23:21:39.343Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "SlidingTilesData.cpp",
+              "DocumentMoniker": "C:\\Users\\rajde\\source\\repos\\Project II Slider Game\\Project II Slider Game\\SlidingTilesData.cpp",
+              "RelativeDocumentMoniker": "Project II Slider Game\\SlidingTilesData.cpp",
+              "ToolTip": "C:\\Users\\rajde\\source\\repos\\Project II Slider Game\\Project II Slider Game\\SlidingTilesData.cpp",
+              "RelativeToolTip": "Project II Slider Game\\SlidingTilesData.cpp",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAUAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
+              "WhenOpened": "2026-03-10T23:11:08.961Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "Board.hpp",
+              "DocumentMoniker": "C:\\Users\\rajde\\source\\repos\\Project II Slider Game\\Project II Slider Game\\Board.hpp",
+              "RelativeDocumentMoniker": "Project II Slider Game\\Board.hpp",
+              "ToolTip": "C:\\Users\\rajde\\source\\repos\\Project II Slider Game\\Project II Slider Game\\Board.hpp",
+              "RelativeToolTip": "Project II Slider Game\\Board.hpp",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAwAAAASAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
+              "WhenOpened": "2026-03-10T22:58:27.182Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "SlidingTilesEnums.hpp",
+              "DocumentMoniker": "C:\\Users\\rajde\\source\\repos\\Project II Slider Game\\Project II Slider Game\\SlidingTilesEnums.hpp",
+              "RelativeDocumentMoniker": "Project II Slider Game\\SlidingTilesEnums.hpp",
+              "ToolTip": "C:\\Users\\rajde\\source\\repos\\Project II Slider Game\\Project II Slider Game\\SlidingTilesEnums.hpp",
+              "RelativeToolTip": "Project II Slider Game\\SlidingTilesEnums.hpp",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABcAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
+              "WhenOpened": "2026-03-10T22:50:08.553Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "SlidingTilesData.hpp",
+              "DocumentMoniker": "C:\\Users\\rajde\\source\\repos\\Project II Slider Game\\Project II Slider Game\\SlidingTilesData.hpp",
+              "RelativeDocumentMoniker": "Project II Slider Game\\SlidingTilesData.hpp",
+              "ToolTip": "C:\\Users\\rajde\\source\\repos\\Project II Slider Game\\Project II Slider Game\\SlidingTilesData.hpp",
+              "RelativeToolTip": "Project II Slider Game\\SlidingTilesData.hpp",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAgAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
+              "WhenOpened": "2026-03-10T22:38:23.453Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "SlidingTilesFunctions.hpp",
+              "DocumentMoniker": "C:\\Users\\rajde\\source\\repos\\Project II Slider Game\\Project II Slider Game\\SlidingTilesFunctions.hpp",
+              "RelativeDocumentMoniker": "Project II Slider Game\\SlidingTilesFunctions.hpp",
+              "ToolTip": "C:\\Users\\rajde\\source\\repos\\Project II Slider Game\\Project II Slider Game\\SlidingTilesFunctions.hpp",
+              "RelativeToolTip": "Project II Slider Game\\SlidingTilesFunctions.hpp",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAgAAAAtAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
+              "WhenOpened": "2026-03-10T22:38:40.625Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "UserFunctions.hpp",
+              "DocumentMoniker": "C:\\Users\\rajde\\source\\repos\\Project II Slider Game\\Project II Slider Game\\UserFunctions.hpp",
+              "RelativeDocumentMoniker": "Project II Slider Game\\UserFunctions.hpp",
+              "ToolTip": "C:\\Users\\rajde\\source\\repos\\Project II Slider Game\\Project II Slider Game\\UserFunctions.hpp",
+              "RelativeToolTip": "Project II Slider Game\\UserFunctions.hpp",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAYAAAAyAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
+              "WhenOpened": "2026-03-10T22:38:49.561Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:128:0:{75188d03-9892-4ae2-abf1-207126247ce5}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:129:0:{1fc202d4-d401-403c-9834-5b218574bb67}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:131:0:{116d2292-e37d-41cd-a077-ebacac4c8cc4}"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
