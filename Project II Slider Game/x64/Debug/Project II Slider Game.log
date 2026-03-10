@@ -1,9 +1,0 @@
-﻿  Main.cpp
-  SlidingTilesData.cpp
-  SlidingTilesFunctions.cpp
-C:\Users\rajde\source\repos\Project II Slider Game\Project II Slider Game\SlidingTilesData.cpp(4,8): error C2512: 'Board': no appropriate default constructor available
-      C:\Users\rajde\source\repos\Project II Slider Game\Project II Slider Game\Board.hpp(5,7):
-      see declaration of 'Board'
-  
-  UserFunctions.cpp
-  Generating Code...
