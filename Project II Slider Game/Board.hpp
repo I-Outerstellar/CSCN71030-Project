@@ -30,8 +30,15 @@ public:
 	/// </summary>
 	/// <param name="column"></param>
 	/// <param name="row"></param>
-	/// <returns>True if access is granted, false if not.</returns>
+	/// <returns>True if index exists, false if not.</returns>
 	bool canAccess(size_t column, size_t row) const noexcept;
+
+	/// <summary>
+	/// Checks if a board column can be accessed.
+	/// </summary>
+	/// <param name="column"></param>
+	/// <returns>True if column exists, false if not.</returns>
+	bool canAccess(size_t column) const noexcept;
 
 	/// <summary>
 	/// Accesses an integer in the board.
@@ -40,4 +47,11 @@ public:
 	/// <param name="row"></param>
 	/// <returns>Reference to an integer on the board.</returns>
 	int& access(size_t column, size_t row) const;
+
+	/// <summary>
+	/// Accessses a column of the board.
+	/// </summary>
+	/// <param name="column"></param>
+	/// <returns>A reference to a column vector of the board.</returns>
+	std::vector<size_t>& access(size_t column) const;
 };
