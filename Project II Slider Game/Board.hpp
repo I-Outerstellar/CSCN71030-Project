@@ -23,7 +23,7 @@ public:
 	/// Also checks for if the board itself has no columns.
 	/// </summary>
 	/// <returns>True if a column or the board itself is empty, false if not.</returns>
-	bool isColumnEmpty();
+	bool hasEmptyColumn();
 
 	/// <summary>
 	/// Checks if a board index can be accessed.
