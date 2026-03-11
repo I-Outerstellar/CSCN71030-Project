@@ -5,7 +5,7 @@ int main() {
 	bool playing = true;
 	while (playing) {
 		SlidingTilesFunctions::startGame(UserFunctions::selectDifficulty());
-		if (!UserFunctions::getPlayAgain()) playing = false;
+		playing = UserFunctions::getPlayAgain();
 	}
 
 	return 0;

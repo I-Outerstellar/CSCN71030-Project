@@ -19,10 +19,11 @@ public:
 	Board(SlidingTilesEnums::Difficulty difficulty) noexcept;
 
 	/// <summary>
-	/// Returns if the board is initialized, meaning if it has one or more spaces.
+	/// Checks if the board has an empty column, meaning one of the sizes of the columns is 0. 
+	/// Also checks for if the board itself has no columns.
 	/// </summary>
-	/// <returns>True if initialized, false if not.</returns>
-	bool isInitialized();
+	/// <returns>True if a column or the board itself is empty, false if not.</returns>
+	bool isColumnEmpty();
 
 	/// <summary>
 	/// Checks if a board index can be accessed.
