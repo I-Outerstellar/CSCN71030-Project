@@ -6,7 +6,7 @@
 namespace SlidingTilesFunctions {
 	void startGame(SlidingTilesEnums::Difficulty difficulty);
 
-	bool slide(Board& board, SlidingTilesEnums::Direction direction);
+	bool slide(Board& board, int tile);
 
 	void shuffle(Board& board);
 
