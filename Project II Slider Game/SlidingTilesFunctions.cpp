@@ -11,8 +11,8 @@ namespace SlidingTilesFunctions {
         size_t size = b.getSize(); // size/difficulty of board
 
         // Find tile and empty space
-        for (int row = 0; row < size; ++row) {
-            for (int col = 0; col < size; ++col) {
+        for (size_t row = 0; row < size; ++row) {
+            for (size_t col = 0; col < size; ++col) {
                 if (b.access(col, row) == 0) {
                     emptyRow = row;
                     emptyCol = col;
