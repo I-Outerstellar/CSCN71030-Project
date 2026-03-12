@@ -8,7 +8,7 @@ namespace SlidingTilesFunctions {
         int emptyRow = 0, emptyCol = 0;
         bool tileFound = false, emptyFound = false;
 
-        int size = b.board.size(); // size/difficulty of board
+        int size = b.getSize(); // size/difficulty of board
 
         // Find tile and empty space
         for (int row = 0; row < size; ++row) {
@@ -30,7 +30,6 @@ namespace SlidingTilesFunctions {
 
             // If both are found, exit outer loop 
             if (tileFound && emptyFound) break;
-        }
         }
 
         if (!tileFound || !emptyFound) return false;
@@ -59,4 +58,3 @@ namespace SlidingTilesFunctions {
         return true;
     }
 }
-            

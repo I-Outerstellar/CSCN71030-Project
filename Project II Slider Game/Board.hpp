@@ -40,4 +40,10 @@ public:
 	/// <param name="row"></param>
 	/// <returns>Reference to an integer on the board.</returns>
 	int& access(size_t column, size_t row) const;
+
+	/// <summary>
+	/// Gets the size of the board.
+	/// </summary>
+	/// <returns>The number of columns in the board.</returns>
+	inline size_t getSize() const noexcept;
 };
