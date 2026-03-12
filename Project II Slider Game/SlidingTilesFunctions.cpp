@@ -4,11 +4,11 @@
 namespace SlidingTilesFunctions {
 
     bool slide(Board& b, int tile) {
-        int tileRow = 0, tileCol = 0;
-        int emptyRow = 0, emptyCol = 0;
+        size_t tileRow = 0, tileCol = 0;
+        size_t emptyRow = 0, emptyCol = 0;
         bool tileFound = false, emptyFound = false;
 
-        int size = b.getSize(); // size/difficulty of board
+        size_t size = b.getSize(); // size/difficulty of board
 
         // Find tile and empty space
         for (int row = 0; row < size; ++row) {
@@ -18,7 +18,7 @@ namespace SlidingTilesFunctions {
                     emptyCol = col;
                     emptyFound = true;
                 }
-                if (b.access(col, row) == tile) {
+                if (b.access(col, row) == static_cast<size_t>(tile)) {
                     tileRow = row;
                     tileCol = col;
                     tileFound = true;
@@ -50,7 +50,7 @@ namespace SlidingTilesFunctions {
         if (!validMove) return false; // Invalid swap/slide
 
         // Swap tile and empty space
-        int temp = b.access(tileCol, tileRow);
+        size_t temp = b.access(tileCol, tileRow);
         b.access(tileCol, tileRow) = b.access(emptyCol, emptyRow);
         b.access(emptyCol, emptyRow) = temp;
 
