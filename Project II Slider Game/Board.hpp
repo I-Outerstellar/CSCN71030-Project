@@ -23,18 +23,25 @@ public:
 	/// Also checks for if the board itself has no columns.
 	/// </summary>
 	/// <returns>True if a column or the board itself is empty, false if not.</returns>
-	bool isColumnEmpty();
+	bool hasEmptyColumn() const noexcept;
 
 	/// <summary>
-	/// Checks if a board index can be accessed.
+	/// Checks if a board index can be accessed. Indexing starts at 0.
 	/// </summary>
 	/// <param name="column"></param>
 	/// <param name="row"></param>
-	/// <returns>True if access is granted, false if not.</returns>
+	/// <returns>True if index exists, false if not.</returns>
 	bool canAccess(size_t column, size_t row) const noexcept;
 
 	/// <summary>
-	/// Accesses an integer in the board.
+	/// Checks if a board column can be accessed. Indexing starts at 0.
+	/// </summary>
+	/// <param name="column"></param>
+	/// <returns>True if column exists, false if not.</returns>
+	bool canAccess(size_t column) const noexcept;
+
+	/// <summary>
+	/// Accesses an integer in the board. Indexing starts at 0.
 	/// </summary>
 	/// <param name="column"></param>
 	/// <param name="row"></param>
