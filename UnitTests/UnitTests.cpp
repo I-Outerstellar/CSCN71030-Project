@@ -1,4 +1,3 @@
-#include "pch.h"
 #include "CppUnitTest.h"
 
 #include "../Project II Slider Game/Board.hpp"
@@ -13,10 +12,12 @@ namespace UnitTests
 {
 	TEST_CLASS(UnitTests)
 	{
+	private:
+
 	public:
 		
 		TEST_METHOD(TestMethod1) {
-
+			
 		}
 	};
 }
