@@ -22,7 +22,7 @@ Board::Board(SlidingTilesEnums::Difficulty difficulty) noexcept {
     board.at(size - 1).at(size - 1) = 0;
 }
 
-bool Board::hasEmptyColumn() const noexcept {
+bool Board::hasEmptyRow() const noexcept {
 	if (this->board.size() <= 0) return false;
 	for (int i = 0; i < board.size(); i++) {
 		if (board.at(i).size() <= 0) return false;

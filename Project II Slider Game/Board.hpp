@@ -23,7 +23,7 @@ public:
 	/// Also checks for if the board itself has no row.
 	/// </summary>
 	/// <returns>True if a row or the board itself is empty, false if not.</returns>
-	bool hasEmptyColumn() const noexcept;
+	bool hasEmptyRow() const noexcept;
 
 	/// <summary>
 	/// Checks if a board index can be accessed. Indexing starts at 0.
