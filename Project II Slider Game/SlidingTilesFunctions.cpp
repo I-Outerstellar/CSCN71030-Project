@@ -3,58 +3,58 @@
 
 namespace SlidingTilesFunctions {
 
-    bool slide(Board& b, int tile) {
-        size_t tileRow = 0, tileCol = 0;
-        size_t emptyRow = 0, emptyCol = 0;
-        bool tileFound = false, emptyFound = false;
+	void startGame(SlidingTilesEnums::Difficulty difficulty) {
+		SlidingTilesData::board = Board(difficulty);
+		SlidingTilesData::boardSize = static_cast<int>(difficulty);
+		SlidingTilesData::currentColumn =
+			SlidingTilesData::currentRow =
+			SlidingTilesData::boardSize - 1;
+		SlidingTilesData::slides = 0;
+	}
 
-        size_t size = b.getSize(); // size/difficulty of board
+	bool slide(SlidingTilesEnums::Direction direction) { 
+		using namespace SlidingTilesData;
+		bool canSlide = false;
+		if (board.hasEmptyRow()) return false;
 
-        // Find tile and empty space
-        for (int row = 0; row < size; ++row) {
-            for (int col = 0; col < size; ++col) {
-                if (b.access(col, row) == 0) {
-                    emptyRow = row;
-                    emptyCol = col;
-                    emptyFound = true;
-                }
-                if (b.access(col, row) == static_cast<size_t>(tile)) {
-                    tileRow = row;
-                    tileCol = col;
-                    tileFound = true;
-                }
+		//Determine if a slide can occur in the desired direction
+		switch (direction) {
+		case SlidingTilesEnums::Direction::DOWN:
+			canSlide = board.canAccess(currentRow + 1, currentColumn);
+			break;
+		case SlidingTilesEnums::Direction::UP:
+			canSlide = board.canAccess(currentRow - 1, currentColumn);
+			break;
+		case SlidingTilesEnums::Direction::LEFT:
+			canSlide = board.canAccess(currentRow, currentColumn - 1);
+			break;
+		case SlidingTilesEnums::Direction::RIGHT:
+			canSlide = board.canAccess(currentRow, currentColumn + 1);
+			break;
+		}
 
-                // If both are found, exit inner loop 
-                if (tileFound && emptyFound) break;
-            }
+		if (!canSlide) return false;
 
-            // If both are found, exit outer loop 
-            if (tileFound && emptyFound) break;
-        }
+		//Slide the desired square to the empty square
+		switch (direction) {
+		case SlidingTilesEnums::Direction::DOWN:
+			std::swap(board.access(currentRow, currentColumn), board.access(currentRow + 1, currentColumn));
+			currentRow += 1;
+			break;
+		case SlidingTilesEnums::Direction::UP:
+			std::swap(board.access(currentRow, currentColumn), board.access(currentRow - 1, currentColumn));
+			currentRow -= 1;
+			break;
+		case SlidingTilesEnums::Direction::LEFT:
+			std::swap(board.access(currentRow, currentColumn), board.access(currentRow, currentColumn - 1));
+			currentColumn -= 1;
+			break;
+		case SlidingTilesEnums::Direction::RIGHT:
+			std::swap(board.access(currentRow, currentColumn), board.access(currentRow, currentColumn + 1));
+			currentColumn += 1;
+			break;
+		}
+		return true;
+	}
 
-        if (!tileFound || !emptyFound) return false;
-
-        // Set false by default
-        bool validMove = false;
-
-        // Check if tiles are adjacent
-        // If both in the same row and in adjacent columns
-        if (tileRow == emptyRow) {
-            if (tileCol + 1 == emptyCol || tileCol == emptyCol + 1) validMove = true;
-        }
-        // If both in the same column and in adjacent rows
-        else if (tileCol == emptyCol) {
-            if (tileRow + 1 == emptyRow || tileRow == emptyRow + 1) validMove = true;
-        }
-
-        if (!validMove) return false; // Invalid swap/slide
-
-        // Swap tile and empty space
-        size_t temp = b.access(tileCol, tileRow);
-        b.access(tileCol, tileRow) = b.access(emptyCol, emptyRow);
-        b.access(emptyCol, emptyRow) = temp;
-
-        SlidingTilesData::slides++; // Increment the # of slides 
-        return true;
-    }
 }

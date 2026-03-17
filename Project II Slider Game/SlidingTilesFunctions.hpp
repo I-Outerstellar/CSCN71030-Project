@@ -6,11 +6,11 @@
 namespace SlidingTilesFunctions {
 	void startGame(SlidingTilesEnums::Difficulty difficulty);
 
-	bool slide(Board& board, int tile);
+	bool slide(SlidingTilesEnums::Direction direction);
 
-	void shuffle(Board& board);
+	void shuffle();
 
-	bool isBoardOrdered(Board& board);
+	bool isBoardOrdered();
 
 	void writeScore();
 
