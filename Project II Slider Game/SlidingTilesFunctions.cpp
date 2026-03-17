@@ -1,6 +1,8 @@
 #include "SlidingTilesFunctions.hpp"
 #include "SlidingTilesData.hpp"
-
+#include <vector>
+#include <cstdlib>
+#include <ctime>
 namespace SlidingTilesFunctions {
 
 	void startGame(SlidingTilesEnums::Difficulty difficulty) {
@@ -57,4 +59,70 @@ namespace SlidingTilesFunctions {
 		return true;
 	}
 
+	void shuffle() {
+		using namespace SlidingTilesData;
+
+		std::srand(static_cast<unsigned int>(std::time(nullptr)));
+
+		// Number of moves based on difficulty
+		int moves = boardSize * boardSize * 10;
+
+		SlidingTilesEnums::Direction lastMove;
+		bool hasLastMove = false;
+
+		for (int i = 0; i < moves; i++) {
+			std::vector<SlidingTilesEnums::Direction> possibleMoves;
+
+			// Check all valid directions
+			if (board.canAccess(currentRow + 1, currentColumn))
+				possibleMoves.push_back(SlidingTilesEnums::Direction::DOWN);
+
+			if (board.canAccess(currentRow - 1, currentColumn))
+				possibleMoves.push_back(SlidingTilesEnums::Direction::UP);
+
+			if (board.canAccess(currentRow, currentColumn + 1))
+				possibleMoves.push_back(SlidingTilesEnums::Direction::RIGHT);
+
+			if (board.canAccess(currentRow, currentColumn - 1))
+				possibleMoves.push_back(SlidingTilesEnums::Direction::LEFT);
+
+			// Remove opposite of last move (to avoid backtracking)
+			if (hasLastMove) {
+				for (int j = 0; j < possibleMoves.size(); j++) {
+					bool isOpposite = false;
+
+					if (lastMove == SlidingTilesEnums::Direction::UP &&
+						possibleMoves[j] == SlidingTilesEnums::Direction::DOWN) isOpposite = true;
+
+					if (lastMove == SlidingTilesEnums::Direction::DOWN &&
+						possibleMoves[j] == SlidingTilesEnums::Direction::UP) isOpposite = true;
+
+					if (lastMove == SlidingTilesEnums::Direction::LEFT &&
+						possibleMoves[j] == SlidingTilesEnums::Direction::RIGHT) isOpposite = true;
+
+					if (lastMove == SlidingTilesEnums::Direction::RIGHT &&
+						possibleMoves[j] == SlidingTilesEnums::Direction::LEFT) isOpposite = true;
+
+					if (isOpposite) {
+						possibleMoves.erase(possibleMoves.begin() + j);
+						break;
+					}
+				}
+			}
+
+			// Pick random move
+			int randIndex = std::rand() % possibleMoves.size();
+			SlidingTilesEnums::Direction move = possibleMoves[randIndex];
+
+			// Perform move
+			slide(move);
+
+			// Store last move
+			lastMove = move;
+			hasLastMove = true;
+		}
+
+		// Reset player moves after shuffle
+		slides = 0;
+	}
 }
