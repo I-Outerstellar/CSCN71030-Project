@@ -15,7 +15,7 @@ namespace SlidingTilesFunctions {
 	bool slide(SlidingTilesEnums::Direction direction) { 
 		using namespace SlidingTilesData;
 		bool canSlide = false;
-		//if (board.hasEmptyRow()) return false;
+		if (board.hasEmptyRow()) return false;
 
 		//Determine if a slide can occur in the desired direction
 		switch (direction) {
