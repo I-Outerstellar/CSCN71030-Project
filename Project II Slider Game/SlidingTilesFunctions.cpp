@@ -3,6 +3,22 @@
 #include <vector>
 #include <cstdlib>
 #include <ctime>
+
+SlidingTilesEnums::Direction getRandomDirection() {
+	int r = std::rand() % 4;
+	return static_cast<SlidingTilesEnums::Direction>(r);
+}
+
+SlidingTilesEnums::Direction getOpposite(SlidingTilesEnums::Direction dir) {
+	switch (dir) {
+	case SlidingTilesEnums::Direction::UP:    return SlidingTilesEnums::Direction::DOWN;
+	case SlidingTilesEnums::Direction::DOWN:  return SlidingTilesEnums::Direction::UP;
+	case SlidingTilesEnums::Direction::LEFT:  return SlidingTilesEnums::Direction::RIGHT;
+	case SlidingTilesEnums::Direction::RIGHT: return SlidingTilesEnums::Direction::LEFT;
+	}
+	return SlidingTilesEnums::Direction::UP; // fallback
+}
+
 namespace SlidingTilesFunctions {
 
 	void startGame(SlidingTilesEnums::Difficulty difficulty) {
@@ -60,69 +76,46 @@ namespace SlidingTilesFunctions {
 	}
 
 	void shuffle() {
-		using namespace SlidingTilesData;
-
 		std::srand(static_cast<unsigned int>(std::time(nullptr)));
 
-		// Number of moves based on difficulty
-		int moves = boardSize * boardSize * 10;
+		int moves = SlidingTilesData::boardSize * SlidingTilesData::boardSize * 10;
 
 		SlidingTilesEnums::Direction lastMove;
 		bool hasLastMove = false;
 
 		for (int i = 0; i < moves; i++) {
-			std::vector<SlidingTilesEnums::Direction> possibleMoves;
+			SlidingTilesEnums::Direction move;
+			bool validMove = false;
 
-			// Check all valid directions
-			if (board.canAccess(currentRow + 1, currentColumn))
-				possibleMoves.push_back(SlidingTilesEnums::Direction::DOWN);
+			while (!validMove) {
+				move = getRandomDirection();
 
-			if (board.canAccess(currentRow - 1, currentColumn))
-				possibleMoves.push_back(SlidingTilesEnums::Direction::UP);
+				int newRow = static_cast<int>(SlidingTilesData::currentRow);
+				int newCol = static_cast<int>(SlidingTilesData::currentColumn);
 
-			if (board.canAccess(currentRow, currentColumn + 1))
-				possibleMoves.push_back(SlidingTilesEnums::Direction::RIGHT);
-
-			if (board.canAccess(currentRow, currentColumn - 1))
-				possibleMoves.push_back(SlidingTilesEnums::Direction::LEFT);
-
-			// Remove opposite of last move (to avoid backtracking)
-			if (hasLastMove) {
-				for (int j = 0; j < possibleMoves.size(); j++) {
-					bool isOpposite = false;
-
-					if (lastMove == SlidingTilesEnums::Direction::UP &&
-						possibleMoves[j] == SlidingTilesEnums::Direction::DOWN) isOpposite = true;
-
-					if (lastMove == SlidingTilesEnums::Direction::DOWN &&
-						possibleMoves[j] == SlidingTilesEnums::Direction::UP) isOpposite = true;
-
-					if (lastMove == SlidingTilesEnums::Direction::LEFT &&
-						possibleMoves[j] == SlidingTilesEnums::Direction::RIGHT) isOpposite = true;
-
-					if (lastMove == SlidingTilesEnums::Direction::RIGHT &&
-						possibleMoves[j] == SlidingTilesEnums::Direction::LEFT) isOpposite = true;
-
-					if (isOpposite) {
-						possibleMoves.erase(possibleMoves.begin() + j);
-						break;
-					}
+				switch (move) {
+				case SlidingTilesEnums::Direction::UP:    newRow--; break;
+				case SlidingTilesEnums::Direction::DOWN:  newRow++; break;
+				case SlidingTilesEnums::Direction::LEFT:  newCol--; break;
+				case SlidingTilesEnums::Direction::RIGHT: newCol++; break;
 				}
+
+				bool canMove = SlidingTilesData::board.canAccess(newRow, newCol);
+				bool notOpposite = !hasLastMove || move != getOpposite(lastMove);
+
+				validMove = canMove && notOpposite;
 			}
 
-			// Pick random move
-			int randIndex = std::rand() % possibleMoves.size();
-			SlidingTilesEnums::Direction move = possibleMoves[randIndex];
-
-			// Perform move
 			slide(move);
-
-			// Store last move
 			lastMove = move;
 			hasLastMove = true;
 		}
 
-		// Reset player moves after shuffle
-		slides = 0;
+		// Move empty tile to bottom right
+		while (SlidingTilesData::currentRow < SlidingTilesData::boardSize - 1)
+			slide(SlidingTilesEnums::Direction::DOWN);
+		while (SlidingTilesData::currentColumn < SlidingTilesData::boardSize - 1)
+			slide(SlidingTilesEnums::Direction::RIGHT);
 	}
+
 }
