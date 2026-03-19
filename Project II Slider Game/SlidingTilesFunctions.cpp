@@ -82,33 +82,17 @@ namespace SlidingTilesFunctions {
 
 		SlidingTilesEnums::Direction lastMove;
 		bool hasLastMove = false;
+		int i = 0;
+		while (i < moves) {
+			SlidingTilesEnums::Direction move = getRandomDirection();
 
-		for (int i = 0; i < moves; i++) {
-			SlidingTilesEnums::Direction move;
-			bool validMove = false;
+			// validMove = true only if move is not opposite and slide succeeds
+			bool validMove = (!hasLastMove || move != getOpposite(lastMove)) && slide(move);
 
-			while (!validMove) {
-				move = getRandomDirection();
-
-				int newRow = static_cast<int>(SlidingTilesData::currentRow);
-				int newCol = static_cast<int>(SlidingTilesData::currentColumn);
-
-				switch (move) {
-				case SlidingTilesEnums::Direction::UP:    newRow--; break;
-				case SlidingTilesEnums::Direction::DOWN:  newRow++; break;
-				case SlidingTilesEnums::Direction::LEFT:  newCol--; break;
-				case SlidingTilesEnums::Direction::RIGHT: newCol++; break;
-				}
-
-				bool canMove = SlidingTilesData::board.canAccess(newRow, newCol);
-				bool notOpposite = !hasLastMove || move != getOpposite(lastMove);
-
-				validMove = canMove && notOpposite;
-			}
-
-			slide(move);
-			lastMove = move;
-			hasLastMove = true;
+			// increment counter if valid
+			i += validMove;                           // true = 1, false = 0
+			lastMove = validMove ? move : lastMove;   // update lastMove only if valid
+			hasLastMove = hasLastMove || validMove;   // mark hasLastMove if any move succeeded
 		}
 
 		// Move empty tile to bottom right
