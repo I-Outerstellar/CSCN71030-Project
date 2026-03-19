@@ -1,6 +1,6 @@
 #include "Board.hpp"
 
-Board::Board() {}
+Board::Board() noexcept {}
 
 //Constructors for board difficulty
 Board::Board(SlidingTilesEnums::Difficulty difficulty) noexcept {
@@ -18,16 +18,14 @@ Board::Board(SlidingTilesEnums::Difficulty difficulty) noexcept {
             counter++;
         }
     }
-
-    board.at(size - 1).at(size - 1) = 0;
 }
 
 bool Board::hasEmptyRow() const noexcept {
-	if (this->board.size() <= 0) return false;
+	if (this->board.size() <= 0) return true;
 	for (int i = 0; i < board.size(); i++) {
-		if (board.at(i).size() <= 0) return false;
+		if (board.at(i).size() <= 0) return true;
 	}
-	return true;
+	return false;
 }
 
 std::vector<size_t>& Board::access(size_t row) {
