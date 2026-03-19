@@ -4,12 +4,12 @@
 #include <cstdlib>
 #include <ctime>
 
-SlidingTilesEnums::Direction getRandomDirection() {
+static SlidingTilesEnums::Direction getRandomDirection() {
 	int r = std::rand() % 4;
 	return static_cast<SlidingTilesEnums::Direction>(r);
 }
 
-SlidingTilesEnums::Direction getOpposite(SlidingTilesEnums::Direction dir) {
+static SlidingTilesEnums::Direction getOpposite(SlidingTilesEnums::Direction dir) {
 	switch (dir) {
 	case SlidingTilesEnums::Direction::UP:    return SlidingTilesEnums::Direction::DOWN;
 	case SlidingTilesEnums::Direction::DOWN:  return SlidingTilesEnums::Direction::UP;
@@ -80,7 +80,7 @@ namespace SlidingTilesFunctions {
 
 		int moves = SlidingTilesData::boardSize * SlidingTilesData::boardSize * 10;
 
-		SlidingTilesEnums::Direction lastMove;
+		SlidingTilesEnums::Direction lastMove = SlidingTilesEnums::Direction::UP;
 		bool hasLastMove = false;
 		int i = 0;
 		while (i < moves) {
