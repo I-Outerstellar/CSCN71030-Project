@@ -21,7 +21,7 @@ namespace UnitTests {
 			Assert::AreEqual(expectedSize, SlidingTilesData::boardSize);
 			Assert::AreEqual(expectedSize - 1, SlidingTilesData::currentColumn);
 			Assert::AreEqual(SlidingTilesData::currentRow, SlidingTilesData::currentColumn);
-			Assert::AreEqual(0, SlidingTilesData::slides);
+			Assert::AreEqual(static_cast<unsigned int>(0), SlidingTilesData::slides);
 
 			for (size_t i = 0; i < expectedSize; i++) {
 				for (size_t j = 0; j < expectedSize; j++) {
@@ -37,7 +37,7 @@ namespace UnitTests {
 			Assert::AreEqual(expectedSize, SlidingTilesData::boardSize);
 			Assert::AreEqual(expectedSize - 1, SlidingTilesData::currentColumn);
 			Assert::AreEqual(SlidingTilesData::currentRow, SlidingTilesData::currentColumn);
-			Assert::AreEqual(0, SlidingTilesData::slides);
+			Assert::AreEqual(static_cast<unsigned int>(0), SlidingTilesData::slides);
 
 			for (size_t i = 0; i < expectedSize; i++) {
 				for (size_t j = 0; j < expectedSize; j++) {
@@ -53,7 +53,7 @@ namespace UnitTests {
 			Assert::AreEqual(expectedSize, SlidingTilesData::boardSize);
 			Assert::AreEqual(expectedSize - 1, SlidingTilesData::currentColumn);
 			Assert::AreEqual(SlidingTilesData::currentRow, SlidingTilesData::currentColumn);
-			Assert::AreEqual(0, SlidingTilesData::slides);
+			Assert::AreEqual(static_cast<unsigned int>(0), SlidingTilesData::slides);
 
 			for (size_t i = 0; i < expectedSize; i++) {
 				for (size_t j = 0; j < expectedSize; j++) {
@@ -69,7 +69,7 @@ namespace UnitTests {
 			Assert::AreEqual(expectedSize, SlidingTilesData::boardSize);
 			Assert::AreEqual(expectedSize - 1, SlidingTilesData::currentColumn);
 			Assert::AreEqual(SlidingTilesData::currentRow, SlidingTilesData::currentColumn);
-			Assert::AreEqual(0, SlidingTilesData::slides);
+			Assert::AreEqual(static_cast<unsigned int>(0), SlidingTilesData::slides);
 
 			for (size_t i = 0; i < expectedSize; i++) {
 				for (size_t j = 0; j < expectedSize; j++) {
