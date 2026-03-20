@@ -12,7 +12,7 @@ namespace SlidingTilesFunctions {
 
 	bool isBoardOrdered();
 
-	void writeScore();
+	void writeScore(SlidingTilesEnums::Difficulty difficulty);
 
-	void loadScores();
+	std::vector<unsigned int> loadScores(SlidingTilesEnums::Difficulty difficulty);
 }
