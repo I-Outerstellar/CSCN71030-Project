@@ -102,4 +102,18 @@ namespace SlidingTilesFunctions {
 			slide(SlidingTilesEnums::Direction::RIGHT);
 	}
 
+	bool isBoardOrdered() {
+		bool isOrdered = true;
+
+		for (size_t row = 0; row < SlidingTilesData::boardSize; row++) {
+			for (size_t col = 0; col < SlidingTilesData::boardSize; col++) {
+
+				size_t expectedValue = row * SlidingTilesData::boardSize + col + 1;
+
+				isOrdered = isOrdered && (SlidingTilesData::board.access(row, col) == expectedValue);
+			}
+		}
+
+		return isOrdered;
+	}
 }
