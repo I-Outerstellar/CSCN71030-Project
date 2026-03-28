@@ -3,6 +3,9 @@
 #include <vector>
 #include <cstdlib>
 #include <ctime>
+#include <fstream>
+#include <string>
+#include <algorithm>
 
 static SlidingTilesEnums::Direction getRandomDirection() {
 	int r = std::rand() % 4;
@@ -115,5 +118,72 @@ namespace SlidingTilesFunctions {
 		}
 
 		return isOrdered;
+	}
+
+	void writeScore(SlidingTilesEnums::Difficulty difficulty) {
+		// Get filename based on difficulty
+		std::string filename;
+		switch (difficulty) {
+		case SlidingTilesEnums::Difficulty::EASY:
+			filename = "scores_easy.txt";
+			break;
+		case SlidingTilesEnums::Difficulty::MEDIUM:
+			filename = "scores_medium.txt";
+			break;
+		case SlidingTilesEnums::Difficulty::HARD:
+			filename = "scores_hard.txt";
+			break;
+		case SlidingTilesEnums::Difficulty::INSANE:
+			filename = "scores_insane.txt";
+			break;
+		}
+
+		// Open file to append score
+		std::ofstream outFile(filename, std::ios::app);
+		if (outFile.is_open()) {
+			outFile << SlidingTilesData::slides << std::endl;
+			outFile.close();
+		}
+	}
+
+	std::vector<unsigned int> loadScores(SlidingTilesEnums::Difficulty difficulty) {
+		std::vector<unsigned int> scores;
+
+		// Get filename based on difficulty
+		std::string filename;
+		switch (difficulty) {
+		case SlidingTilesEnums::Difficulty::EASY:
+			filename = "scores_easy.txt";
+			break;
+		case SlidingTilesEnums::Difficulty::MEDIUM:
+			filename = "scores_medium.txt";
+			break;
+		case SlidingTilesEnums::Difficulty::HARD:
+			filename = "scores_hard.txt";
+			break;
+		case SlidingTilesEnums::Difficulty::INSANE:
+			filename = "scores_insane.txt";
+			break;
+		}
+
+		// Read all scores from file
+		std::ifstream inFile(filename);
+		if (inFile.is_open()) {
+			unsigned int score;
+			while (inFile >> score) {
+				scores.push_back(score);
+			}
+			inFile.close();
+		}
+
+		// Sort scores (lowest is best)
+		std::sort(scores.begin(), scores.end());
+
+		// Keep only top 10
+		if (scores.size() > 10) {
+			scores.resize(10);
+		}
+
+		return scores;
 	}
 }
