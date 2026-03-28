@@ -9,6 +9,7 @@
 
 namespace {
 	void startGame() {
+		printLeaderboard();
 		SlidingTilesFunctions::startGame(SlidingTilesData::currentDifficulty);
 		SlidingTilesFunctions::shuffle();
 	}
