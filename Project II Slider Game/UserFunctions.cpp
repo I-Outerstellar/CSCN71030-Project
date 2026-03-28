@@ -13,9 +13,17 @@ namespace {
 		SlidingTilesFunctions::shuffle();
 	}
 
+	void trySlide(SlidingTilesEnums::Direction direction) {
+		//Perform diffefrent results depending on if the slide succeeds or not
+		bool success = SlidingTilesFunctions::slide(direction);
+		if (success) SlidingTilesData::slides++;
+		else std::cout << "No tile found in that direction." << std::endl;
+	}
+
 	void printBoard() {
+		//Use a nested for loop
 		for (int i = 0; i < SlidingTilesData::boardSize; i++) {
-			if (!SlidingTilesData::board.canAccess(i)) break;
+			if (!SlidingTilesData::board.canAccess(i)) break; //For safety
 			for (size_t tile : SlidingTilesData::board.access(i)) {
 				if (tile == SlidingTilesData::boardSize * SlidingTilesData::boardSize) std::cout << "[  ]";
 				else if (tile <= 9) std::cout << "[ " << tile << ']';
@@ -26,17 +34,20 @@ namespace {
 	}
 
 	void printLeaderboard() {
+		//Load top scores then print them
 		std::vector<unsigned int> scores = SlidingTilesFunctions::loadScores(SlidingTilesData::currentDifficulty);
-		std::cout << "\nLEADERBOARD";
+		std::cout << "\nLEADERBOARD\n";
 		for (int i = 0; i < scores.size(); i++) {
-			std::cout << i << ". " << scores.at(i) << '\n';
+			std::cout << i+1 << ". " << scores.at(i) << '\n';
 		}
 		std::cout << '\n';
 	}
 
 	bool continueGame() {
 		using namespace SlidingTilesData;
+		//The last move of the sliding tiles game is always making the empty tile go to the bottom right corner
 		if (board.access(boardSize - 1, boardSize - 1) != boardSize * boardSize) return true;
+		//Then check if the board is ordered to trigger a win
 		else if (SlidingTilesFunctions::isBoardOrdered()) {
 			SlidingTilesFunctions::writeScore(currentDifficulty);
 			printBoard();
@@ -102,30 +113,20 @@ namespace UserFunctions {
 				[](unsigned char character) { return std::tolower(character); });
 
 			//Check if it matches one of the options
-			//The directions are reversed as the user will see numbered tiles sliding to the empty space,
-			//rather than the empty tile sliding to a filled space
 			if (input == "left" || input == "a") {
-				bool success = SlidingTilesFunctions::slide(SlidingTilesEnums::Direction::RIGHT);
-				if (success) SlidingTilesData::slides++;
-				else std::cout << "No tile can slide in that direction." << std::endl;
+				trySlide(SlidingTilesEnums::Direction::LEFT);
 				return continueGame();
 			}
 			else if (input == "right" || input == "d") {
-				bool success = SlidingTilesFunctions::slide(SlidingTilesEnums::Direction::LEFT);
-				if (success) SlidingTilesData::slides++;
-				else std::cout << "No tile can slide in that direction." << std::endl;
+				trySlide(SlidingTilesEnums::Direction::RIGHT);
 				return continueGame();
 			}
 			else if (input == "up" || input == "w") {
-				bool success = SlidingTilesFunctions::slide(SlidingTilesEnums::Direction::DOWN);
-				if (success) SlidingTilesData::slides++;
-				else std::cout << "No tile can slide in that direction." << std::endl;
+				trySlide(SlidingTilesEnums::Direction::UP);
 				return continueGame();
 			}
 			else if (input == "down" || input == "s") {
-				bool success = SlidingTilesFunctions::slide(SlidingTilesEnums::Direction::UP);
-				if (success) SlidingTilesData::slides++;
-				else std::cout << "No tile can slide in that direction." << std::endl;
+				trySlide(SlidingTilesEnums::Direction::DOWN);
 				return continueGame();
 			}
 			else if (input == "quit") {
