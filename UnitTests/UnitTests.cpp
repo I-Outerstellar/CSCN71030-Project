@@ -151,4 +151,78 @@ namespace UnitTests {
 		}
 
 	};
+
+	TEST_CLASS(IsBoardOrdered) {
+	private:
+
+	public:
+
+		TEST_METHOD(EasyTrue) {
+			SlidingTilesFunctions::startGame(SlidingTilesEnums::Difficulty::EASY);
+			Assert::IsTrue(SlidingTilesFunctions::isBoardOrdered());
+		}
+
+		TEST_METHOD(EasyFalseViaSliding) {
+			SlidingTilesFunctions::startGame(SlidingTilesEnums::Difficulty::EASY);
+			SlidingTilesFunctions::slide(SlidingTilesEnums::Direction::UP);
+			Assert::IsFalse(SlidingTilesFunctions::isBoardOrdered());
+		}
+
+		TEST_METHOD(EasyFalseViaShuffle) {
+			SlidingTilesFunctions::startGame(SlidingTilesEnums::Difficulty::EASY);
+			SlidingTilesFunctions::shuffle();
+			Assert::IsFalse(SlidingTilesFunctions::isBoardOrdered());
+		}
+
+		TEST_METHOD(MediumTrue) {
+			SlidingTilesFunctions::startGame(SlidingTilesEnums::Difficulty::MEDIUM);
+			Assert::IsTrue(SlidingTilesFunctions::isBoardOrdered());
+		}
+
+		TEST_METHOD(MediumFalseViaSliding) {
+			SlidingTilesFunctions::startGame(SlidingTilesEnums::Difficulty::MEDIUM);
+			SlidingTilesFunctions::slide(SlidingTilesEnums::Direction::UP);
+			Assert::IsFalse(SlidingTilesFunctions::isBoardOrdered());
+		}
+
+		TEST_METHOD(MediumFalseViaShuffle) {
+			SlidingTilesFunctions::startGame(SlidingTilesEnums::Difficulty::MEDIUM);
+			SlidingTilesFunctions::shuffle();
+			Assert::IsFalse(SlidingTilesFunctions::isBoardOrdered());
+		}
+
+		TEST_METHOD(HardTrue) {
+			SlidingTilesFunctions::startGame(SlidingTilesEnums::Difficulty::HARD);
+			Assert::IsTrue(SlidingTilesFunctions::isBoardOrdered());
+		}
+
+		TEST_METHOD(HardFalseViaSliding) {
+			SlidingTilesFunctions::startGame(SlidingTilesEnums::Difficulty::HARD);
+			SlidingTilesFunctions::slide(SlidingTilesEnums::Direction::UP);
+			Assert::IsFalse(SlidingTilesFunctions::isBoardOrdered());
+		}
+
+		TEST_METHOD(HardFalseViaShuffle) {
+			SlidingTilesFunctions::startGame(SlidingTilesEnums::Difficulty::HARD);
+			SlidingTilesFunctions::shuffle();
+			Assert::IsFalse(SlidingTilesFunctions::isBoardOrdered());
+		}
+
+		TEST_METHOD(InsaneTrue) {
+			SlidingTilesFunctions::startGame(SlidingTilesEnums::Difficulty::INSANE);
+			Assert::IsTrue(SlidingTilesFunctions::isBoardOrdered());
+		}
+
+		TEST_METHOD(InsaneFalseViaSliding) {
+			SlidingTilesFunctions::startGame(SlidingTilesEnums::Difficulty::INSANE);
+			SlidingTilesFunctions::slide(SlidingTilesEnums::Direction::UP);
+			Assert::IsFalse(SlidingTilesFunctions::isBoardOrdered());
+		}
+
+		TEST_METHOD(InsaneFalseViaShuffle) {
+			SlidingTilesFunctions::startGame(SlidingTilesEnums::Difficulty::INSANE);
+			SlidingTilesFunctions::shuffle();
+			Assert::IsFalse(SlidingTilesFunctions::isBoardOrdered());
+		}
+	};
 }
