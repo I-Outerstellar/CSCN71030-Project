@@ -80,7 +80,7 @@ namespace SlidingTilesFunctions {
 	void shuffle() {
 		std::srand(static_cast<unsigned int>(std::time(nullptr)));
 
-		int moves = SlidingTilesData::boardSize * SlidingTilesData::boardSize * 10;
+		size_t moves = SlidingTilesData::boardSize * SlidingTilesData::boardSize * 10;
 
 		SlidingTilesEnums::Direction lastMove = SlidingTilesEnums::Direction::UP;
 		bool hasLastMove = false;
@@ -102,6 +102,21 @@ namespace SlidingTilesFunctions {
 			slide(SlidingTilesEnums::Direction::DOWN);
 		while (SlidingTilesData::currentColumn < SlidingTilesData::boardSize - 1)
 			slide(SlidingTilesEnums::Direction::RIGHT);
+	}
+
+	bool isBoardOrdered() {
+		bool isOrdered = true;
+
+		for (size_t row = 0; row < SlidingTilesData::boardSize; row++) {
+			for (size_t col = 0; col < SlidingTilesData::boardSize; col++) {
+
+				size_t expectedValue = row * SlidingTilesData::boardSize + col + 1;
+
+				isOrdered = isOrdered && (SlidingTilesData::board.access(row, col) == expectedValue);
+			}
+		}
+
+		return isOrdered;
 	}
 
 }

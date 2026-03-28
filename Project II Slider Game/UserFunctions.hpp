@@ -4,5 +4,5 @@
 namespace UserFunctions {
 	bool selectDifficulty();
 
-	bool getValidDirection();
+	bool performSlide();
 }
