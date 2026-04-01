@@ -1,8 +1,7 @@
 #include "SlidingTilesFunctionsHelpers.hpp"
+#include <algorithm>
 
 namespace SlidingTilesFunctionsHelpers {
-	constexpr unsigned short LEADERBOARD_SIZE = 10;
-
 	SlidingTilesEnums::Direction getRandomDirection() {
 		int r = std::rand() % 4;
 		return static_cast<SlidingTilesEnums::Direction>(r);
