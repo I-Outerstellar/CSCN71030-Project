@@ -2,9 +2,7 @@
 #include "SlidingTilesEnums.hpp"
 
 namespace UserFunctions {
-	SlidingTilesEnums::Difficulty selectDifficulty();
+	bool selectDifficulty();
 
-	SlidingTilesEnums::Direction getValidDirection();
-
-	bool getPlayAgain();
+	bool performSlide();
 }

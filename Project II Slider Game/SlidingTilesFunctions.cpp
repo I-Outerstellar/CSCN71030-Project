@@ -1,25 +1,26 @@
 #include "SlidingTilesFunctions.hpp"
 #include "SlidingTilesData.hpp"
 #include <vector>
-#include <cstdlib>
-#include <ctime>
 #include <fstream>
-#include <string>
 #include <algorithm>
 
-static SlidingTilesEnums::Direction getRandomDirection() {
-	int r = std::rand() % 4;
-	return static_cast<SlidingTilesEnums::Direction>(r);
-}
+namespace {
+	constexpr unsigned short LEADERBOARD_SIZE = 10;
 
-static SlidingTilesEnums::Direction getOpposite(SlidingTilesEnums::Direction dir) {
-	switch (dir) {
-	case SlidingTilesEnums::Direction::UP:    return SlidingTilesEnums::Direction::DOWN;
-	case SlidingTilesEnums::Direction::DOWN:  return SlidingTilesEnums::Direction::UP;
-	case SlidingTilesEnums::Direction::LEFT:  return SlidingTilesEnums::Direction::RIGHT;
-	case SlidingTilesEnums::Direction::RIGHT: return SlidingTilesEnums::Direction::LEFT;
+	SlidingTilesEnums::Direction getRandomDirection() {
+		int r = std::rand() % 4;
+		return static_cast<SlidingTilesEnums::Direction>(r);
 	}
-	return SlidingTilesEnums::Direction::UP; // fallback
+
+	SlidingTilesEnums::Direction getOpposite(SlidingTilesEnums::Direction dir) {
+		switch (dir) {
+		case SlidingTilesEnums::Direction::UP:    return SlidingTilesEnums::Direction::DOWN;
+		case SlidingTilesEnums::Direction::DOWN:  return SlidingTilesEnums::Direction::UP;
+		case SlidingTilesEnums::Direction::LEFT:  return SlidingTilesEnums::Direction::RIGHT;
+		case SlidingTilesEnums::Direction::RIGHT: return SlidingTilesEnums::Direction::LEFT;
+		}
+		return SlidingTilesEnums::Direction::UP; // fallback
+	}
 }
 
 namespace SlidingTilesFunctions {
@@ -81,7 +82,7 @@ namespace SlidingTilesFunctions {
 	void shuffle() {
 		std::srand(static_cast<unsigned int>(std::time(nullptr)));
 
-		int moves = SlidingTilesData::boardSize * SlidingTilesData::boardSize * 10;
+		size_t moves = SlidingTilesData::boardSize * SlidingTilesData::boardSize * 10;
 
 		SlidingTilesEnums::Direction lastMove = SlidingTilesEnums::Direction::UP;
 		bool hasLastMove = false;
@@ -180,8 +181,8 @@ namespace SlidingTilesFunctions {
 		std::sort(scores.begin(), scores.end());
 
 		// Keep only top 10
-		if (scores.size() > 10) {
-			scores.resize(10);
+		if (scores.size() > LEADERBOARD_SIZE) {
+			scores.resize(LEADERBOARD_SIZE);
 		}
 
 		return scores;
