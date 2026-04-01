@@ -1,0 +1,198 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Assets">
+      <UniqueIdentifier>{62438634-fb4e-4d20-b826-99d2c4b29563}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Src">
+      <UniqueIdentifier>{2ce9176f-e2ed-45c0-b215-c5182907678a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Src\Headers">
+      <UniqueIdentifier>{4864beac-62ec-4c3b-8bbd-ca5e1a0cfc81}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Src\Cpp">
+      <UniqueIdentifier>{7a72e606-92fb-4024-b756-3bbaee1e9a5f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Src\Headers\GameObjects">
+      <UniqueIdentifier>{f850e87c-c617-4fe3-8b68-2aff311b3718}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Src\Headers\GameObjects\Shapes">
+      <UniqueIdentifier>{8cda7f18-abf5-4020-8b2f-109adb4dd028}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Src\Headers\GameObjects\Scene">
+      <UniqueIdentifier>{ec0ccbe2-f49d-4919-a4b3-fa110defd5b1}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Src\Headers\GameObjects\Buttons">
+      <UniqueIdentifier>{32c89a15-6139-4060-acaa-db021f69b5c9}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Src\Headers\GameObjects\BaseClasses">
+      <UniqueIdentifier>{3ddad750-be9e-4718-bcdf-52c9589beea8}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Src\Headers\GameControllers">
+      <UniqueIdentifier>{5e2a456e-f0b3-4d82-9baa-e1094b3b0018}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Src\Headers\GameControllers\Data">
+      <UniqueIdentifier>{203b3b43-2a22-44f6-94f8-72c2aaf0f6d5}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Src\Headers\GameControllers\Control">
+      <UniqueIdentifier>{42ee4f20-15cb-4709-953e-00d0393f2e56}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="IncludeThese">
+      <UniqueIdentifier>{73f8a008-efef-45e7-ab35-ba672ffd3bdb}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Src\Cpp\GameControllers">
+      <UniqueIdentifier>{f54c1db5-ccb4-47a3-b761-217e4f3ba051}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Src\Cpp\GameObjects">
+      <UniqueIdentifier>{8d633a31-9f9e-4dfc-b904-971ac5243045}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Src\Cpp\GameControllers\Data">
+      <UniqueIdentifier>{218bab9d-f861-4309-aa2e-b2abbefac649}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Src\Cpp\GameControllers\Control">
+      <UniqueIdentifier>{cd76e7ed-c128-4dbc-ada6-06094f0d751a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Src\Cpp\GameObjects\BaseClasses">
+      <UniqueIdentifier>{d16998e6-3f0c-4a28-8162-5e8fc7a792d7}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Src\Cpp\GameObjects\Shapes">
+      <UniqueIdentifier>{a58b6297-7b38-494e-8bd7-459de104404d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Src\Cpp\GameObjects\Buttons">
+      <UniqueIdentifier>{73e36276-bcc5-4f62-9820-6f701d23c7ca}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Src\Cpp\GameObjects\Scene">
+      <UniqueIdentifier>{7514588c-6ff0-455a-be95-cc9b0b333f00}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="Main.cpp" />
+    <ClCompile Include="src\cpp\EventControl.cpp">
+      <Filter>Src\Cpp\GameControllers\Control</Filter>
+    </ClCompile>
+    <ClCompile Include="src\cpp\GameButton.cpp">
+      <Filter>Src\Cpp\GameObjects\BaseClasses</Filter>
+    </ClCompile>
+    <ClCompile Include="src\cpp\GameImage.cpp">
+      <Filter>Src\Cpp\GameObjects\Shapes</Filter>
+    </ClCompile>
+    <ClCompile Include="src\cpp\GameCircle.cpp">
+      <Filter>Src\Cpp\GameObjects\Shapes</Filter>
+    </ClCompile>
+    <ClCompile Include="src\cpp\GamePolygon.cpp">
+      <Filter>Src\Cpp\GameObjects\Shapes</Filter>
+    </ClCompile>
+    <ClCompile Include="src\cpp\GameRectangle.cpp">
+      <Filter>Src\Cpp\GameObjects\Shapes</Filter>
+    </ClCompile>
+    <ClCompile Include="src\cpp\GameScene.cpp">
+      <Filter>Src\Cpp\GameObjects\Scene</Filter>
+    </ClCompile>
+    <ClCompile Include="src\cpp\GameShape.cpp">
+      <Filter>Src\Cpp\GameObjects\BaseClasses</Filter>
+    </ClCompile>
+    <ClCompile Include="src\cpp\GameWindow.cpp">
+      <Filter>Src\Cpp\GameControllers\Data</Filter>
+    </ClCompile>
+    <ClCompile Include="src\cpp\ImageButton.cpp">
+      <Filter>Src\Cpp\GameObjects\Buttons</Filter>
+    </ClCompile>
+    <ClCompile Include="src\cpp\RectangleButton.cpp">
+      <Filter>Src\Cpp\GameObjects\Buttons</Filter>
+    </ClCompile>
+    <ClCompile Include="src\cpp\SceneControl.cpp">
+      <Filter>Src\Cpp\GameControllers\Control</Filter>
+    </ClCompile>
+    <ClCompile Include="src\cpp\SceneData.cpp">
+      <Filter>Src\Cpp\GameControllers\Data</Filter>
+    </ClCompile>
+    <ClCompile Include="src\cpp\StateControl.cpp">
+      <Filter>Src\Cpp\GameControllers\Control</Filter>
+    </ClCompile>
+    <ClCompile Include="src\cpp\StateData.cpp">
+      <Filter>Src\Cpp\GameControllers\Data</Filter>
+    </ClCompile>
+    <ClCompile Include="src\cpp\TextBox.cpp">
+      <Filter>Src\Cpp\GameObjects\Shapes</Filter>
+    </ClCompile>
+    <ClCompile Include="src\cpp\TextButton.cpp">
+      <Filter>Src\Cpp\GameObjects\Buttons</Filter>
+    </ClCompile>
+    <ClCompile Include="src\cpp\WindowControl.cpp">
+      <Filter>Src\Cpp\GameControllers\Control</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="include\GameControllers.hpp">
+      <Filter>IncludeThese</Filter>
+    </ClInclude>
+    <ClInclude Include="include\GameObjects.hpp">
+      <Filter>IncludeThese</Filter>
+    </ClInclude>
+    <ClInclude Include="src\headers\GameDrawable.hpp">
+      <Filter>Src\Headers\GameObjects\BaseClasses</Filter>
+    </ClInclude>
+    <ClInclude Include="src\headers\GameButton.hpp">
+      <Filter>Src\Headers\GameObjects\BaseClasses</Filter>
+    </ClInclude>
+    <ClInclude Include="src\headers\GameShape.hpp">
+      <Filter>Src\Headers\GameObjects\BaseClasses</Filter>
+    </ClInclude>
+    <ClInclude Include="src\headers\TextImplement.hpp">
+      <Filter>Src\Headers\GameObjects\BaseClasses</Filter>
+    </ClInclude>
+    <ClInclude Include="src\headers\GameCircle.hpp">
+      <Filter>Src\Headers\GameObjects\Shapes</Filter>
+    </ClInclude>
+    <ClInclude Include="src\headers\GameImage.hpp">
+      <Filter>Src\Headers\GameObjects\Shapes</Filter>
+    </ClInclude>
+    <ClInclude Include="src\headers\GamePolygon.hpp">
+      <Filter>Src\Headers\GameObjects\Shapes</Filter>
+    </ClInclude>
+    <ClInclude Include="src\headers\GameRectangle.hpp">
+      <Filter>Src\Headers\GameObjects\Shapes</Filter>
+    </ClInclude>
+    <ClInclude Include="src\headers\TextBox.hpp">
+      <Filter>Src\Headers\GameObjects\Shapes</Filter>
+    </ClInclude>
+    <ClInclude Include="src\headers\ImageButton.hpp">
+      <Filter>Src\Headers\GameObjects\Buttons</Filter>
+    </ClInclude>
+    <ClInclude Include="src\headers\RectangleButton.hpp">
+      <Filter>Src\Headers\GameObjects\Buttons</Filter>
+    </ClInclude>
+    <ClInclude Include="src\headers\TextButton.hpp">
+      <Filter>Src\Headers\GameObjects\Buttons</Filter>
+    </ClInclude>
+    <ClInclude Include="src\headers\GameScene.hpp">
+      <Filter>Src\Headers\GameObjects\Scene</Filter>
+    </ClInclude>
+    <ClInclude Include="src\headers\SceneData.hpp">
+      <Filter>Src\Headers\GameControllers\Data</Filter>
+    </ClInclude>
+    <ClInclude Include="src\headers\StateData.hpp">
+      <Filter>Src\Headers\GameControllers\Data</Filter>
+    </ClInclude>
+    <ClInclude Include="src\headers\GameWindow.hpp">
+      <Filter>Src\Headers\GameControllers\Data</Filter>
+    </ClInclude>
+    <ClInclude Include="src\headers\StateControl.hpp">
+      <Filter>Src\Headers\GameControllers\Control</Filter>
+    </ClInclude>
+    <ClInclude Include="src\headers\EventControl.hpp">
+      <Filter>Src\Headers\GameControllers\Control</Filter>
+    </ClInclude>
+    <ClInclude Include="src\headers\SceneControl.hpp">
+      <Filter>Src\Headers\GameControllers\Control</Filter>
+    </ClInclude>
+    <ClInclude Include="src\headers\WindowControl.hpp">
+      <Filter>Src\Headers\GameControllers\Control</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <Image Include="assets\Green Circle of Basic.png">
+      <Filter>Assets</Filter>
+    </Image>
+  </ItemGroup>
+</Project>
