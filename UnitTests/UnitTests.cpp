@@ -4,16 +4,46 @@
 #include "../Project II Slider Game/SlidingTilesData.hpp"
 #include "../Project II Slider Game/SlidingTilesFunctions.hpp"
 #include "../Project II Slider Game/SlidingTilesEnums.hpp"
+#include "../Project II Slider Game/SlidingTilesFunctionsHelpers.hpp"
+#include "../Project II Slider Game/UserFunctionsHelpers.hpp"
 
 
 using namespace Microsoft::VisualStudio::CppUnitTestFramework;
 
 namespace UnitTests {
+	TEST_CLASS(GetOppositeDirection) {
+	private:
+
+	public:
+		TEST_METHOD(OppositeOfUp) {
+			SlidingTilesEnums::Direction expected = SlidingTilesEnums::Direction::DOWN;
+			SlidingTilesEnums::Direction actual = SlidingTilesFunctionsHelpers::getOpposite(SlidingTilesEnums::Direction::UP);
+			Assert::AreEqual(static_cast<int>(expected), static_cast<int>(actual));
+		}
+
+		TEST_METHOD(OppositeOfDown) {
+			SlidingTilesEnums::Direction expected = SlidingTilesEnums::Direction::UP;
+			SlidingTilesEnums::Direction actual = SlidingTilesFunctionsHelpers::getOpposite(SlidingTilesEnums::Direction::DOWN);
+			Assert::AreEqual(static_cast<int>(expected), static_cast<int>(actual));
+		}
+
+		TEST_METHOD(OppositeOfLeft) {
+			SlidingTilesEnums::Direction expected = SlidingTilesEnums::Direction::RIGHT;
+			SlidingTilesEnums::Direction actual = SlidingTilesFunctionsHelpers::getOpposite(SlidingTilesEnums::Direction::LEFT);
+			Assert::AreEqual(static_cast<int>(expected), static_cast<int>(actual));
+		}
+
+		TEST_METHOD(OppositeOfRight) {
+			SlidingTilesEnums::Direction expected = SlidingTilesEnums::Direction::LEFT;
+			SlidingTilesEnums::Direction actual = SlidingTilesFunctionsHelpers::getOpposite(SlidingTilesEnums::Direction::RIGHT);
+			Assert::AreEqual(static_cast<int>(expected), static_cast<int>(actual));
+		}
+	};
+
 	TEST_CLASS(StartGame) {
 	private:
 
 	public:
-
 		TEST_METHOD(EasyDifficulty) {
 			SlidingTilesFunctions::startGame(SlidingTilesEnums::Difficulty::EASY);
 			size_t expectedSize = 3;

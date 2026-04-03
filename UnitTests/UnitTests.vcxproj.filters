@@ -30,5 +30,11 @@
     <ClCompile Include="..\Project II Slider Game\UserFunctions.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="..\Project II Slider Game\SlidingTilesFunctionsHelpers.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Project II Slider Game\UserFunctionsHelpers.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
 </Project>
