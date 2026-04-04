@@ -64,6 +64,15 @@
     <Filter Include="Src\Cpp\GameObjects\Scene">
       <UniqueIdentifier>{7514588c-6ff0-455a-be95-cc9b0b333f00}</UniqueIdentifier>
     </Filter>
+    <Filter Include="SlidingTiles">
+      <UniqueIdentifier>{f48607a2-b32d-485c-9625-2b2263821c53}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="SlidingTiles\Scenes">
+      <UniqueIdentifier>{76b087b1-44c1-4f45-a545-1055fd1259f6}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Existing">
+      <UniqueIdentifier>{d2a8f1eb-2fa6-4d7b-8d7c-03588fc460af}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Demo.cpp" />
@@ -120,6 +129,21 @@
     </ClCompile>
     <ClCompile Include="src\cpp\WindowControl.cpp">
       <Filter>Src\Cpp\GameControllers\Control</Filter>
+    </ClCompile>
+    <ClCompile Include="Main.cpp">
+      <Filter>SlidingTiles</Filter>
+    </ClCompile>
+    <ClCompile Include="GameplayScene.cpp">
+      <Filter>SlidingTiles\Scenes</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Project II Slider Game\Board.cpp">
+      <Filter>Existing</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Project II Slider Game\SlidingTilesData.cpp">
+      <Filter>Existing</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Project II Slider Game\SlidingTilesFunctions.cpp">
+      <Filter>Existing</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -188,6 +212,12 @@
     </ClInclude>
     <ClInclude Include="src\headers\WindowControl.hpp">
       <Filter>Src\Headers\GameControllers\Control</Filter>
+    </ClInclude>
+    <ClInclude Include="GameplayScene.hpp">
+      <Filter>SlidingTiles\Scenes</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Project II Slider Game\SlidingTilesEnums.hpp">
+      <Filter>Existing</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

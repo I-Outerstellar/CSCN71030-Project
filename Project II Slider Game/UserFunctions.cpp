@@ -8,11 +8,6 @@
 #include <vector>
 
 namespace {
-	void startGame() {
-		printLeaderboard();
-		SlidingTilesFunctions::startGame(SlidingTilesData::currentDifficulty);
-		SlidingTilesFunctions::shuffle();
-	}
 
 	void trySlide(SlidingTilesEnums::Direction direction) {
 		//Perform diffefrent results depending on if the slide succeeds or not
@@ -57,6 +52,12 @@ namespace {
 			return false;
 		}
 		else return true;
+	}
+
+	void startGame() {
+		printLeaderboard();
+		SlidingTilesFunctions::startGame(SlidingTilesData::currentDifficulty);
+		SlidingTilesFunctions::shuffle();
 	}
 
 	
