@@ -55,9 +55,15 @@ namespace {
 	}
 }
 
+void startGame(SlidingTilesEnums::Difficulty difficulty) {
+	SlidingTilesData::currentDifficulty = difficulty;
+	SlidingTilesFunctions::startGame(difficulty);
+	SlidingTilesFunctions::shuffle();
+}
+
 GameObjects::GameScene&
 createGameplayScene() {
-	SlidingTilesFunctions::startGame(SlidingTilesEnums::Difficulty::EASY);
+	startGame(SlidingTilesEnums::Difficulty::MEDIUM);
 	divisor = static_cast<unsigned int>(SlidingTilesData::currentDifficulty) + 1;
 	buttonSize = screenSize / divisor;
 
@@ -73,8 +79,8 @@ createGameplayScene() {
 	sf::Vector2f position = sf::Vector2f(static_cast<float>(buttonSize / 2), static_cast<float>(buttonSize / 2));
 	for (unsigned int i = 0; i < divisor - 1; i++) {
 		for (unsigned int j = 0; j < divisor - 1; j++) {
-			auto numberBox = GameObjects::GameShape::create<GameObjects::TextBox>(font, 30, 2);
-			int val = i * (divisor - 1) + j + 1;
+			auto numberBox = GameObjects::GameShape::create<GameObjects::TextBox>(font, buttonSize / 10, 2);
+			int val = SlidingTilesData::board.access(i, j);
 			if ((i+1) * (j+1) == (divisor - 1) * (divisor - 1)) {
 				numberBox->text.setString("Empty");
 				numberBox->setSize(sf::Vector2f(static_cast<float>(buttonSize), static_cast<float>(buttonSize)));

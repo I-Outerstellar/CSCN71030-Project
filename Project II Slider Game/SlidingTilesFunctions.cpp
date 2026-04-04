@@ -32,6 +32,7 @@ namespace SlidingTilesFunctions {
 			SlidingTilesData::currentRow =
 			SlidingTilesData::boardSize - 1;
 		SlidingTilesData::slides = 0;
+		SlidingTilesData::currentDifficulty = difficulty;
 	}
 
 	bool slide(SlidingTilesEnums::Direction direction) { 
