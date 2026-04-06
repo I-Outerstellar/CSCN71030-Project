@@ -9,6 +9,9 @@ namespace GameScenes {
     public:
         static GameObjects::GameScene scene;
 
+        // Store selected difficulty so other scenes (gameplay/leaderboard) can use it
+        static SlidingTilesEnums::Difficulty selectedDifficulty;
+
         static void setup();
     };
 

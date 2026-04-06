@@ -137,6 +137,7 @@
     <ClCompile Include="..\Project II Slider Game\SlidingTilesFunctionsHelpers.cpp" />
     <ClCompile Include="GameplayScene.cpp" />
     <ClCompile Include="Main.cpp" />
+    <ClCompile Include="SelectDifficulty.cpp" />
     <ClCompile Include="src\cpp\EventControl.cpp" />
     <ClCompile Include="src\cpp\GameButton.cpp" />
     <ClCompile Include="src\cpp\GameCircle.cpp" />
@@ -162,6 +163,7 @@
     <ClInclude Include="GameplayScene.hpp" />
     <ClInclude Include="include\GameControllers.hpp" />
     <ClInclude Include="include\GameObjects.hpp" />
+    <ClInclude Include="SelectDifficulty.hpp" />
     <ClInclude Include="src\headers\EventControl.hpp" />
     <ClInclude Include="src\headers\GameButton.hpp" />
     <ClInclude Include="src\headers\GameCircle.hpp" />

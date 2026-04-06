@@ -1,10 +1,12 @@
 #include "SelectDifficulty.hpp"
 #include <SFML/Graphics.hpp>
+#include <iostream>
 
 using namespace GameObjects;
 using namespace GameScenes;
 
 GameScene SelectDifficulty::scene;
+SlidingTilesEnums::Difficulty SelectDifficulty::selectedDifficulty = SlidingTilesEnums::Difficulty::EASY;
 
 void SelectDifficulty::setup() {
 
@@ -32,10 +34,15 @@ void SelectDifficulty::setup() {
         button->onClick = [diff](sf::Mouse::Button mouseButton) {
             if (mouseButton != sf::Mouse::Button::Left) return;
 
+            // Save selected difficulty (IMPORTANT for leaderboard + gameplay)
+            SelectDifficulty::selectedDifficulty = diff;
+
+            std::cout << "Selected difficulty: " << static_cast<int>(diff) << "\n";
+
+            // Start game logic
             SlidingTilesFunctions::startGame(diff);
 
-            // TODO: switch to gameplay scene later
-            // SceneControl::switchScene(gameScene);
+           
             };
 
         return button;
