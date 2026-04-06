@@ -70,7 +70,7 @@
     <Filter Include="SlidingTiles\Scenes">
       <UniqueIdentifier>{76b087b1-44c1-4f45-a545-1055fd1259f6}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Existing">
+    <Filter Include="SlidingTiles\Existing">
       <UniqueIdentifier>{d2a8f1eb-2fa6-4d7b-8d7c-03588fc460af}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
@@ -137,16 +137,19 @@
       <Filter>SlidingTiles\Scenes</Filter>
     </ClCompile>
     <ClCompile Include="..\Project II Slider Game\Board.cpp">
-      <Filter>Existing</Filter>
+      <Filter>SlidingTiles\Existing</Filter>
     </ClCompile>
     <ClCompile Include="..\Project II Slider Game\SlidingTilesData.cpp">
-      <Filter>Existing</Filter>
+      <Filter>SlidingTiles\Existing</Filter>
     </ClCompile>
     <ClCompile Include="..\Project II Slider Game\SlidingTilesFunctions.cpp">
-      <Filter>Existing</Filter>
+      <Filter>SlidingTiles\Existing</Filter>
     </ClCompile>
     <ClCompile Include="..\Project II Slider Game\SlidingTilesFunctionsHelpers.cpp">
-      <Filter>Existing</Filter>
+      <Filter>SlidingTiles\Existing</Filter>
+    </ClCompile>
+    <ClCompile Include="SelectDifficulty.cpp">
+      <Filter>SlidingTiles\Scenes</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -220,7 +223,10 @@
       <Filter>SlidingTiles\Scenes</Filter>
     </ClInclude>
     <ClInclude Include="..\Project II Slider Game\SlidingTilesEnums.hpp">
-      <Filter>Existing</Filter>
+      <Filter>SlidingTiles\Existing</Filter>
+    </ClInclude>
+    <ClInclude Include="SelectDifficulty.hpp">
+      <Filter>SlidingTiles\Scenes</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
