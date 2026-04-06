@@ -7,8 +7,8 @@
 
 int main()
 {
-    static GameObjects::GameScene selectDiff = SlidingTIlesScenes::SelectDifficulty::setup();
-    static GameObjects::GameScene gameplay = createGameplayScene();
+    static GameObjects::GameScene selectDiff = SlidingTilesScenes::SelectDifficulty::setup();
+    static GameObjects::GameScene gameplay = SlidingTilesScenes::GameplayScene::createGameplayScene();
     static GameObjects::GameScene leaderboard; // = function();
 
     SceneControl::switchScene(selectDiff);

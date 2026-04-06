@@ -3,7 +3,7 @@
 #include <iostream>
 
 using namespace GameObjects;
-using namespace SlidingTIlesScenes;
+using namespace SlidingTilesScenes;
 
 namespace {
     GameObjects::GameScene scene;

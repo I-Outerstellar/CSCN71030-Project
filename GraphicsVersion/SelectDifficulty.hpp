@@ -3,10 +3,8 @@
 #include "include/GameControllers.hpp"
 #include "../Project II Slider Game/SlidingTilesFunctions.hpp"
 
-namespace SlidingTIlesScenes {
-
+namespace SlidingTilesScenes {
     namespace SelectDifficulty {
         GameObjects::GameScene& setup();
     };
-
 }
