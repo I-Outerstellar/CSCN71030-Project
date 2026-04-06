@@ -122,7 +122,7 @@ void startGame(SlidingTilesEnums::Difficulty difficulty) {
 }
 
 GameObjects::GameScene& createGameplayScene() {
-	startGame(SlidingTilesEnums::Difficulty::INSANE);
+	startGame(SlidingTilesEnums::Difficulty::HARD);
 	divisor = static_cast<unsigned int>(SlidingTilesData::currentDifficulty) + 1;
 	buttonSize = screenSize / divisor;
 
