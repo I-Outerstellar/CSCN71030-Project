@@ -1,27 +1,9 @@
 #include "SlidingTilesFunctions.hpp"
+#include "SlidingTilesFunctionsHelpers.hpp"
 #include "SlidingTilesData.hpp"
 #include <vector>
 #include <fstream>
 #include <algorithm>
-
-namespace {
-	constexpr unsigned short LEADERBOARD_SIZE = 10;
-
-	SlidingTilesEnums::Direction getRandomDirection() {
-		int r = std::rand() % 4;
-		return static_cast<SlidingTilesEnums::Direction>(r);
-	}
-
-	SlidingTilesEnums::Direction getOpposite(SlidingTilesEnums::Direction dir) {
-		switch (dir) {
-		case SlidingTilesEnums::Direction::UP:    return SlidingTilesEnums::Direction::DOWN;
-		case SlidingTilesEnums::Direction::DOWN:  return SlidingTilesEnums::Direction::UP;
-		case SlidingTilesEnums::Direction::LEFT:  return SlidingTilesEnums::Direction::RIGHT;
-		case SlidingTilesEnums::Direction::RIGHT: return SlidingTilesEnums::Direction::LEFT;
-		}
-		return SlidingTilesEnums::Direction::UP; // fallback
-	}
-}
 
 namespace SlidingTilesFunctions {
 
@@ -32,6 +14,7 @@ namespace SlidingTilesFunctions {
 			SlidingTilesData::currentRow =
 			SlidingTilesData::boardSize - 1;
 		SlidingTilesData::slides = 0;
+		SlidingTilesData::currentDifficulty = difficulty;
 	}
 
 	bool slide(SlidingTilesEnums::Direction direction) { 
@@ -88,10 +71,10 @@ namespace SlidingTilesFunctions {
 		bool hasLastMove = false;
 		int i = 0;
 		while (i < moves) {
-			SlidingTilesEnums::Direction move = getRandomDirection();
+			SlidingTilesEnums::Direction move = SlidingTilesFunctionsHelpers::getRandomDirection();
 
 			// validMove = true only if move is not opposite and slide succeeds
-			bool validMove = (!hasLastMove || move != getOpposite(lastMove)) && slide(move);
+			bool validMove = (!hasLastMove || move != SlidingTilesFunctionsHelpers::getOpposite(lastMove)) && slide(move);
 
 			// increment counter if valid
 			i += validMove;                           // true = 1, false = 0
@@ -181,8 +164,8 @@ namespace SlidingTilesFunctions {
 		std::sort(scores.begin(), scores.end());
 
 		// Keep only top 10
-		if (scores.size() > LEADERBOARD_SIZE) {
-			scores.resize(LEADERBOARD_SIZE);
+		if (scores.size() > SlidingTilesFunctionsHelpers::LEADERBOARD_SIZE) {
+			scores.resize(SlidingTilesFunctionsHelpers::LEADERBOARD_SIZE);
 		}
 
 		return scores;

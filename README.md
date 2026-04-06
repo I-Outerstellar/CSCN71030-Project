@@ -25,6 +25,23 @@ This group consists of Rajdeep, Fabio, and Raj.
 - A website displays the leaderboard (HTML, CSS, JavaScript), retrieved through HTTP
 
 ##
+<<<<<<< HEAD
+=======
+
+# HOW TO SET UP SFML
+
+1. Go to the SFML website
+2. Go to Downloads
+3. Click the Download for SFML 3.0.2 in x64. It will download a .zip folder
+4. Move the .zip folder to your Windows user folder
+5. Extract the zip folder there. Make sure the extra folder contained in the .zip is not in there/moved out to the user folder.
+6. Rename the folder to SFML (all caps). The entire directory should be 
+    - "This PC > C: > Users > [user] > SFML > (contains bin, doc, examples, include lib, changelog.md, license.md, readme.md)"
+7. Go to the bin folder and copy all .dll files with a "-d"
+8. Pull from the main branch to ensure everything of your version is updated.
+9. Paste all those .dll files into the solution/x64/debug folder.
+
+>>>>>>> b6e491c53504e747c858603e695dbf6209d1395a
 ##
 
 # SFML Extension Framework Details
@@ -51,5 +68,9 @@ This group consists of Rajdeep, Fabio, and Raj.
 
 - Cannot make a derived class from GameScene, unless you are only changing a method's behaviour instead of adding a new attribute/method. Please use its properties map instead to achieve similar behaviour.
 
+<<<<<<< HEAD
 - Works alongside SFML methods rather than using new, original ones (this project was not made to reinvent the wheel)
 
+=======
+- Works alongside SFML methods rather than using new, original ones (this project was not made to reinvent the wheel)
+>>>>>>> b6e491c53504e747c858603e695dbf6209d1395a
