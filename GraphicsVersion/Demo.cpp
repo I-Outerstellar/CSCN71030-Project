@@ -1,5 +1,4 @@
 #include <SFML/Graphics.hpp>
-#include "src/headers/WindowControl.hpp"
 #include "include/GameControllers.hpp"
 #include "include/GameObjects.hpp"
 #include <iostream>
@@ -10,7 +9,7 @@
 
 using namespace GameObjects;
 
-int main()
+void demo()
 {
     std::srand(static_cast<unsigned int>(std::time(nullptr))); //Randomization setup
 

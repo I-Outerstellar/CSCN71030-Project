@@ -12,6 +12,6 @@ void TextBox::draw() {
 	window.draw(*this);
 	auto shiftX = text.getLocalBounds().size.x / 2;
 	auto shiftY = text.getLocalBounds().size.y / 2;
-	text.setPosition(this->getGeometricCenter() - sf::Vector2f(shiftX, shiftY));
+	text.setPosition(this->getPosition() + this->getGeometricCenter() - sf::Vector2f(shiftX, shiftY));
 	window.draw(text);
 }
