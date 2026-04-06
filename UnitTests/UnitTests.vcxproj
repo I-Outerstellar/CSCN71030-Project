@@ -158,7 +158,9 @@
     <ClCompile Include="..\Project II Slider Game\Board.cpp" />
     <ClCompile Include="..\Project II Slider Game\SlidingTilesData.cpp" />
     <ClCompile Include="..\Project II Slider Game\SlidingTilesFunctions.cpp" />
+    <ClCompile Include="..\Project II Slider Game\SlidingTilesFunctionsHelpers.cpp" />
     <ClCompile Include="..\Project II Slider Game\UserFunctions.cpp" />
+    <ClCompile Include="..\Project II Slider Game\UserFunctionsHelpers.cpp" />
     <ClCompile Include="UnitTests.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
