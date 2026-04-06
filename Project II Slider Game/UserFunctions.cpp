@@ -6,7 +6,6 @@
 #include <iostream>
 #include <algorithm>
 
-
 namespace UserFunctions {
 	bool selectDifficulty() {
 		//Infinute loop to ensure a valid option is picked
