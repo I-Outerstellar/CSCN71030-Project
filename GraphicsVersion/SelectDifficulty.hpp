@@ -3,16 +3,10 @@
 #include "include/GameControllers.hpp"
 #include "../Project II Slider Game/SlidingTilesFunctions.hpp"
 
-namespace GameScenes {
+namespace SlidingTIlesScenes {
 
-    class SelectDifficulty {
-    public:
-        static GameObjects::GameScene scene;
-
-        // Store selected difficulty so other scenes (gameplay/leaderboard) can use it
-        static SlidingTilesEnums::Difficulty selectedDifficulty;
-
-        static void setup();
+    namespace SelectDifficulty {
+        GameObjects::GameScene& setup();
     };
 
 }
