@@ -131,6 +131,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="SelectDifficulty.cpp" />
     <ClCompile Include="src\cpp\EventControl.cpp" />
     <ClCompile Include="src\cpp\GameButton.cpp" />
     <ClCompile Include="src\cpp\GameCircle.cpp" />
@@ -154,6 +155,7 @@
   <ItemGroup>
     <ClInclude Include="include\GameControllers.hpp" />
     <ClInclude Include="include\GameObjects.hpp" />
+    <ClInclude Include="SelectDifficulty.hpp" />
     <ClInclude Include="src\headers\EventControl.hpp" />
     <ClInclude Include="src\headers\GameButton.hpp" />
     <ClInclude Include="src\headers\GameCircle.hpp" />
