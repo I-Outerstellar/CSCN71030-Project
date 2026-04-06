@@ -145,6 +145,9 @@
     <ClCompile Include="..\Project II Slider Game\SlidingTilesFunctions.cpp">
       <Filter>Existing</Filter>
     </ClCompile>
+    <ClCompile Include="..\Project II Slider Game\SlidingTilesFunctionsHelpers.cpp">
+      <Filter>Existing</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="include\GameControllers.hpp">
