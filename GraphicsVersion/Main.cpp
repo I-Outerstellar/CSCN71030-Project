@@ -2,14 +2,15 @@
 #include "include/GameControllers.hpp"
 #include "include/GameObjects.hpp"
 #include "GameplayScene.hpp"
+#include "SelectDifficulty.hpp"
 #include <iostream>
 
 int main()
 {
-    GameObjects::GameScene selectDiff; // = function();
-    GameObjects::GameScene gameplay = createGameplayScene();
-    GameObjects::GameScene leaderboard; // = function();
+    static GameObjects::GameScene selectDiff = SlidingTilesScenes::SelectDifficulty::setup();
+    static GameObjects::GameScene gameplay = SlidingTilesScenes::GameplayScene::createGameplayScene();
+    static GameObjects::GameScene leaderboard; // = function();
 
-    SceneControl::switchScene(gameplay);
+    SceneControl::switchScene(selectDiff);
     WindowControl::beginWindowLoop("Demo", sf::State::Fullscreen, 30);
 }

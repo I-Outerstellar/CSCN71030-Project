@@ -4,20 +4,20 @@ Board::Board() noexcept {}
 
 //Constructors for board difficulty
 Board::Board(SlidingTilesEnums::Difficulty difficulty) noexcept {
-    int size = static_cast <int> (difficulty);
+	int size = static_cast <int> (difficulty);
 
-    board.resize(size);
+	board.resize(size);
 
-    int counter = 1;
+	int counter = 1;
 
-    for (int col = 0; col < size; col++) {
-        board.at(col).resize(size);
+	for (int col = 0; col < size; col++) {
+		board.at(col).resize(size);
 
-        for (int row = 0; row < size; row++) {
-            board.at(col).at(row) = counter;
-            counter++;
-        }
-    }
+		for (int row = 0; row < size; row++) {
+			board.at(col).at(row) = counter;
+			counter++;
+		}
+	}
 }
 
 bool Board::hasEmptyRow() const noexcept {
