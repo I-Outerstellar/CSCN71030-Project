@@ -148,6 +148,9 @@
     <ClCompile Include="..\Project II Slider Game\SlidingTilesFunctionsHelpers.cpp">
       <Filter>Existing</Filter>
     </ClCompile>
+    <ClCompile Include="LeaderboardScene.hpp">
+      <Filter>Src\Headers</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="include\GameControllers.hpp">
