@@ -1,5 +1,8 @@
 #pragma once
 #include "include/GameObjects.hpp"
 
-GameObjects::GameScene& 
-createGameplayScene();
+namespace SlidingTilesScenes {
+	namespace GameplayScene {
+		GameObjects::GameScene& createGameplayScene();
+	}
+}

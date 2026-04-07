@@ -3,11 +3,13 @@
 #include "include/GameObjects.hpp"
 #include "GameplayScene.hpp"
 #include "LeaderboardScene.hpp"
+#include "SelectDifficulty.hpp"
 #include <iostream>
 
 int main()
 {
-    // Create both scenes
+    // Create all scenes
+    static GameObjects::GameScene selectDiff = SlidingTilesScenes::SelectDifficulty::setup();
     static GameObjects::GameScene& gameplay = createGameplayScene(); // & and lowercase p
     static GameObjects::GameScene& leaderboard = SlidingTilesScenes::LeaderboardScene::create();
 
@@ -18,5 +20,4 @@ int main()
 
     SceneControl::switchScene(leaderboard);
     WindowControl::beginWindowLoop("Sliding Puzzle", sf::State::Windowed, 30);
-    return 0;
-}          
+}
