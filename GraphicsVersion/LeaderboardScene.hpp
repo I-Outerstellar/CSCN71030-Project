@@ -9,6 +9,10 @@ namespace SlidingTilesScenes {
         // Creates and returns the leaderboard scene
         GameObjects::GameScene& create();
 
+
+        // Set callback for back button
+        void setBackButtonCallback(std::function<void()> callback);
+
         // Updates the displayed scores for current difficulty
         void updateScores();
 

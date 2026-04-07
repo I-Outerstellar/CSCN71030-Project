@@ -1,6 +1,7 @@
 #include "LeaderboardScene.hpp"
 #include <iostream>
 #include <string>
+#include <vector>
 
 using namespace GameObjects;
 using namespace SlidingTilesScenes;
@@ -24,6 +25,9 @@ namespace {
     std::shared_ptr<TextButton> mediumButton;
     std::shared_ptr<TextButton> hardButton;
     std::shared_ptr<TextButton> insaneButton;
+
+    // Callback for back button
+    std::function<void()> backButtonCallback = nullptr;
 
     // Helper to get difficulty name as string
     std::string getDifficultyName(SlidingTilesEnums::Difficulty diff) {
@@ -91,6 +95,10 @@ namespace SlidingTilesScenes {
             updateScores();
         }
 
+        void setBackButtonCallback(std::function<void()> callback) {
+            backButtonCallback = callback;
+        }
+
         GameScene& create() {
             if (created) return scene;
 
@@ -101,7 +109,7 @@ namespace SlidingTilesScenes {
             // Set background color
             scene.backgroundColour = sf::Color(30, 45, 75);
 
-            // ========== TITLE ==========
+            //TITLE
             titleText = GameShape::create<TextBox>(sf::Text(font), 40, 2);
             titleText->setSize({ 600, 60 });
             titleText->setPosition({ screenWidth / 2 - 300, 50 });
@@ -110,7 +118,7 @@ namespace SlidingTilesScenes {
             titleText->text.setCharacterSize(40);
             scene.add(titleText);
 
-            // ========== DIFFICULTY BUTTONS ==========
+            //DIFFICULTY BUTTONS 
             float buttonY = 130;
             float buttonStartX = screenWidth / 2 - 260;
 
@@ -158,7 +166,9 @@ namespace SlidingTilesScenes {
             backButton->setSize({ 200, 50 });
             backButton->onClick = [](sf::Mouse::Button btn) {
                 if (btn == sf::Mouse::Button::Left) {
-                    // TODO: Switch back to select difficulty scene
+                    if (backButtonCallback) {
+                        backButtonCallback();
+                    }
                     std::cout << "Returning to menu..." << std::endl;
                 }
                 };

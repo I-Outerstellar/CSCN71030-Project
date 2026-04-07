@@ -151,10 +151,10 @@
     <ClCompile Include="..\Project II Slider Game\SlidingTilesFunctionsHelpers.cpp">
       <Filter>Existing</Filter>
     </ClCompile>
-    <ClCompile Include="LeaderboardScene.hpp">
-      <Filter>Src\Headers</Filter>
-    </ClCompile>
     <ClCompile Include="LeaderboardScene.cpp">
+      <Filter>SlidingTiles\LeaderBoard</Filter>
+    </ClCompile>
+    <ClCompile Include="LeaderboardScene.hpp">
       <Filter>SlidingTiles\LeaderBoard</Filter>
     </ClCompile>
   </ItemGroup>

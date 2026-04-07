@@ -1,5 +1,5 @@
 #pragma once
 #include "include/GameObjects.hpp"
 
-GameObjects::GameScene&
+GameObjects::GameScene& 
 createGameplayScene();
