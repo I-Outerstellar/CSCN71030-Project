@@ -156,6 +156,7 @@
     <ClCompile Include="..\Project II Slider Game\SlidingTilesFunctions.cpp" />
     <ClCompile Include="..\Project II Slider Game\SlidingTilesFunctionsHelpers.cpp" />
     <ClCompile Include="GameplayScene.cpp" />
+    <ClCompile Include="LeaderboardScene.cpp" />
     <ClCompile Include="LeaderboardScene.hpp" />
     <ClCompile Include="Main.cpp" />
     <ClCompile Include="src\cpp\EventControl.cpp" />

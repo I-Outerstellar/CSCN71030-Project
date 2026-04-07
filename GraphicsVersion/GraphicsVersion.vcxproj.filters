@@ -73,6 +73,9 @@
     <Filter Include="Existing">
       <UniqueIdentifier>{d2a8f1eb-2fa6-4d7b-8d7c-03588fc460af}</UniqueIdentifier>
     </Filter>
+    <Filter Include="SlidingTiles\LeaderBoard">
+      <UniqueIdentifier>{2ac16fc8-691f-4b3b-9a87-e0e7bacb0a8d}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Demo.cpp" />
@@ -150,6 +153,9 @@
     </ClCompile>
     <ClCompile Include="LeaderboardScene.hpp">
       <Filter>Src\Headers</Filter>
+    </ClCompile>
+    <ClCompile Include="LeaderboardScene.cpp">
+      <Filter>SlidingTiles\LeaderBoard</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
