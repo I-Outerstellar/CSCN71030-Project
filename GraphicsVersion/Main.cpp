@@ -10,7 +10,7 @@ int main()
 {
     // Create all scenes
     static GameObjects::GameScene selectDiff = SlidingTilesScenes::SelectDifficulty::setup();
-    static GameObjects::GameScene& gameplay = createGameplayScene(); // & and lowercase p
+    static GameObjects::GameScene& gameplay = SlidingTilesScene::GameplayScene::createGameplayScene(); // & and lowercase p
     static GameObjects::GameScene& leaderboard = SlidingTilesScenes::LeaderboardScene::create();
 
     SlidingTilesScenes::LeaderboardScene::setBackButtonCallback([] {
