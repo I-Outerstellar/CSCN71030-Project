@@ -161,7 +161,13 @@
     <ClCompile Include="..\Project II Slider Game\SlidingTilesFunctionsHelpers.cpp" />
     <ClCompile Include="..\Project II Slider Game\UserFunctions.cpp" />
     <ClCompile Include="..\Project II Slider Game\UserFunctionsHelpers.cpp" />
+    <ClCompile Include="SlidingTilesFunctionsMock.cpp" />
     <ClCompile Include="UnitTests.cpp" />
+    <ClCompile Include="UserFunctionsHelperMock.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="SlidingTilesFunctionsMock.hpp" />
+    <ClInclude Include="UserFunctionsHelperMock.hpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
