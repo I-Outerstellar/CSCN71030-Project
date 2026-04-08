@@ -1,11 +1,13 @@
 #include "CppUnitTest.h"
-
+#include <fstream>
 #include "../Project II Slider Game/Board.hpp"
 #include "../Project II Slider Game/SlidingTilesData.hpp"
 #include "../Project II Slider Game/SlidingTilesFunctions.hpp"
 #include "../Project II Slider Game/SlidingTilesEnums.hpp"
 #include "../Project II Slider Game/SlidingTilesFunctionsHelpers.hpp"
 #include "../Project II Slider Game/UserFunctionsHelpers.hpp"
+#include "SlidingTilesFunctionsMock.hpp"
+#include "UserFunctionsHelperMock.hpp"
 
 
 using namespace Microsoft::VisualStudio::CppUnitTestFramework;
@@ -255,4 +257,46 @@ namespace UnitTests {
 			Assert::IsFalse(SlidingTilesFunctions::isBoardOrdered());
 		}
 	};
+
+	TEST_CLASS(LoadScores) {
+	public:
+
+		TEST_METHOD(FileDoesNotExist) {
+			
+		}
+
+		TEST_METHOD(EmptyFile) {
+			
+		}
+
+		TEST_METHOD(SingleScore) {
+			
+		}
+
+		TEST_METHOD(MultipleScoresUnsorted) {
+			
+		}
+
+		TEST_METHOD(AlreadySortedInput) {
+			
+		}
+
+		TEST_METHOD(DuplicateScores) {
+			
+		}
+
+		TEST_METHOD(ExactlyTop10Scores) {
+			
+		}
+
+		TEST_METHOD(MoreThanTop10Scores) {
+			
+		}
+
+		TEST_METHOD(DifferentDifficultyFiles) {
+			
+		}
+
+	};
+
 }
