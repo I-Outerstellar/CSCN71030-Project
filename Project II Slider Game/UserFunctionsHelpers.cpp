@@ -1,10 +1,17 @@
 ////////////////////////////////////////////////////////////////////////////////
 ///
-/// @file      UserFunctionsHelpers.cpp
-/// @brief     
-/// @details   ~
-/// @author    Rajdeep Chowdhury
-/// @date      8.04.2026
+/// @file		UserFunctionsHelpers.cpp
+/// @brief		File containing the initialization of the @ref UserFunctionsHelpers functions.
+/// @details	This file contains the initialization of the @ref UserFunctionsHelpers helper functions 
+///				declared in @ref UserFunctionsHelpers.hpp.
+/// @author		Rajdeep Chowdhury
+/// @date		8.04.2026
+/// 
+/// @see		UserFunctionsHelpers.hpp
+/// @see		SlidingTilesFunctions.hpp
+///	@see		SlidingTilesData.hpp
+/// @see		SlidingTilesEnums.hpp
+/// @see		UserFunctions
 ///
 ////////////////////////////////////////////////////////////////////////////////
 #include "UserFunctionsHelpers.hpp"
