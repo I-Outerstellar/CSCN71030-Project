@@ -1,15 +1,16 @@
-/*******************************************************************************
- *
- *  @file      UserFunctionsHelpers.cpp
- *  @brief     
- *  @details   ~
- *  @author    Rajdeep Chowdhury
- *  @date      1.04.2026
- *
- ******************************************************************************/
+////////////////////////////////////////////////////////////////////////////////
+///
+/// @file      UserFunctionsHelpers.cpp
+/// @brief     
+/// @details   ~
+/// @author    Rajdeep Chowdhury
+/// @date      8.04.2026
+///
+////////////////////////////////////////////////////////////////////////////////
 #include "UserFunctionsHelpers.hpp"
 #include "SlidingTilesFunctions.hpp"
 #include "SlidingTilesData.hpp"
+#include "SlidingTilesEnums.hpp"
 #include <iostream>
 
 namespace UserFunctionsHelpers {

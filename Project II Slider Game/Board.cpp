@@ -8,9 +8,11 @@
 /// @date		8.04.2026
 /// 
 /// @see		Board.hpp
+/// @see		SlidingTilesEnums.hpp
 ///
 ////////////////////////////////////////////////////////////////////////////////
 #include "Board.hpp"
+#include "SlidingTilesEnums.hpp"
 
 Board::Board() noexcept {}
 

@@ -12,7 +12,11 @@
 ////////////////////////////////////////////////////////////////////////////////
 #pragma once
 #include <vector>
-#include "SlidingTilesEnums.hpp"
+
+//Forward declaration
+namespace SlidingTilesEnums {
+	enum class Difficulty;
+}
 
 /// @brief   A class that represents a board.
 /// @details A class that represents a board for any game that can be represented by numbered tiles.
@@ -35,7 +39,6 @@ public:
 	/// @details	The parameterized constructor for the @c Board that creates a board based 
 	///				on the difficulty passed through for Sliding Tiles.
 	/// @param[in]	difficulty The difficulty of the Sliding Tiles game desired.
-	/// @author		Rajdeep Chowdhury
 	/// @author		Raj Bahadur Bhat
 	/// @date		8.04.2026
 	/// 
@@ -45,9 +48,9 @@ public:
 	/// @brief		Checks if the board has an empty row or is empty.
 	/// @details	Checks if one of the vector sizes of a board row is 0. 
 	///				Also checks for if the board itself has no rows.
-	/// @retval		true if an empty row exists.
-	/// @retval		true if the board itself is empty.
-	/// @retval		false if neither condition is true.
+	/// @retval		true If an empty row exists.
+	/// @retval		true If the board itself is empty.
+	/// @retval		false If neither condition is true.
 	/// @author		Rajdeep Chowdhury
 	/// @date		8.04.2026
 	bool hasEmptyRow() const noexcept;
@@ -57,8 +60,8 @@ public:
 	///				representing the board. Index starts at 0.
 	/// @param[in]	row	The row of the board being accessed.
 	/// @param[in]	column The coloum of the board being accessed.
-	/// @retval		true if the index exists 
-	/// @retval		false if the index does not exist.
+	/// @retval		true If the index exists.
+	/// @retval		false If the index does not exist.
 	/// @author		Rajdeep Chowdhury
 	/// @date		8.04.2026
 	bool canAccess(size_t row, size_t column) const noexcept;
@@ -85,7 +88,7 @@ public:
 	/// 
 	/// @note		The user should use the @ref canAccess(size_t, size_t) method before
 	///				using this method to avoid the exception being thrown.
-	/// @see		@ref canAccess(size_t, size_t)
+	/// @see		canAccess(size_t, size_t)
 	size_t& access(size_t row, size_t column);
 
 	/// @brief		Accesses a row in the board. Indexing starts at 0.
@@ -99,6 +102,6 @@ public:
 	/// 
 	/// @note		The user should use the @ref canAccess(size_t) method before
 	///				using this method to avoid the exception being thrown.
-	/// @see		@ref canAccess(size_t)
+	/// @see		canAccess(size_t)
 	std::vector<size_t>& access(size_t row);
 };

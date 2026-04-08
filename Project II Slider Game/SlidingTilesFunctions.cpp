@@ -1,6 +1,7 @@
 #include "SlidingTilesFunctions.hpp"
 #include "SlidingTilesFunctionsHelpers.hpp"
 #include "SlidingTilesData.hpp"
+#include "SlidingTilesEnums.hpp"
 #include <vector>
 #include <fstream>
 #include <algorithm>

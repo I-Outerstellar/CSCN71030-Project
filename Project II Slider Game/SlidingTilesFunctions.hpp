@@ -1,7 +1,12 @@
 #pragma once
 #include <vector>
 #include "Board.hpp"
-#include "SlidingTilesEnums.hpp"
+
+//Forward declaration
+namespace SlidingTilesEnums {
+	enum class Difficulty;
+	enum class Direction;
+}
 
 namespace SlidingTilesFunctions {
 	void startGame(SlidingTilesEnums::Difficulty difficulty);

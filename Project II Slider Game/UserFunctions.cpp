@@ -2,6 +2,7 @@
 #include "UserFunctionsHelpers.hpp"
 #include "SlidingTilesFunctions.hpp"
 #include "SlidingTilesData.hpp"
+#include "SlidingTilesEnums.hpp"
 #include <string>
 #include <iostream>
 #include <algorithm>
