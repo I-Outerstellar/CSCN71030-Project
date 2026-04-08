@@ -6,15 +6,19 @@
 using namespace GameObjects;
 using namespace SlidingTilesScenes;
 
-GameScene SelectDifficulty::scene;
-SlidingTilesEnums::Difficulty SelectDifficulty::selectedDifficulty = SlidingTilesEnums::Difficulty::EASY;
-
 namespace {
+    GameObjects::GameScene scene;
+    bool created = false;
+
+    // Store selected difficulty so other scenes (gameplay/leaderboard) can use it
+    SlidingTilesEnums::Difficulty selectedDifficulty = SlidingTilesEnums::Difficulty::EASY;
+
     sf::Font font("C:\\Windows\\Fonts\\BKANT.TTF");
+    std::shared_ptr<TextButton> easy, medium, hard, insane;
 }
 
 namespace {
-    auto createButton(std::string text, sf::Vector2f pos, SlidingTilesEnums::Difficulty diff) {
+    std::shared_ptr<TextButton> createButton(std::string text, sf::Vector2f pos, SlidingTilesEnums::Difficulty diff) {
 
         auto button = GameButton::create<TextButton>(sf::Text(font), 1);
 
@@ -33,11 +37,11 @@ namespace {
             };
 
         // Click behavior
-        button->onClick = [&diff](sf::Mouse::Button mouseButton) {
+        button->onClick = [diff](sf::Mouse::Button mouseButton) {
             if (mouseButton != sf::Mouse::Button::Left) return;
 
             // Save selected difficulty (IMPORTANT for leaderboard + gameplay)
-            SelectDifficulty::selectedDifficulty = diff;
+            selectedDifficulty = diff;
 
             std::cout << "Selected difficulty: " << static_cast<int>(diff) << "\n";
 
@@ -51,12 +55,16 @@ namespace {
     }
 }
 
-void SelectDifficulty::setup() {
+GameScene& SelectDifficulty::setup() {
+    if (created) return scene;
 
-    static auto easy = createButton("Easy", { 250, 100 }, SlidingTilesEnums::Difficulty::EASY);
-    static auto medium = createButton("Medium", { 250, 200 }, SlidingTilesEnums::Difficulty::MEDIUM);
-    static auto hard = createButton("Hard", { 250, 300 }, SlidingTilesEnums::Difficulty::HARD);
-    static auto insane = createButton("Insane", { 250, 400 }, SlidingTilesEnums::Difficulty::INSANE);
+    easy = createButton("Easy", { 250, 100 }, SlidingTilesEnums::Difficulty::EASY);
+    medium = createButton("Medium", { 250, 200 }, SlidingTilesEnums::Difficulty::MEDIUM);
+    hard = createButton("Hard", { 250, 300 }, SlidingTilesEnums::Difficulty::HARD);
+    insane = createButton("Insane", { 250, 400 }, SlidingTilesEnums::Difficulty::INSANE);
 
     scene.add(easy).add(medium).add(hard).add(insane);
+
+    created = true;
+    return scene;
 }
