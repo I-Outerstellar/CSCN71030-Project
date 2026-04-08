@@ -6,6 +6,7 @@
 #include "../Project II Slider Game/SlidingTilesEnums.hpp"
 #include "../Project II Slider Game/SlidingTilesFunctionsHelpers.hpp"
 #include "../Project II Slider Game/UserFunctionsHelpers.hpp"
+#include "SlidingTilesFunctionsMock.hpp"
 
 
 using namespace Microsoft::VisualStudio::CppUnitTestFramework;

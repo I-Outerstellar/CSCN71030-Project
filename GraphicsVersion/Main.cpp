@@ -10,7 +10,7 @@ int main()
 {
     // Create all scenes
     static GameObjects::GameScene selectDiff = SlidingTilesScenes::SelectDifficulty::setup();
-    static GameObjects::GameScene& gameplay = SlidingTilesScene::GameplayScene::createGameplayScene(); // & and lowercase p
+    static GameObjects::GameScene& gameplay = SlidingTilesScenes::GameplayScene::createGameplayScene(); // & and lowercase p
     static GameObjects::GameScene& leaderboard = SlidingTilesScenes::LeaderboardScene::create();
 
     SlidingTilesScenes::LeaderboardScene::setBackButtonCallback([] {
@@ -19,5 +19,5 @@ int main()
         });
 
     SceneControl::switchScene(leaderboard);
-    WindowControl::beginWindowLoop("Sliding Puzzle", sf::State::Windowed, 30);
+    WindowControl::beginWindowLoop("Sliding Puzzle", sf::State::Fullscreen, 30);
 }

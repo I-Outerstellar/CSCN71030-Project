@@ -10,22 +10,6 @@
 
 using namespace GameObjects;
 
-//New main function
-int main()
-{
-    // Create the leaderboard scene
-    static GameObjects::GameScene leaderboard = SlidingTilesScenes::LeaderboardScene::create();
-}
-
-// Switch to leaderboard scene 
-SceneControl::switchScene(leaderboard);
-
-// Run the window
-WindowControl::beginWindowLoop("Sliding Puzzle - Leaderboard", sf::State::Fullscreen, 30);
-
-return 0;
-}
-
 
 void demo()
 {
