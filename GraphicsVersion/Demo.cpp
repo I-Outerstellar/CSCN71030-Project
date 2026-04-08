@@ -10,7 +10,6 @@
 
 using namespace GameObjects;
 
-
 void demo()
 {
     std::srand(static_cast<unsigned int>(std::time(nullptr))); //Randomization setup
