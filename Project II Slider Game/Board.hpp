@@ -1,57 +1,104 @@
+////////////////////////////////////////////////////////////////////////////////
+///
+/// @file		Board.hpp
+/// @brief		File containing a @c Board class.
+/// @details	This file contains a class representing a board for any game, with
+///				the declaration of its method and attributes initialized.
+/// @author		Rajdeep Chowdhury
+/// @date		8.04.2026
+/// 
+/// @see		Board.cpp
+///
+////////////////////////////////////////////////////////////////////////////////
 #pragma once
 #include <vector>
 #include "SlidingTilesEnums.hpp"
 
-/// <summary>
-/// A class that represents the square board for a game.
-/// </summary>
+/// @brief   A class that represents a board.
+/// @details A class that represents a board for any game that can be represented by numbered tiles.
+/// @author  Rajdeep Chowdhury
+/// @date    8.04.2026
 class Board {
 protected:
+	/// @brief	 The data representation of the board.
+	/// @details The vector of vectors of size_t which represents a board.
 	std::vector<std::vector<size_t>> board{};
 
 public:
+	/// @brief   @c Board object constructor.
+	/// @details The default constructor for the @c Board that creates an empty, sizeless board.
+	/// @author  Rajdeep Chowdhury
+	/// @date    8.04.2026
 	Board() noexcept;
 
-	/// <summary>
-	/// Constructor for a board.
-	/// </summary>
-	/// <param name="difficulty"></param>
+	/// @brief		@c Board object constructor.
+	/// @details	The parameterized constructor for the @c Board that creates a board based 
+	///				on the difficulty passed through for Sliding Tiles.
+	/// @param[in]	difficulty The difficulty of the Sliding Tiles game desired.
+	/// @author		Rajdeep Chowdhury
+	/// @author		Raj Bahadur Bhat
+	/// @date		8.04.2026
+	/// 
+	/// @see		SlidingTilesEnums
 	Board(SlidingTilesEnums::Difficulty difficulty) noexcept;
 
-	/// <summary>
-	/// Checks if the board has an empty row, meaning one of the sizes of the row is 0. 
-	/// Also checks for if the board itself has no row.
-	/// </summary>
-	/// <returns>True if a row or the board itself is empty, false if not.</returns>
+	/// @brief		Checks if the board has an empty row or is empty.
+	/// @details	Checks if one of the vector sizes of a board row is 0. 
+	///				Also checks for if the board itself has no rows.
+	/// @retval		true if an empty row exists.
+	/// @retval		true if the board itself is empty.
+	/// @retval		false if neither condition is true.
+	/// @author		Rajdeep Chowdhury
+	/// @date		8.04.2026
 	bool hasEmptyRow() const noexcept;
 
-	/// <summary>
-	/// Checks if a board index can be accessed. Indexing starts at 0.
-	/// </summary>
-	/// <param name="row"></param>
-	/// <param name="column"></param>
-	/// <returns>True if index exists, false if not.</returns>
+	/// @brief		Checks if a @c Board index can be accessed. Index starts at 0.
+	/// @details	Checks if a @c Board index can exist in accordance to the size of the vectors 
+	///				representing the board. Index starts at 0.
+	/// @param[in]	row	The row of the board being accessed.
+	/// @param[in]	column The coloum of the board being accessed.
+	/// @retval		true if the index exists 
+	/// @retval		false if the index does not exist.
+	/// @author		Rajdeep Chowdhury
+	/// @date		8.04.2026
 	bool canAccess(size_t row, size_t column) const noexcept;
 
-	/// <summary>
-	/// Checks if a board row can be accessed. Indexing starts at 0.
-	/// </summary>
-	/// <param name="row"></param>
-	/// <returns>True if row exists, false if not.</returns>
+	/// @brief		Checks if a @c Board row can be accessed. Index starts at 0.
+	/// @details	Checks if a @c Board row can exist in accordance to the size of the vector 
+	///				representing the board rows. Index starts at 0.
+	/// @param[in]	row The row of the board being accessed.
+	/// @retval		true If the row exists.     
+	/// @retval		false If the row does not exist.
+	/// @author		Rajdeep Chowdhury
+	/// @date		8.04.2026
 	bool canAccess(size_t row) const noexcept;
 
-	/// <summary>
-	/// Accesses an integer in the board. Indexing starts at 0.
-	/// </summary>
-	/// <param name="row"></param>
-	/// <param name="column"></param>
-	/// <returns>Reference to an integer on the board.</returns>
+	/// @brief		Accesses an integer in the board. Indexing starts at 0.
+	/// @details	Returns a reference to the size_t integer at the specified 
+	///				@p row and @p column index.
+	/// @param[in]	row The row of the board being accessed
+	/// @param[in]	column The column of the board being accessed.
+	/// @return		A reference to the size_t integer on the board.
+	/// @throw		std::out_of_range If the row or column being accessed does not exist.
+	/// @author		Rajdeep Chowdhury
+	/// @date		8.04.2026
+	/// 
+	/// @note		The user should use the @ref canAccess(size_t, size_t) method before
+	///				using this method to avoid the exception being thrown.
+	/// @see		@ref canAccess(size_t, size_t)
 	size_t& access(size_t row, size_t column);
 
-	/// <summary>
-	/// Accessses a row of the board. Indexing starts at 0.
-	/// </summary>
-	/// <param name="row"></param>
-	/// <returns>A reference to a row vector of the board.</returns>
+	/// @brief		Accesses a row in the board. Indexing starts at 0.
+	/// @details	Returns a reference to the size_t row vector at the specified 
+	///				@p row index.
+	/// @param[in]	row The row of the board being accessed
+	/// @return		A reference to the row vector on the board.
+	/// @throw		std::out_of_range If the row being accessed does not exist.
+	/// @author		Rajdeep Chowdhury
+	/// @date		8.04.2026
+	/// 
+	/// @note		The user should use the @ref canAccess(size_t) method before
+	///				using this method to avoid the exception being thrown.
+	/// @see		@ref canAccess(size_t)
 	std::vector<size_t>& access(size_t row);
 };
