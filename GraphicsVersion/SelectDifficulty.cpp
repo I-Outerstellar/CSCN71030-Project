@@ -1,6 +1,7 @@
 #include "SelectDifficulty.hpp"
 #include <SFML/Graphics.hpp>
 #include <iostream>
+#include "../Project II Slider Game/SlidingTilesFunctions.hpp"
 
 using namespace GameObjects;
 using namespace SlidingTilesScenes;
@@ -28,7 +29,7 @@ namespace {
         button->text.setFillColor(sf::Color::Black);
 
         // Hover effect
-        button->onMouseMovement = [button](sf::Vector2f, sf::Vector2i) {
+        button->onMouseMovement = [&button](sf::Vector2f, sf::Vector2i) {
             if (button->isMouseHovering())
                 button->setFillColor(sf::Color::Green);
             else
