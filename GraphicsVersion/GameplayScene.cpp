@@ -121,8 +121,8 @@ void startGame(SlidingTilesEnums::Difficulty difficulty) {
 	SlidingTilesFunctions::shuffle();
 }
 
-GameObjects::GameScene& createGameplayScene() {
-	startGame(SlidingTilesEnums::Difficulty::INSANE);
+GameObjects::GameScene& SlidingTilesScenes::GameplayScene::createGameplayScene() {
+	startGame(SlidingTilesEnums::Difficulty::HARD);
 	divisor = static_cast<unsigned int>(SlidingTilesData::currentDifficulty) + 1;
 	buttonSize = screenSize / divisor;
 

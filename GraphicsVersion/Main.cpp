@@ -2,14 +2,22 @@
 #include "include/GameControllers.hpp"
 #include "include/GameObjects.hpp"
 #include "GameplayScene.hpp"
+#include "LeaderboardScene.hpp"
+#include "SelectDifficulty.hpp"
 #include <iostream>
 
 int main()
 {
-    GameObjects::GameScene selectDiff; // = function();
-    GameObjects::GameScene gameplay = createGameplayScene();
-    GameObjects::GameScene leaderboard; // = function();
+    // Create all scenes
+    static GameObjects::GameScene selectDiff = SlidingTilesScenes::SelectDifficulty::setup();
+    static GameObjects::GameScene& gameplay = SlidingTilesScene::GameplayScene::createGameplayScene(); // & and lowercase p
+    static GameObjects::GameScene& leaderboard = SlidingTilesScenes::LeaderboardScene::create();
 
-    SceneControl::switchScene(gameplay);
-    WindowControl::beginWindowLoop("Demo", sf::State::Fullscreen, 30);
+    SlidingTilesScenes::LeaderboardScene::setBackButtonCallback([] {
+        std::cout << "Back button pressed - switching to gameplay!" << std::endl;
+        SceneControl::switchScene(gameplay);
+        });
+
+    SceneControl::switchScene(leaderboard);
+    WindowControl::beginWindowLoop("Sliding Puzzle", sf::State::Windowed, 30);
 }
