@@ -262,39 +262,107 @@ namespace UnitTests {
 	public:
 
 		TEST_METHOD(FileDoesNotExist) {
-			
+			auto scores = SlidingTilesFunctionsMock::loadScores("nonexistent_file.txt");
+			Assert::AreEqual(static_cast<size_t>(0), scores.size());
 		}
 
 		TEST_METHOD(EmptyFile) {
-			
+			std::ofstream("empty.txt"); // create empty file
+			auto scores = SlidingTilesFunctionsMock::loadScores("empty.txt");
+			Assert::AreEqual(static_cast<size_t>(0), scores.size());
 		}
 
 		TEST_METHOD(SingleScore) {
-			
+			std::ofstream out("single.txt");
+			out << 42;
+			out.close();
+
+			auto scores = SlidingTilesFunctionsMock::loadScores("single.txt");
+			Assert::AreEqual(static_cast<size_t>(1), scores.size());
+			Assert::AreEqual(42u, scores[0]);
 		}
 
 		TEST_METHOD(MultipleScoresUnsorted) {
-			
+			std::ofstream out("unsorted.txt");
+			out << "50\n10\n30\n";
+			out.close();
+
+			auto scores = SlidingTilesFunctionsMock::loadScores("unsorted.txt");
+			Assert::AreEqual(static_cast<size_t>(3), scores.size());
+			Assert::AreEqual(10u, scores[0]);
+			Assert::AreEqual(30u, scores[1]);
+			Assert::AreEqual(50u, scores[2]);
 		}
 
 		TEST_METHOD(AlreadySortedInput) {
-			
+			std::ofstream out("sorted.txt");
+			out << "1\n2\n3\n4\n5\n";
+			out.close();
+
+			auto scores = SlidingTilesFunctionsMock::loadScores("sorted.txt");
+			Assert::AreEqual(static_cast<size_t>(5), scores.size());
+			for (size_t i = 0; i < scores.size(); i++)
+				Assert::AreEqual(static_cast<unsigned int>(i + 1), scores[i]);
 		}
 
 		TEST_METHOD(DuplicateScores) {
-			
+			std::ofstream out("duplicates.txt");
+			out << "5\n3\n5\n3\n";
+			out.close();
+
+			auto scores = SlidingTilesFunctionsMock::loadScores("duplicates.txt");
+			Assert::AreEqual(static_cast<size_t>(4), scores.size());
+			Assert::AreEqual(3u, scores[0]);
+			Assert::AreEqual(3u, scores[1]);
+			Assert::AreEqual(5u, scores[2]);
+			Assert::AreEqual(5u, scores[3]);
 		}
 
 		TEST_METHOD(ExactlyTop10Scores) {
-			
+			std::ofstream out("top10.txt");
+			for (unsigned int i = 10; i >= 1; i--)
+				out << i << "\n";
+			out.close();
+
+			auto scores = SlidingTilesFunctionsMock::loadScores("top10.txt");
+			Assert::AreEqual(static_cast<size_t>(10), scores.size());
+			for (size_t i = 0; i < 10; i++)
+				Assert::AreEqual(static_cast<unsigned int>(i + 1), scores[i]);
 		}
 
 		TEST_METHOD(MoreThanTop10Scores) {
-			
+			std::ofstream out("morethan10.txt");
+			for (unsigned int i = 15; i >= 1; i--)
+				out << i << "\n";
+			out.close();
+
+			auto scores = SlidingTilesFunctionsMock::loadScores("morethan10.txt");
+			Assert::AreEqual(static_cast<size_t>(SlidingTilesFunctionsHelpers::LEADERBOARD_SIZE), scores.size());
+			for (size_t i = 0; i < SlidingTilesFunctionsHelpers::LEADERBOARD_SIZE; i++)
+				Assert::AreEqual(static_cast<unsigned int>(i + 1), scores[i]);
 		}
 
 		TEST_METHOD(DifferentDifficultyFiles) {
-			
+			std::ofstream outEasy("easy_test.txt");
+			std::ofstream outHard("hard_test.txt");
+
+			outEasy << "5\n2\n9\n";
+			outHard << "20\n15\n25\n";
+			outEasy.close();
+			outHard.close();
+
+			auto easyScores = SlidingTilesFunctionsMock::loadScores("easy_test.txt");
+			auto hardScores = SlidingTilesFunctionsMock::loadScores("hard_test.txt");
+
+			Assert::AreEqual(static_cast<size_t>(3), easyScores.size());
+			Assert::AreEqual(2u, easyScores[0]);
+			Assert::AreEqual(5u, easyScores[1]);
+			Assert::AreEqual(9u, easyScores[2]);
+
+			Assert::AreEqual(static_cast<size_t>(3), hardScores.size());
+			Assert::AreEqual(15u, hardScores[0]);
+			Assert::AreEqual(20u, hardScores[1]);
+			Assert::AreEqual(25u, hardScores[2]);
 		}
 
 	};
