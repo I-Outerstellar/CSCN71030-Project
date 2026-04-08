@@ -1,5 +1,5 @@
 #include "CppUnitTest.h"
-
+#include <fstream>
 #include "../Project II Slider Game/Board.hpp"
 #include "../Project II Slider Game/SlidingTilesData.hpp"
 #include "../Project II Slider Game/SlidingTilesFunctions.hpp"
@@ -255,4 +255,123 @@ namespace UnitTests {
 			Assert::IsFalse(SlidingTilesFunctions::isBoardOrdered());
 		}
 	};
+
+	TEST_CLASS(LoadScores) {
+	public:
+
+		TEST_METHOD(FileDoesNotExist) {
+			remove("scores_easy.txt");
+
+			auto scores = SlidingTilesFunctions::loadScores(SlidingTilesEnums::Difficulty::EASY);
+
+			Assert::AreEqual((size_t)0, scores.size());
+		}
+
+		TEST_METHOD(EmptyFile) {
+			std::ofstream out("scores_medium.txt");
+			out.close();
+
+			auto scores = SlidingTilesFunctions::loadScores(SlidingTilesEnums::Difficulty::MEDIUM);
+
+			Assert::AreEqual((size_t)0, scores.size());
+		}
+
+		TEST_METHOD(SingleScore) {
+			std::ofstream out("scores_easy.txt");
+			out << 42 << "\n";
+			out.close();
+
+			auto scores = SlidingTilesFunctions::loadScores(SlidingTilesEnums::Difficulty::EASY);
+
+			Assert::AreEqual((size_t)1, scores.size());
+			Assert::AreEqual((unsigned int)42, scores[0]);
+		}
+
+		TEST_METHOD(MultipleScoresSorted) {
+			std::ofstream out("scores_easy.txt");
+			out << 50 << "\n" << 20 << "\n" << 30 << "\n";
+			out.close();
+
+			auto scores = SlidingTilesFunctions::loadScores(SlidingTilesEnums::Difficulty::EASY);
+
+			Assert::AreEqual((size_t)3, scores.size());
+			Assert::AreEqual((unsigned int)20, scores[0]);
+			Assert::AreEqual((unsigned int)30, scores[1]);
+			Assert::AreEqual((unsigned int)50, scores[2]);
+		}
+
+		TEST_METHOD(AlreadySortedInput) {
+			std::ofstream out("scores_easy.txt");
+			out << 10 << "\n" << 20 << "\n" << 30 << "\n";
+			out.close();
+
+			auto scores = SlidingTilesFunctions::loadScores(SlidingTilesEnums::Difficulty::EASY);
+
+			Assert::AreEqual((unsigned int)10, scores[0]);
+			Assert::AreEqual((unsigned int)20, scores[1]);
+			Assert::AreEqual((unsigned int)30, scores[2]);
+		}
+
+		TEST_METHOD(DuplicateScores) {
+			std::ofstream out("scores_easy.txt");
+			out << 10 << "\n" << 10 << "\n" << 5 << "\n";
+			out.close();
+
+			auto scores = SlidingTilesFunctions::loadScores(SlidingTilesEnums::Difficulty::EASY);
+
+			Assert::AreEqual((size_t)3, scores.size());
+			Assert::AreEqual((unsigned int)5, scores[0]);
+			Assert::AreEqual((unsigned int)10, scores[1]);
+			Assert::AreEqual((unsigned int)10, scores[2]);
+		}
+
+		TEST_METHOD(ExactlyTop10Scores) {
+			std::ofstream out("scores_easy.txt");
+
+			for (int i = 1; i <= 10; i++) {
+				out << i << "\n";
+			}
+			out.close();
+
+			auto scores = SlidingTilesFunctions::loadScores(SlidingTilesEnums::Difficulty::EASY);
+
+			Assert::AreEqual((size_t)10, scores.size());
+			Assert::AreEqual((unsigned int)1, scores[0]);
+			Assert::AreEqual((unsigned int)10, scores[9]);
+		}
+
+		TEST_METHOD(MoreThanTop10Scores) {
+			std::ofstream out("scores_easy.txt");
+
+			for (int i = 15; i >= 1; i--) {
+				out << i << "\n";
+			}
+			out.close();
+
+			auto scores = SlidingTilesFunctions::loadScores(SlidingTilesEnums::Difficulty::EASY);
+
+			Assert::AreEqual((size_t)SlidingTilesFunctionsHelpers::LEADERBOARD_SIZE, scores.size());
+
+			Assert::AreEqual((unsigned int)1, scores[0]);
+			Assert::AreEqual((unsigned int)SlidingTilesFunctionsHelpers::LEADERBOARD_SIZE, scores.back());
+		}
+
+		TEST_METHOD(DifferentDifficultyFiles) {
+			std::ofstream outEasy("scores_easy.txt");
+			outEasy << 5 << "\n";
+			outEasy.close();
+
+			std::ofstream outHard("scores_hard.txt");
+			outHard << 100 << "\n";
+			outHard.close();
+
+			auto easyScores = SlidingTilesFunctions::loadScores(SlidingTilesEnums::Difficulty::EASY);
+			auto hardScores = SlidingTilesFunctions::loadScores(SlidingTilesEnums::Difficulty::HARD);
+
+			Assert::AreEqual((unsigned int)5, easyScores[0]);
+			Assert::AreEqual((unsigned int)100, hardScores[0]);
+		}
+
+	};
+
 }
