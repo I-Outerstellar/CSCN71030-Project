@@ -5,6 +5,7 @@
 /// @details	This file contains the initialization of all @ref Board methods found in
 ///				@ref Board.hpp.
 /// @author		Rajdeep Chowdhury
+/// @author		Raj Bahadur Bhat
 /// @date		8.04.2026
 /// 
 /// @see		Board.hpp

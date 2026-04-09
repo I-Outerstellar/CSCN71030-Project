@@ -1,7 +1,7 @@
 ////////////////////////////////////////////////////////////////////////////////
 ///
 /// @file		UserFunctionsHelpers.hpp
-/// @brief		File containing namespace of declared helper functions and a constant expression for @ref UserFunctions.
+/// @brief		File containing a namespace of declared helper functions and a constant expression for @ref UserFunctions.
 /// @details	This file contains a namespace of declared helper functions that the functions of @ref UserFunctions use.
 /// @author		Rajdeep Chowdhury
 /// @date		8.04.2026

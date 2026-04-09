@@ -1,7 +1,7 @@
 ////////////////////////////////////////////////////////////////////////////////
 ///
 /// @file		SlidingTilesFunctionsHelpers.hpp
-/// @brief		File containing namespace of declared helper functions and a constant expression for @ref SlidingTilesFunctions.
+/// @brief		File containing a namespace of declared helper functions and a constant expression for @ref SlidingTilesFunctions.
 /// @details	This file contains a namespace of declared helper functions and a @c constexpr integer that the functions of 
 ///				@ref SlidingTilesFunctions use.
 /// @author		Rajdeep Chowdhury

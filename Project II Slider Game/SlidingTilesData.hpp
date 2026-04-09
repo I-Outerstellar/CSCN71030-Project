@@ -1,7 +1,7 @@
 ////////////////////////////////////////////////////////////////////////////////
 ///
 /// @file		SlidingTilesData.hpp
-/// @brief		File containing data for a Sliding Tiles game.
+/// @brief		File containing a namespace data for a Sliding Tiles game.
 /// @details	This file contains a namespace with external links to data that change and persist 
 ///				during a Sliding Tiles game.
 /// @author		Rajdeep Chowdhury
