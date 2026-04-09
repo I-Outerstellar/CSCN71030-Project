@@ -1,7 +1,7 @@
 ////////////////////////////////////////////////////////////////////////////////
 ///
 /// @file		Board.hpp
-/// @brief		File containing a @c Board class.
+/// @brief		File containing a @ref Board class.
 /// @details	This file contains a class representing a board for any game, with
 ///				the declaration of its method and attributes initialized.
 /// @author		Rajdeep Chowdhury
