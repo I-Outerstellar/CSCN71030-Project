@@ -1,0 +1,53 @@
+\doxysection{Board.\+cpp}
+\hypertarget{_board_8cpp_source}{}\label{_board_8cpp_source}\index{Board.cpp@{Board.cpp}}
+\doxymbox{\hyperlink{_board_8cpp}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{_board_8cpp_source_l00001}00001\ }
+\DoxyCodeLine{\Hypertarget{_board_8cpp_source_l00015}00015\ \textcolor{preprocessor}{\#include\ "{}\doxymbox{\hyperlink{_board_8hpp}{Board.hpp}}"{}}}
+\DoxyCodeLine{\Hypertarget{_board_8cpp_source_l00016}00016\ \textcolor{preprocessor}{\#include\ "{}\doxymbox{\hyperlink{_sliding_tiles_enums_8hpp}{SlidingTilesEnums.hpp}}"{}}}
+\DoxyCodeLine{\Hypertarget{_board_8cpp_source_l00017}00017\ }
+\DoxyCodeLine{\Hypertarget{_board_8cpp_source_l00018}\doxymbox{\hyperlink{class_board_aa3104072ed9b8e9f928b9311a5b62914}{00018}}\ \doxymbox{\hyperlink{class_board_aa3104072ed9b8e9f928b9311a5b62914}{Board::Board}}()\ noexcept\ \{\}}
+\DoxyCodeLine{\Hypertarget{_board_8cpp_source_l00019}00019\ }
+\DoxyCodeLine{\Hypertarget{_board_8cpp_source_l00020}\doxymbox{\hyperlink{class_board_ade9b0590bab4a25ee523ad8aecb6c7d2}{00020}}\ \doxymbox{\hyperlink{class_board_aa3104072ed9b8e9f928b9311a5b62914}{Board::Board}}(\doxymbox{\hyperlink{namespace_sliding_tiles_enums_ad28b6f37d88062f1b6e092bcb5a26047}{SlidingTilesEnums::Difficulty}}\ difficulty)\ \textcolor{keyword}{noexcept}\ \{}
+\DoxyCodeLine{\Hypertarget{_board_8cpp_source_l00021}00021\ \ \ \ \ \textcolor{keywordtype}{int}\ size\ =\ \textcolor{keyword}{static\_cast\ <}\textcolor{keywordtype}{int}\textcolor{keyword}{>}\ (difficulty);\ \textcolor{comment}{//Convert\ the\ enum\ into\ the\ board\ size}}
+\DoxyCodeLine{\Hypertarget{_board_8cpp_source_l00022}00022\ }
+\DoxyCodeLine{\Hypertarget{_board_8cpp_source_l00023}00023\ \ \ \ \ \textcolor{comment}{//Build\ the\ board}}
+\DoxyCodeLine{\Hypertarget{_board_8cpp_source_l00024}00024\ \ \ \ \ \doxymbox{\hyperlink{class_board_a8b944be9a66f4d25b081bcc37731ee62}{board}}.resize(size);}
+\DoxyCodeLine{\Hypertarget{_board_8cpp_source_l00025}00025\ \ \ \ \ \textcolor{keywordtype}{int}\ counter\ =\ 1;}
+\DoxyCodeLine{\Hypertarget{_board_8cpp_source_l00026}00026\ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ col\ =\ 0;\ col\ <\ size;\ col++)\ \{}
+\DoxyCodeLine{\Hypertarget{_board_8cpp_source_l00027}00027\ \ \ \ \ \ \ \ \ \doxymbox{\hyperlink{class_board_a8b944be9a66f4d25b081bcc37731ee62}{board}}.at(col).resize(size);}
+\DoxyCodeLine{\Hypertarget{_board_8cpp_source_l00028}00028\ }
+\DoxyCodeLine{\Hypertarget{_board_8cpp_source_l00029}00029\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ row\ =\ 0;\ row\ <\ size;\ row++)\ \{}
+\DoxyCodeLine{\Hypertarget{_board_8cpp_source_l00030}00030\ \ \ \ \ \ \ \ \ \ \ \ \ \doxymbox{\hyperlink{class_board_a8b944be9a66f4d25b081bcc37731ee62}{board}}.at(col).at(row)\ =\ counter;}
+\DoxyCodeLine{\Hypertarget{_board_8cpp_source_l00031}00031\ \ \ \ \ \ \ \ \ \ \ \ \ counter++;}
+\DoxyCodeLine{\Hypertarget{_board_8cpp_source_l00032}00032\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_board_8cpp_source_l00033}00033\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_board_8cpp_source_l00034}00034\ \}}
+\DoxyCodeLine{\Hypertarget{_board_8cpp_source_l00035}00035\ }
+\DoxyCodeLine{\Hypertarget{_board_8cpp_source_l00036}\doxymbox{\hyperlink{class_board_ae79027074c6db2fa29b0f62570aee7b8}{00036}}\ \textcolor{keywordtype}{bool}\ \doxymbox{\hyperlink{class_board_ae79027074c6db2fa29b0f62570aee7b8}{Board::hasEmptyRow}}()\ const\ noexcept\ \{}
+\DoxyCodeLine{\Hypertarget{_board_8cpp_source_l00037}00037\ \ \ \ \ \textcolor{keywordflow}{if}\ (this-\/>\doxymbox{\hyperlink{class_board_a8b944be9a66f4d25b081bcc37731ee62}{board}}.size()\ <=\ 0)\ \textcolor{keywordflow}{return}\ \textcolor{keyword}{true};\ \textcolor{comment}{//Check\ if\ board\ itself\ is\ empty}}
+\DoxyCodeLine{\Hypertarget{_board_8cpp_source_l00038}00038\ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ i\ =\ 0;\ i\ <\ \doxymbox{\hyperlink{class_board_a8b944be9a66f4d25b081bcc37731ee62}{board}}.size();\ i++)\ \{\ \textcolor{comment}{//Check\ each\ row\ for\ an\ empty\ row}}
+\DoxyCodeLine{\Hypertarget{_board_8cpp_source_l00039}00039\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (\doxymbox{\hyperlink{class_board_a8b944be9a66f4d25b081bcc37731ee62}{board}}.at(i).size()\ <=\ 0)\ \textcolor{keywordflow}{return}\ \textcolor{keyword}{true};}
+\DoxyCodeLine{\Hypertarget{_board_8cpp_source_l00040}00040\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_board_8cpp_source_l00041}00041\ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{false};}
+\DoxyCodeLine{\Hypertarget{_board_8cpp_source_l00042}00042\ \}}
+\DoxyCodeLine{\Hypertarget{_board_8cpp_source_l00043}00043\ }
+\DoxyCodeLine{\Hypertarget{_board_8cpp_source_l00044}\doxymbox{\hyperlink{class_board_ab73d3649216011f53d3d292f907f5fdf}{00044}}\ std::vector<size\_t>\&\ \doxymbox{\hyperlink{class_board_abcf5a89b16aad1d29a60862f06fcea86}{Board::access}}(\textcolor{keywordtype}{size\_t}\ row)\ \{}
+\DoxyCodeLine{\Hypertarget{_board_8cpp_source_l00045}00045\ \ \ \ \ \textcolor{keywordflow}{return}\ this-\/>\doxymbox{\hyperlink{class_board_a8b944be9a66f4d25b081bcc37731ee62}{board}}.at(row);}
+\DoxyCodeLine{\Hypertarget{_board_8cpp_source_l00046}00046\ \}}
+\DoxyCodeLine{\Hypertarget{_board_8cpp_source_l00047}00047\ }
+\DoxyCodeLine{\Hypertarget{_board_8cpp_source_l00048}\doxymbox{\hyperlink{class_board_abcf5a89b16aad1d29a60862f06fcea86}{00048}}\ \textcolor{keywordtype}{size\_t}\&\ \doxymbox{\hyperlink{class_board_abcf5a89b16aad1d29a60862f06fcea86}{Board::access}}(\textcolor{keywordtype}{size\_t}\ row,\ \textcolor{keywordtype}{size\_t}\ column)\ \{}
+\DoxyCodeLine{\Hypertarget{_board_8cpp_source_l00049}00049\ \ \ \ \ \textcolor{keywordflow}{return}\ this-\/>\doxymbox{\hyperlink{class_board_abcf5a89b16aad1d29a60862f06fcea86}{access}}(row).at(column);}
+\DoxyCodeLine{\Hypertarget{_board_8cpp_source_l00050}00050\ \}}
+\DoxyCodeLine{\Hypertarget{_board_8cpp_source_l00051}00051\ }
+\DoxyCodeLine{\Hypertarget{_board_8cpp_source_l00052}\doxymbox{\hyperlink{class_board_af63c0e91a226e80489e4c856cc12a783}{00052}}\ \textcolor{keywordtype}{bool}\ \doxymbox{\hyperlink{class_board_a25f2fb64e2a4ef6c3f3b16ad8b3db8b7}{Board::canAccess}}(\textcolor{keywordtype}{size\_t}\ row)\ \textcolor{keyword}{const}\ \textcolor{keyword}{noexcept}\ \{}
+\DoxyCodeLine{\Hypertarget{_board_8cpp_source_l00053}00053\ \ \ \ \ \textcolor{keywordflow}{return}\ (row\ >=\ 0\ \&\&\ row\ <\ this-\/>\doxymbox{\hyperlink{class_board_a8b944be9a66f4d25b081bcc37731ee62}{board}}.size());}
+\DoxyCodeLine{\Hypertarget{_board_8cpp_source_l00054}00054\ \}}
+\DoxyCodeLine{\Hypertarget{_board_8cpp_source_l00055}00055\ }
+\DoxyCodeLine{\Hypertarget{_board_8cpp_source_l00056}\doxymbox{\hyperlink{class_board_a25f2fb64e2a4ef6c3f3b16ad8b3db8b7}{00056}}\ \textcolor{keywordtype}{bool}\ \doxymbox{\hyperlink{class_board_a25f2fb64e2a4ef6c3f3b16ad8b3db8b7}{Board::canAccess}}(\textcolor{keywordtype}{size\_t}\ row,\ \textcolor{keywordtype}{size\_t}\ column)\ \textcolor{keyword}{const}\ \textcolor{keyword}{noexcept}\ \{}
+\DoxyCodeLine{\Hypertarget{_board_8cpp_source_l00057}00057\ \ \ \ \ \textcolor{keywordflow}{if}\ (!\doxymbox{\hyperlink{class_board_a25f2fb64e2a4ef6c3f3b16ad8b3db8b7}{canAccess}}(row))\ \textcolor{keywordflow}{return}\ \textcolor{keyword}{false};}
+\DoxyCodeLine{\Hypertarget{_board_8cpp_source_l00058}00058\ \ \ \ \ \textcolor{keywordtype}{size\_t}\ size\ =\ this-\/>\doxymbox{\hyperlink{class_board_a8b944be9a66f4d25b081bcc37731ee62}{board}}.at(row).size();}
+\DoxyCodeLine{\Hypertarget{_board_8cpp_source_l00059}00059\ \ \ \ \ \textcolor{keywordflow}{return}\ (column\ >=\ 0\ \&\&\ column\ <\ size);}
+\DoxyCodeLine{\Hypertarget{_board_8cpp_source_l00060}00060\ \}}
+
+\end{DoxyCode}

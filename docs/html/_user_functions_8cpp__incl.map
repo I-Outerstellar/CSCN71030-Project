@@ -1,0 +1,21 @@
+<map id="UserFunctions.cpp" name="UserFunctions.cpp">
+<area shape="rect" id="Node000001" title="File containing the initialization of the UserFunctions functions." alt="" coords="645,5,777,32"/>
+<area shape="rect" id="Node000002" href="$_user_functions_8hpp.html" title="File containing a namespace with declared functions that the user interacts with." alt="" coords="5,80,137,107"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="642,27,430,50,153,82,152,77,430,45,648,25"/>
+<area shape="rect" id="Node000003" href="$_user_functions_helpers_8hpp.html" title="File containing a namespace of declared helper functions and a constant expression for UserFunctions." alt="" coords="160,80,336,107"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="642,32,345,80,344,74,647,29"/>
+<area shape="rect" id="Node000004" href="$_sliding_tiles_functions_8hpp.html" title="File containing a namespace with declared functions used during a game of Sliding Tiles." alt="" coords="360,80,531,107"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="667,32,507,78,506,73,662,33"/>
+<area shape="rect" id="Node000006" href="$_sliding_tiles_data_8hpp.html" title="File containing a namespace data for a Sliding Tiles game." alt="" coords="555,80,696,107"/>
+<area shape="poly" id="edge5_Node000001_Node000006" title=" " alt="" coords="699,31,653,72,650,68,694,34"/>
+<area shape="rect" id="Node000007" href="$_sliding_tiles_enums_8hpp.html" title="File containing a namespace with enum classes for a Sliding Tiles game." alt="" coords="720,80,875,107"/>
+<area shape="poly" id="edge6_Node000001_Node000007" title=" " alt="" coords="727,30,774,71,769,69,725,35"/>
+<area shape="rect" id="Node000008" title=" " alt="" coords="899,80,952,107"/>
+<area shape="poly" id="edge7_Node000001_Node000008" title=" " alt="" coords="749,30,887,78,882,78,748,35"/>
+<area shape="rect" id="Node000009" title=" " alt="" coords="977,80,1048,107"/>
+<area shape="poly" id="edge8_Node000001_Node000009" title=" " alt="" coords="765,30,964,79,959,79,765,35"/>
+<area shape="rect" id="Node000010" title=" " alt="" coords="1072,80,1147,107"/>
+<area shape="poly" id="edge9_Node000001_Node000010" title=" " alt="" coords="777,27,903,48,1060,79,1055,80,902,53,777,33"/>
+<area shape="rect" id="Node000005" title=" " alt="" coords="417,155,474,181"/>
+<area shape="poly" id="edge4_Node000004_Node000005" title=" " alt="" coords="448,105,448,141,444,137,444,109"/>
+</map>

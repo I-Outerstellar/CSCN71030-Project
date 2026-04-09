@@ -2,7 +2,7 @@
 ///
 /// @file		Board.cpp
 /// @brief		File containing the initialization of all @ref Board methods.
-/// @details	This file contains the initialization of all @ref Board methods found in
+/// @details	This file contains the initialization of all @ref Board methods declared in
 ///				@ref Board.hpp.
 /// @author		Rajdeep Chowdhury
 /// @author		Raj Bahadur Bhat

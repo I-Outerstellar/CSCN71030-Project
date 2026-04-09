@@ -1,0 +1,273 @@
+\doxysection{Board Class Reference}
+\hypertarget{class_board}{}\label{class_board}\index{Board@{Board}}
+
+
+A class that represents a board.  
+
+
+
+
+{\ttfamily \+\#include $<$Board.\+hpp$>$}
+
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\doxymbox{\hyperlink{class_board_aa3104072ed9b8e9f928b9311a5b62914}{Board}} () noexcept
+\begin{DoxyCompactList}\small\item\em {\ttfamily \doxylink{class_board}{Board}} object constructor. \end{DoxyCompactList}\item 
+\doxymbox{\hyperlink{class_board_ade9b0590bab4a25ee523ad8aecb6c7d2}{Board}} (\doxymbox{\hyperlink{namespace_sliding_tiles_enums_ad28b6f37d88062f1b6e092bcb5a26047}{Sliding\+Tiles\+Enums::\+\+Difficulty}} difficulty) noexcept
+\begin{DoxyCompactList}\small\item\em {\ttfamily \doxylink{class_board}{Board}} object constructor. \end{DoxyCompactList}\item 
+bool \doxymbox{\hyperlink{class_board_ae79027074c6db2fa29b0f62570aee7b8}{has\+Empty\+Row}} () const noexcept
+\begin{DoxyCompactList}\small\item\em Checks if the board has an empty row or is empty. \end{DoxyCompactList}\item 
+bool \doxymbox{\hyperlink{class_board_a25f2fb64e2a4ef6c3f3b16ad8b3db8b7}{can\+Access}} (size\+\_\+t row, size\+\_\+t column) const noexcept
+\begin{DoxyCompactList}\small\item\em Checks if a {\ttfamily \doxylink{class_board}{Board}} index can be accessed. Index starts at 0. \end{DoxyCompactList}\item 
+bool \doxymbox{\hyperlink{class_board_af63c0e91a226e80489e4c856cc12a783}{can\+Access}} (size\+\_\+t row) const noexcept
+\begin{DoxyCompactList}\small\item\em Checks if a {\ttfamily \doxylink{class_board}{Board}} row can be accessed. Index starts at 0. \end{DoxyCompactList}\item 
+size\+\_\+t \& \doxymbox{\hyperlink{class_board_abcf5a89b16aad1d29a60862f06fcea86}{access}} (size\+\_\+t row, size\+\_\+t column)
+\begin{DoxyCompactList}\small\item\em Accesses an integer in the board. Indexing starts at 0. \end{DoxyCompactList}\item 
+std::\+vector$<$ size\+\_\+t $>$ \& \doxymbox{\hyperlink{class_board_ab73d3649216011f53d3d292f907f5fdf}{access}} (size\+\_\+t row)
+\begin{DoxyCompactList}\small\item\em Accesses a row in the board. Indexing starts at 0. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Protected Attributes}
+\begin{DoxyCompactItemize}
+\item 
+std::\+vector$<$ std::\+vector$<$ size\+\_\+t $>$ $>$ \doxymbox{\hyperlink{class_board_a8b944be9a66f4d25b081bcc37731ee62}{board}} \{\}
+\begin{DoxyCompactList}\small\item\em The data representation of the board. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+A class that represents a board for any game that can be represented by numbered tiles. \begin{DoxyAuthor}{Author}
+Rajdeep Chowdhury 
+\end{DoxyAuthor}
+\begin{DoxyDate}{Date}
+8.\+04.\+2026 
+\end{DoxyDate}
+
+
+Definition at line \doxymbox{\hyperlink{_board_8hpp_source_l00026}{26}} of file \doxymbox{\hyperlink{_board_8hpp_source}{Board.\+hpp}}.
+
+
+
+\label{doc-constructors}
+\Hypertarget{class_board_doc-constructors}
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{class_board_aa3104072ed9b8e9f928b9311a5b62914}\index{Board@{Board}!Board@{Board}}
+\index{Board@{Board}!Board@{Board}}
+\doxysubsubsection{\texorpdfstring{Board()}{Board()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily \label{class_board_aa3104072ed9b8e9f928b9311a5b62914} 
+Board::\+\+Board (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [noexcept]}}
+
+The default constructor for the {\ttfamily \doxylink{class_board}{Board}} that creates an empty, sizeless board. \begin{DoxyAuthor}{Author}
+Rajdeep Chowdhury 
+\end{DoxyAuthor}
+\begin{DoxyDate}{Date}
+8.\+04.\+2026 
+\end{DoxyDate}
+
+
+Definition at line \doxymbox{\hyperlink{_board_8cpp_source_l00018}{18}} of file \doxymbox{\hyperlink{_board_8cpp_source}{Board.\+cpp}}.
+
+\Hypertarget{class_board_ade9b0590bab4a25ee523ad8aecb6c7d2}\index{Board@{Board}!Board@{Board}}
+\index{Board@{Board}!Board@{Board}}
+\doxysubsubsection{\texorpdfstring{Board()}{Board()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily \label{class_board_ade9b0590bab4a25ee523ad8aecb6c7d2} 
+Board::\+\+Board (\begin{DoxyParamCaption}\item[{\doxymbox{\hyperlink{namespace_sliding_tiles_enums_ad28b6f37d88062f1b6e092bcb5a26047}{Sliding\+Tiles\+Enums::\+\+Difficulty}}}]{difficulty}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [noexcept]}}
+
+The parameterized constructor for the {\ttfamily \doxylink{class_board}{Board}} that creates a board based on the difficulty passed through for Sliding Tiles. 
+\begin{DoxyParams}[1]{Parameters}
+\doxymbox{\texttt{in}}  & {\em difficulty} & The difficulty of the Sliding Tiles game desired. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyAuthor}{Author}
+Raj Bahadur Bhat 
+\end{DoxyAuthor}
+\begin{DoxyDate}{Date}
+8.\+04.\+2026
+\end{DoxyDate}
+\begin{DoxySeeAlso}{See also}
+\doxylink{namespace_sliding_tiles_enums}{Sliding\+Tiles\+Enums} 
+\end{DoxySeeAlso}
+
+
+Definition at line \doxymbox{\hyperlink{_board_8cpp_source_l00020}{20}} of file \doxymbox{\hyperlink{_board_8cpp_source}{Board.\+cpp}}.
+
+
+
+\label{doc-func-members}
+\Hypertarget{class_board_doc-func-members}
+\doxysubsection{Member Function Documentation}
+\Hypertarget{class_board_ab73d3649216011f53d3d292f907f5fdf}\index{Board@{Board}!access@{access}}
+\index{access@{access}!Board@{Board}}
+\doxysubsubsection{\texorpdfstring{access()}{access()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily \label{class_board_ab73d3649216011f53d3d292f907f5fdf} 
+std::\+vector$<$ size\+\_\+t $>$ \& Board::\+access (\begin{DoxyParamCaption}\item[{size\+\_\+t}]{row}{}\end{DoxyParamCaption})}
+
+Returns a reference to the size\+\_\+t row vector at the specified {\ttfamily row} index. 
+\begin{DoxyParams}[1]{Parameters}
+\doxymbox{\texttt{in}}  & {\em row} & The row of the board being accessed \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+A reference to the row vector on the board. 
+\end{DoxyReturn}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em std::\+out\+\_\+of\+\_\+range} & If the row being accessed does not exist. \\
+\hline
+\end{DoxyExceptions}
+\begin{DoxyAuthor}{Author}
+Rajdeep Chowdhury 
+\end{DoxyAuthor}
+\begin{DoxyDate}{Date}
+8.\+04.\+2026
+\end{DoxyDate}
+\begin{DoxyNote}{Note}
+The user should use the can\+Access(size\+\_\+t) method before using this method to avoid the exception being thrown. 
+\end{DoxyNote}
+\begin{DoxySeeAlso}{See also}
+can\+Access(size\+\_\+t) 
+\end{DoxySeeAlso}
+
+
+Definition at line \doxymbox{\hyperlink{_board_8cpp_source_l00044}{44}} of file \doxymbox{\hyperlink{_board_8cpp_source}{Board.\+cpp}}.
+
+\Hypertarget{class_board_abcf5a89b16aad1d29a60862f06fcea86}\index{Board@{Board}!access@{access}}
+\index{access@{access}!Board@{Board}}
+\doxysubsubsection{\texorpdfstring{access()}{access()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily \label{class_board_abcf5a89b16aad1d29a60862f06fcea86} 
+size\+\_\+t \& Board::\+access (\begin{DoxyParamCaption}\item[{size\+\_\+t}]{row}{, }\item[{size\+\_\+t}]{column}{}\end{DoxyParamCaption})}
+
+Returns a reference to the size\+\_\+t integer at the specified {\ttfamily row} and {\ttfamily column} index. 
+\begin{DoxyParams}[1]{Parameters}
+\doxymbox{\texttt{in}}  & {\em row} & The row of the board being accessed \\
+\hline
+\doxymbox{\texttt{in}}  & {\em column} & The column of the board being accessed. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+A reference to the size\+\_\+t integer on the board. 
+\end{DoxyReturn}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em std::\+out\+\_\+of\+\_\+range} & If the row or column being accessed does not exist. \\
+\hline
+\end{DoxyExceptions}
+\begin{DoxyAuthor}{Author}
+Rajdeep Chowdhury 
+\end{DoxyAuthor}
+\begin{DoxyDate}{Date}
+8.\+04.\+2026
+\end{DoxyDate}
+\begin{DoxyNote}{Note}
+The user should use the can\+Access(size\+\_\+t, size\+\_\+t) method before using this method to avoid the exception being thrown. 
+\end{DoxyNote}
+\begin{DoxySeeAlso}{See also}
+can\+Access(size\+\_\+t, size\+\_\+t) 
+\end{DoxySeeAlso}
+
+
+Definition at line \doxymbox{\hyperlink{_board_8cpp_source_l00048}{48}} of file \doxymbox{\hyperlink{_board_8cpp_source}{Board.\+cpp}}.
+
+\Hypertarget{class_board_af63c0e91a226e80489e4c856cc12a783}\index{Board@{Board}!canAccess@{canAccess}}
+\index{canAccess@{canAccess}!Board@{Board}}
+\doxysubsubsection{\texorpdfstring{canAccess()}{canAccess()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily \label{class_board_af63c0e91a226e80489e4c856cc12a783} 
+bool Board::\+can\+Access (\begin{DoxyParamCaption}\item[{size\+\_\+t}]{row}{}\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [noexcept]}}
+
+Checks if a {\ttfamily \doxylink{class_board}{Board}} row can exist in accordance to the size of the vector representing the board rows. Index starts at 0. 
+\begin{DoxyParams}[1]{Parameters}
+\doxymbox{\texttt{in}}  & {\em row} & The row of the board being accessed. \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyRetVals}{Return values}
+{\em true} & If the row exists. ~\newline
+ \\
+\hline
+{\em false} & If the row does not exist. \\
+\hline
+\end{DoxyRetVals}
+\begin{DoxyAuthor}{Author}
+Rajdeep Chowdhury 
+\end{DoxyAuthor}
+\begin{DoxyDate}{Date}
+8.\+04.\+2026 
+\end{DoxyDate}
+
+
+Definition at line \doxymbox{\hyperlink{_board_8cpp_source_l00052}{52}} of file \doxymbox{\hyperlink{_board_8cpp_source}{Board.\+cpp}}.
+
+\Hypertarget{class_board_a25f2fb64e2a4ef6c3f3b16ad8b3db8b7}\index{Board@{Board}!canAccess@{canAccess}}
+\index{canAccess@{canAccess}!Board@{Board}}
+\doxysubsubsection{\texorpdfstring{canAccess()}{canAccess()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily \label{class_board_a25f2fb64e2a4ef6c3f3b16ad8b3db8b7} 
+bool Board::\+can\+Access (\begin{DoxyParamCaption}\item[{size\+\_\+t}]{row}{, }\item[{size\+\_\+t}]{column}{}\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [noexcept]}}
+
+Checks if a {\ttfamily \doxylink{class_board}{Board}} index can exist in accordance to the size of the vectors representing the board. Index starts at 0. 
+\begin{DoxyParams}[1]{Parameters}
+\doxymbox{\texttt{in}}  & {\em row} & The row of the board being accessed. \\
+\hline
+\doxymbox{\texttt{in}}  & {\em column} & The coloum of the board being accessed. \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyRetVals}{Return values}
+{\em true} & If the index exists. \\
+\hline
+{\em false} & If the index does not exist. \\
+\hline
+\end{DoxyRetVals}
+\begin{DoxyAuthor}{Author}
+Rajdeep Chowdhury 
+\end{DoxyAuthor}
+\begin{DoxyDate}{Date}
+8.\+04.\+2026 
+\end{DoxyDate}
+
+
+Definition at line \doxymbox{\hyperlink{_board_8cpp_source_l00056}{56}} of file \doxymbox{\hyperlink{_board_8cpp_source}{Board.\+cpp}}.
+
+\Hypertarget{class_board_ae79027074c6db2fa29b0f62570aee7b8}\index{Board@{Board}!hasEmptyRow@{hasEmptyRow}}
+\index{hasEmptyRow@{hasEmptyRow}!Board@{Board}}
+\doxysubsubsection{\texorpdfstring{hasEmptyRow()}{hasEmptyRow()}}
+{\footnotesize\ttfamily \label{class_board_ae79027074c6db2fa29b0f62570aee7b8} 
+bool Board::\+has\+Empty\+Row (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [noexcept]}}
+
+Checks if one of the vector sizes of a board row is 0. Also checks for if the board itself has no rows. 
+\begin{DoxyRetVals}{Return values}
+{\em true} & If an empty row exists. \\
+\hline
+{\em true} & If the board itself is empty. \\
+\hline
+{\em false} & If neither condition is true. \\
+\hline
+\end{DoxyRetVals}
+\begin{DoxyAuthor}{Author}
+Rajdeep Chowdhury 
+\end{DoxyAuthor}
+\begin{DoxyDate}{Date}
+8.\+04.\+2026 
+\end{DoxyDate}
+
+
+Definition at line \doxymbox{\hyperlink{_board_8cpp_source_l00036}{36}} of file \doxymbox{\hyperlink{_board_8cpp_source}{Board.\+cpp}}.
+
+
+
+\label{doc-variable-members}
+\Hypertarget{class_board_doc-variable-members}
+\doxysubsection{Member Data Documentation}
+\Hypertarget{class_board_a8b944be9a66f4d25b081bcc37731ee62}\index{Board@{Board}!board@{board}}
+\index{board@{board}!Board@{Board}}
+\doxysubsubsection{\texorpdfstring{board}{board}}
+{\footnotesize\ttfamily \label{class_board_a8b944be9a66f4d25b081bcc37731ee62} 
+std::\+vector$<$std::\+vector$<$size\+\_\+t$>$ $>$ Board::\+board \{\}\hspace{0.3cm}{\ttfamily [protected]}}
+
+The vector of vectors of size\+\_\+t which represents a board. 
+
+Definition at line \doxymbox{\hyperlink{_board_8hpp_source_l00030}{30}} of file \doxymbox{\hyperlink{_board_8hpp_source}{Board.\+hpp}}.
+
+
+
+The documentation for this class was generated from the following files:\+\begin{DoxyCompactItemize}
+\item 
+\doxymbox{\hyperlink{_board_8hpp}{Board.\+hpp}}\item 
+\doxymbox{\hyperlink{_board_8cpp}{Board.\+cpp}}\end{DoxyCompactItemize}

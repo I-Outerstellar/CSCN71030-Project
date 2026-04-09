@@ -21,8 +21,8 @@ namespace SlidingTilesEnums {
 }
 
 /// @brief   Namespace containing data for a Sliding Tiles game.
-/// @details Namespace containing data that must change and persist between functions during a
-///			 game of Sliding Tiles
+/// @details Namespace containing data that changes and persists between functions during a
+///			 game of Sliding Tiles.
 /// @author  Rajdeep Chowdhury
 /// @date    8.04.2026
 namespace SlidingTilesData {

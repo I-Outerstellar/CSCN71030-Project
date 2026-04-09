@@ -1,0 +1,11 @@
+<map id="Board.hpp" name="Board.hpp">
+<area shape="rect" id="Node000001" title="File containing a Board class." alt="" coords="229,5,310,32"/>
+<area shape="rect" id="Node000002" href="$_board_8cpp.html" title="File containing the initialization of all Board methods." alt="" coords="5,80,86,107"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="217,40,86,82,84,77,216,35"/>
+<area shape="rect" id="Node000003" href="$_sliding_tiles_data_8cpp.html" title="File containing sliding tiles variable initializations." alt="" coords="110,80,251,107"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="245,41,197,82,194,77,239,43"/>
+<area shape="rect" id="Node000004" href="$_sliding_tiles_functions_8cpp.html" title="File containing the initialization of the SlidingTilesFunctions functions." alt="" coords="275,80,445,107"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="298,39,347,80,342,79,296,44"/>
+<area shape="rect" id="Node000005" href="$_user_functions_helpers_8cpp.html" title="File containing the initialization of the UserFunctionsHelpers functions." alt="" coords="469,80,646,107"/>
+<area shape="poly" id="edge4_Node000001_Node000005" title=" " alt="" coords="325,31,509,79,504,80,325,36"/>
+</map>
