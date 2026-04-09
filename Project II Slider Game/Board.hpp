@@ -14,6 +14,7 @@
 #include <vector>
 
 //Forward declaration
+
 namespace SlidingTilesEnums {
 	enum class Difficulty;
 }

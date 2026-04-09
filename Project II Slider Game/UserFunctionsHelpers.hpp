@@ -12,11 +12,18 @@
 ////////////////////////////////////////////////////////////////////////////////
 #pragma once
 
-//Forward Declaration
+//Forward declaration
+
 namespace SlidingTilesEnums {
 	enum class Direction;
 }
 
+/// @brief   Namespace containing helper functions used by @c UserFunctions.
+/// @details Namespace containing helper functions that the functions of @ref UserFunctions use.
+/// @author  Rajdeep Chowdhury
+/// @date    8.04.2026
+/// 
+/// @see	 UserFunctions
 namespace UserFunctionsHelpers {
 	/// @brief   Initializes data to start a game of Sliding Tiles.
 	/// @details Uses functions from @ref SlidingTilesFunctions to initialize the data required to start a game

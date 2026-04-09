@@ -2,6 +2,7 @@
 #include "SlidingTilesFunctionsHelpers.hpp"
 #include "SlidingTilesData.hpp"
 #include "SlidingTilesEnums.hpp"
+#include "Board.hpp"
 #include <vector>
 #include <fstream>
 #include <algorithm>

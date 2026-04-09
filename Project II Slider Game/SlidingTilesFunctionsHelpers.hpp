@@ -14,12 +14,13 @@
 #pragma once
 
 //Forward declaration
+
 namespace SlidingTilesEnums {
 	enum class Direction;
 }
 
-/// @brief   Namespace containing helper functions and a constant expression used by @ref SlidingTilesFunctions.
-/// @details namespace of helper functions and a @c constexpr integer that the functions of
+/// @brief   Namespace containing helper functions and a constant expression used by @c SlidingTilesFunctions.
+/// @details Namespace of helper functions and a @c constexpr integer that the functions of
 ///			 @ref SlidingTilesFunctions use.
 /// @author  Rajdeep Chowdhury
 /// @date    8.04.2026

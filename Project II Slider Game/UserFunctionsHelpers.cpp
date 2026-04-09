@@ -11,6 +11,7 @@
 /// @see		SlidingTilesFunctions.hpp
 ///	@see		SlidingTilesData.hpp
 /// @see		SlidingTilesEnums.hpp
+/// @see		Board.hpp
 /// @see		UserFunctions
 ///
 ////////////////////////////////////////////////////////////////////////////////
@@ -18,6 +19,7 @@
 #include "SlidingTilesFunctions.hpp"
 #include "SlidingTilesData.hpp"
 #include "SlidingTilesEnums.hpp"
+#include "Board.hpp"
 #include <iostream>
 
 namespace UserFunctionsHelpers {

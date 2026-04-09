@@ -13,6 +13,7 @@
 #pragma once
 
 //Forward declarations
+
 class Board;
 
 namespace SlidingTilesEnums {
