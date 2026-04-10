@@ -7,7 +7,7 @@
 namespace SlidingTilesScenes {
     namespace LeaderboardScene {
         // Creates and returns the leaderboard scene
-        GameObjects::GameScene& create();
+        GameObjects::GameScene* create();
 
 
         // Set callback for back button

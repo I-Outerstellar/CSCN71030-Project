@@ -3,6 +3,8 @@
 #include "include/GameControllers.hpp"
 #include "../Project II Slider Game/SlidingTilesData.hpp"
 #include "../Project II Slider Game/SlidingTilesFunctions.hpp"
+#include <chrono>
+#include "ScenesContainer.hpp"
 #include <unordered_map>
 #include <iostream>
 
@@ -21,6 +23,8 @@ namespace {
 	std::shared_ptr<GameObjects::RectangleButton> rightButton;
 	std::shared_ptr<GameObjects::TextBox> slideCounter
 		= GameObjects::GameShape::create<GameObjects::TextBox>(font, 30, 0);
+
+	bool cleared = true;
 }
 
 namespace {
@@ -41,10 +45,13 @@ namespace {
 			slideCounter->text.setFillColor(sf::Color(225, 225, 0));
 			slideCounter->changeText("You win!");
 			StateControl::Modifiers::disableInputAccepting(5000);
-			static std::function<void()> waitOnTimer = []() {
+			SlidingTilesFunctions::writeScore(SlidingTilesData::currentDifficulty);
+			static std::function<void()> waitOnTimer;
+			waitOnTimer = []() {
+				//std::cout << StateControl::Accessors::canAcceptInput() << '\n';
 				if (StateControl::Accessors::canAcceptInput()) {
+					SceneControl::switchScene(*ScenesContainer::selectDiffScene);
 					scene.removeAfterDrawFunction(waitOnTimer);
-					//SceneControl::switchScene(to whatever screen)
 				}
 			};
 			scene.addAfterDrawFunction(waitOnTimer);
@@ -115,14 +122,19 @@ namespace {
 	}
 }
 
-void startGame(SlidingTilesEnums::Difficulty difficulty) {
-	SlidingTilesData::currentDifficulty = difficulty;
-	SlidingTilesFunctions::startGame(difficulty);
-	SlidingTilesFunctions::shuffle();
+void clear() {
+	if (cleared) return;
+	for (unsigned int i = 1; i < (divisor - 1) * (divisor - 1) + 1; i++) scene.remove(boardTiles.at(i));
+	scene.removeBeforeDrawFunction(updateButtonPos);
+	scene.remove(upButton).remove(downButton).remove(leftButton).remove(rightButton).remove(slideCounter);
+	boardTiles.clear();
 }
 
-GameObjects::GameScene& SlidingTilesScenes::GameplayScene::createGameplayScene() {
-	startGame(SlidingTilesEnums::Difficulty::HARD);
+
+GameObjects::GameScene* SlidingTilesScenes::GameplayScene::createGameplayScene() {
+	clear();
+	SlidingTilesFunctions::startGame(SlidingTilesData::currentDifficulty);
+	SlidingTilesFunctions::shuffle();
 	divisor = static_cast<unsigned int>(SlidingTilesData::currentDifficulty) + 1;
 	buttonSize = screenSize / divisor;
 
@@ -145,7 +157,7 @@ GameObjects::GameScene& SlidingTilesScenes::GameplayScene::createGameplayScene()
 			/*Create the numbered tile and assign the proper value*/
 			auto numberBox = GameObjects::GameShape::create<GameObjects::TextBox>(font, buttonSize / 10, 2);
 			size_t val = SlidingTilesData::board.access(i, j);
-			if ((i+1) * (j+1) == (divisor - 1) * (divisor - 1)) { //If it's the bottom right tile
+			if ((i + 1) * (j + 1) == (divisor - 1) * (divisor - 1)) { //If it's the bottom right tile
 				numberBox->changeText("Empty");
 				numberBox->setSize(sf::Vector2f(static_cast<float>(buttonSize), static_cast<float>(buttonSize)));
 				numberBox->setPosition(getBoardPosition(j, i));
@@ -161,20 +173,19 @@ GameObjects::GameScene& SlidingTilesScenes::GameplayScene::createGameplayScene()
 			scene.add(boardTiles.at(val));
 		}
 	}
-	
+
 	scene.addBeforeDrawFunction(updateButtonPos);
 	
 	scene.switchedFrom = [](GameObjects::GameScene& sceneAfter) {
 		/*Clear all tiles and functions*/
-		for (unsigned int i = 1; i < (divisor - 1) * (divisor - 1) + 1; i++) scene.remove(boardTiles.at(i));
-		scene.removeBeforeDrawFunction(updateButtonPos);
-		scene.remove(upButton).remove(downButton).remove(leftButton).remove(rightButton).remove(slideCounter);
-		boardTiles.clear();
+		clear();
+		cleared = true;
 		return true;
 	};
 
 	/*Add all buttons*/
 	scene.add(upButton).add(downButton).add(leftButton).add(rightButton).add(slideCounter);
 
-	return scene;
+	cleared = false;
+	return &scene;
 }

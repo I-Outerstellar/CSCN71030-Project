@@ -5,6 +5,6 @@
 
 namespace SlidingTilesScenes {
     namespace SelectDifficulty {
-        GameObjects::GameScene& setup();
+        GameObjects::GameScene* setup();
     };
 }

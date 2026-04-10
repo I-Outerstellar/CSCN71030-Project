@@ -205,6 +205,7 @@
     <ClInclude Include="GameplayScene.hpp" />
     <ClInclude Include="include\GameControllers.hpp" />
     <ClInclude Include="include\GameObjects.hpp" />
+    <ClInclude Include="ScenesContainer.hpp" />
     <ClInclude Include="SelectDifficulty.hpp" />
     <ClInclude Include="src\headers\EventControl.hpp" />
     <ClInclude Include="src\headers\GameButton.hpp" />

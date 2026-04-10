@@ -232,6 +232,7 @@
     <ClInclude Include="SelectDifficulty.hpp">
       <Filter>SlidingTiles\Scenes</Filter>
     </ClInclude>
+    <ClInclude Include="ScenesContainer.hpp" />
   </ItemGroup>
   <ItemGroup>
     <Image Include="assets\Green Circle of Basic.png">

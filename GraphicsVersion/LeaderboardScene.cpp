@@ -99,8 +99,8 @@ namespace SlidingTilesScenes {
             backButtonCallback = callback;
         }
 
-        GameScene& create() {
-            if (created) return scene;
+        GameScene* create() {
+            if (created) return &scene;
 
             // Get screen size
             float screenWidth = static_cast<float>(sf::VideoMode::getDesktopMode().size.x);
@@ -178,7 +178,7 @@ namespace SlidingTilesScenes {
             updateScores();
 
             created = true;
-            return scene;
+            return &scene;
         }
     }
 }
