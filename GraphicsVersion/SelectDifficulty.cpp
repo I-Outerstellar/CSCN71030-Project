@@ -90,7 +90,7 @@ GameScene* SelectDifficulty::setup() {
         SceneControl::switchScene(*ScenesContainer::leaderboardScene);
         };
 
-    quit = createButton("Quit", { 250, 600 });
+    quit = createButton("Quit", { 250, 650 });
 
     quit->onClick = [](sf::Mouse::Button mouseButton) {
         if (mouseButton != sf::Mouse::Button::Left) return;
