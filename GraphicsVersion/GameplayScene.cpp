@@ -23,6 +23,8 @@ namespace {
 	std::shared_ptr<GameObjects::RectangleButton> rightButton;
 	std::shared_ptr<GameObjects::TextBox> slideCounter
 		= GameObjects::GameShape::create<GameObjects::TextBox>(font, 30, 0);
+	std::shared_ptr<GameObjects::TextButton> quitButton
+		= GameObjects::GameButton::create<GameObjects::TextButton>(sf::Text(font, "QUIT"));;
 
 	bool cleared = true;
 }
@@ -126,7 +128,8 @@ void clear() {
 	if (cleared) return;
 	for (unsigned int i = 1; i < (divisor - 1) * (divisor - 1) + 1; i++) scene.remove(boardTiles.at(i));
 	scene.removeBeforeDrawFunction(updateButtonPos);
-	scene.remove(upButton).remove(downButton).remove(leftButton).remove(rightButton).remove(slideCounter);
+	scene.remove(upButton).remove(downButton).remove(leftButton).remove(rightButton).remove(slideCounter)
+		.remove(quitButton);
 	boardTiles.clear();
 }
 
@@ -142,12 +145,22 @@ GameObjects::GameScene* SlidingTilesScenes::GameplayScene::createGameplayScene()
 	slideCounter->setSize({ static_cast<float>(buttonSize * divisor), static_cast<float>(buttonSize / 2) });
 	slideCounter->changeText("Slides: 0");
 	slideCounter->setFillColor(sf::Color::Transparent);
+	slideCounter->text.setFillColor(sf::Color::White);
 
 	/*Create buttons*/
 	upButton = createDirectionButton(SlidingTilesEnums::Direction::UP);
 	downButton = createDirectionButton(SlidingTilesEnums::Direction::DOWN);
 	leftButton = createDirectionButton(SlidingTilesEnums::Direction::LEFT);
 	rightButton = createDirectionButton(SlidingTilesEnums::Direction::RIGHT);
+
+	quitButton->setSize({ static_cast<float>(buttonSize * divisor / 2), static_cast<float>(buttonSize / 4) });
+	quitButton->setFillColor(sf::Color::White);
+	quitButton->text.setFillColor(sf::Color::Black);
+	quitButton->setPosition(getBoardPosition(0, divisor - 1) + sf::Vector2f(buttonSize / 2, buttonSize / 8));
+	quitButton->onClick = [](sf::Mouse::Button button) {
+		if (button != sf::Mouse::Button::Left) return;
+		SceneControl::switchScene(*ScenesContainer::selectDiffScene);
+		};
 
 	/*Set the position of the top left tile*/
 	sf::Vector2f position = sf::Vector2f(static_cast<float>(buttonSize / 2), static_cast<float>(buttonSize / 2));
@@ -184,7 +197,7 @@ GameObjects::GameScene* SlidingTilesScenes::GameplayScene::createGameplayScene()
 	};
 
 	/*Add all buttons*/
-	scene.add(upButton).add(downButton).add(leftButton).add(rightButton).add(slideCounter);
+	scene.add(upButton).add(downButton).add(leftButton).add(rightButton).add(slideCounter).add(quitButton);
 
 	cleared = false;
 	return &scene;
