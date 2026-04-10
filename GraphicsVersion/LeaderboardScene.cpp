@@ -1,4 +1,5 @@
 #include "LeaderboardScene.hpp"
+#include "ScenesContainer.hpp"
 #include <iostream>
 #include <string>
 #include <vector>
@@ -162,6 +163,10 @@ namespace SlidingTilesScenes {
             }
 
             // ========== BACK BUTTON ==========
+            SlidingTilesScenes::LeaderboardScene::setBackButtonCallback([] {
+                std::cout << "Back button pressed - switching to gameplay!" << std::endl;
+                SceneControl::switchScene(*ScenesContainer::selectDiffScene);
+            });
             backButton = createButton("BACK TO MENU", { screenWidth / 2 - 100, screenHeight - 100 }, sf::Color::Yellow);
             backButton->setSize({ 200, 50 });
             backButton->onClick = [](sf::Mouse::Button btn) {

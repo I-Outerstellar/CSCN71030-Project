@@ -17,11 +17,6 @@ int main()
     ScenesContainer::gameplayScene = SlidingTilesScenes::GameplayScene::createGameplayScene();
     ScenesContainer::leaderboardScene = SlidingTilesScenes::LeaderboardScene::create();
 
-    SlidingTilesScenes::LeaderboardScene::setBackButtonCallback([] {
-        std::cout << "Back button pressed - switching to gameplay!" << std::endl;
-        SceneControl::switchScene(*ScenesContainer::selectDiffScene);
-    });
-
     SceneControl::switchScene(*ScenesContainer::selectDiffScene);
     WindowControl::beginWindowLoop("Sliding Puzzle", sf::State::Fullscreen, 30);
 }
