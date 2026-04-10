@@ -82,7 +82,7 @@ GameScene* SelectDifficulty::setup() {
     hard = createButton("Hard", { 250, 300 }, SlidingTilesEnums::Difficulty::HARD);
     insane = createButton("Insane", { 250, 400 }, SlidingTilesEnums::Difficulty::INSANE);
 
-    leaderboard = createButton("Leaderboard", { 250,500 });
+    leaderboard = createButton("Leaderboard", { 250,550 });
 
     // Click behavior
     leaderboard->onClick = [](sf::Mouse::Button mouseButton) {

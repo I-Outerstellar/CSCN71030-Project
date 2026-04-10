@@ -101,7 +101,11 @@ namespace SlidingTilesScenes {
         }
 
         GameScene* create() {
-            if (created) return &scene;
+            if (created) {
+                updateScores();
+                return &scene;
+            }
+        
 
             // Get screen size
             float screenWidth = static_cast<float>(sf::VideoMode::getDesktopMode().size.x);
