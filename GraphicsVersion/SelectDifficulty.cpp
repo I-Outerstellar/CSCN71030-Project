@@ -83,15 +83,12 @@ GameScene* SelectDifficulty::setup() {
     insane = createButton("Insane", { 250, 400 }, SlidingTilesEnums::Difficulty::INSANE);
 
     leaderboard = createButton("Leaderboard", { 250,550 });
-
-    // Click behavior
     leaderboard->onClick = [](sf::Mouse::Button mouseButton) {
         if (mouseButton != sf::Mouse::Button::Left) return;
         SceneControl::switchScene(*ScenesContainer::leaderboardScene);
         };
 
     quit = createButton("Quit", { 250, 650 });
-
     quit->onClick = [](sf::Mouse::Button mouseButton) {
         if (mouseButton != sf::Mouse::Button::Left) return;
         WindowControl::gameWindow().close();
