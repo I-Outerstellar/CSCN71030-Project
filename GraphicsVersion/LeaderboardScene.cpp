@@ -101,10 +101,8 @@ namespace SlidingTilesScenes {
         }
 
         GameScene* create() {
-            if (created) {
-                updateScores();
-                return &scene;
-            }
+            if (created) return &scene;
+            
         
 
             // Get screen size
