@@ -4,7 +4,9 @@
 ## Get latest from https://github.com/github/gitignore/blob/main/VisualStudio.gitignore
 
 # Ignore score text files
+GraphicsVersion/*.txt
 Project II Slider Game/*.txt
+UnitTests/*.txt
 
 # User-specific files
 *.rsuser
