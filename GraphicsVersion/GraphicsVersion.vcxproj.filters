@@ -75,7 +75,6 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="Demo.cpp" />
     <ClCompile Include="src\cpp\EventControl.cpp">
       <Filter>Src\Cpp\GameControllers\Control</Filter>
     </ClCompile>
@@ -233,10 +232,5 @@
       <Filter>SlidingTiles\Scenes</Filter>
     </ClInclude>
     <ClInclude Include="ScenesContainer.hpp" />
-  </ItemGroup>
-  <ItemGroup>
-    <Image Include="assets\Green Circle of Basic.png">
-      <Filter>Assets</Filter>
-    </Image>
   </ItemGroup>
 </Project>

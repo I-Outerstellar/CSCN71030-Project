@@ -3,10 +3,10 @@
 #include "include/GameControllers.hpp"
 #include "../Project II Slider Game/SlidingTilesData.hpp"
 #include "../Project II Slider Game/SlidingTilesFunctions.hpp"
-#include <chrono>
 #include "ScenesContainer.hpp"
+#include "LeaderboardScene.hpp"
 #include <unordered_map>
-#include <iostream>
+//#include <iostream>
 
 namespace {
 	static GameObjects::GameScene scene;
@@ -45,9 +45,10 @@ namespace {
 			return;
 		else {
 			slideCounter->text.setFillColor(sf::Color(225, 225, 0));
-			slideCounter->changeText("You win!");
+			slideCounter->changeText("You win! " + std::to_string(SlidingTilesData::slides) + " Slides");
 			StateControl::Modifiers::disableInputAccepting(5000);
 			SlidingTilesFunctions::writeScore(SlidingTilesData::currentDifficulty);
+			SlidingTilesScenes::LeaderboardScene::switchDifficulty(SlidingTilesData::currentDifficulty);
 			static std::function<void()> waitOnTimer;
 			waitOnTimer = []() {
 				//std::cout << StateControl::Accessors::canAcceptInput() << '\n';
@@ -61,21 +62,30 @@ namespace {
 	}
 
 	std::function<void()> updateButtonPos = []() {
+		using namespace SlidingTilesData;
 		/*Set button positions relative to the current tile*/
-		upButton->setPosition(getBoardPosition(SlidingTilesData::currentColumn, SlidingTilesData::currentRow - 1)
-			+ sf::Vector2f(OUTLINE_THICKNESS, OUTLINE_THICKNESS));
-		downButton->setPosition(getBoardPosition(SlidingTilesData::currentColumn, SlidingTilesData::currentRow + 1)
-			+ sf::Vector2f(OUTLINE_THICKNESS, OUTLINE_THICKNESS));
-		leftButton->setPosition(getBoardPosition(SlidingTilesData::currentColumn - 1, SlidingTilesData::currentRow)
-			+ sf::Vector2f(OUTLINE_THICKNESS, OUTLINE_THICKNESS));
-		rightButton->setPosition(getBoardPosition(SlidingTilesData::currentColumn + 1, SlidingTilesData::currentRow)
-			+ sf::Vector2f(OUTLINE_THICKNESS, OUTLINE_THICKNESS));
+		upButton->setPosition(
+			getBoardPosition(currentColumn, currentRow - 1)
+			+ sf::Vector2f(OUTLINE_THICKNESS, OUTLINE_THICKNESS)
+		);
+		downButton->setPosition(
+			getBoardPosition(currentColumn, currentRow + 1)
+			+ sf::Vector2f(OUTLINE_THICKNESS, OUTLINE_THICKNESS)
+		);
+		leftButton->setPosition(
+			getBoardPosition(currentColumn - 1, currentRow)
+			+ sf::Vector2f(OUTLINE_THICKNESS, OUTLINE_THICKNESS)
+		);
+		rightButton->setPosition(
+			getBoardPosition(currentColumn + 1, currentRow)
+			+ sf::Vector2f(OUTLINE_THICKNESS, OUTLINE_THICKNESS)
+		);
 
 		/*Set the button visibility based on if they are on the border or not*/
-		upButton->visible = SlidingTilesData::board.canAccess(SlidingTilesData::currentColumn, SlidingTilesData::currentRow - 1);
-		downButton->visible = SlidingTilesData::board.canAccess(SlidingTilesData::currentColumn, SlidingTilesData::currentRow + 1);
-		leftButton->visible = SlidingTilesData::board.canAccess(SlidingTilesData::currentColumn - 1, SlidingTilesData::currentRow);
-		rightButton->visible = SlidingTilesData::board.canAccess(SlidingTilesData::currentColumn + 1, SlidingTilesData::currentRow);
+		upButton->visible = board.canAccess(currentColumn, currentRow - 1);
+		downButton->visible = board.canAccess(currentColumn, currentRow + 1);
+		leftButton->visible = board.canAccess(currentColumn - 1, currentRow);
+		rightButton->visible = board.canAccess(currentColumn + 1, currentRow);
 	};
 
 	auto createDirectionButtonHandler(SlidingTilesEnums::Direction direction) {
@@ -142,7 +152,9 @@ GameObjects::GameScene* SlidingTilesScenes::GameplayScene::createGameplayScene()
 	buttonSize = screenSize / divisor;
 
 	/*Set score text attributes*/
-	slideCounter->setSize({ static_cast<float>(buttonSize * divisor), static_cast<float>(buttonSize / 2) });
+	slideCounter->setSize(
+		{ static_cast<float>(buttonSize * divisor), static_cast<float>(buttonSize / 2) }
+	);
 	slideCounter->changeText("Slides: 0");
 	slideCounter->setFillColor(sf::Color::Transparent);
 	slideCounter->text.setFillColor(sf::Color::White);
@@ -153,17 +165,25 @@ GameObjects::GameScene* SlidingTilesScenes::GameplayScene::createGameplayScene()
 	leftButton = createDirectionButton(SlidingTilesEnums::Direction::LEFT);
 	rightButton = createDirectionButton(SlidingTilesEnums::Direction::RIGHT);
 
-	quitButton->setSize({ static_cast<float>(buttonSize * divisor / 2), static_cast<float>(buttonSize / 4) });
+	quitButton->setSize(
+		{ static_cast<float>(buttonSize * (divisor - 2)), static_cast<float>(buttonSize / 4) }
+	);
 	quitButton->setFillColor(sf::Color::White);
+	quitButton->text.setCharacterSize(
+		30 - static_cast<unsigned int>(std::floor(static_cast<double>(divisor * 9 / 10)))
+	);
 	quitButton->text.setFillColor(sf::Color::Black);
-	quitButton->setPosition(getBoardPosition(0, divisor - 1) + sf::Vector2f(buttonSize / 2, buttonSize / 8));
+	quitButton->setPosition(
+		getBoardPosition(0, divisor - 1) + 
+		sf::Vector2f(static_cast<float>(buttonSize / 2), static_cast<float>(buttonSize / 8))
+	);
 	quitButton->onClick = [](sf::Mouse::Button button) {
 		if (button != sf::Mouse::Button::Left) return;
 		SceneControl::switchScene(*ScenesContainer::selectDiffScene);
 		};
 
 	/*Set the position of the top left tile*/
-	sf::Vector2f position = sf::Vector2f(static_cast<float>(buttonSize / 2), static_cast<float>(buttonSize / 2));
+	sf::Vector2f position = { static_cast<float>(buttonSize / 2), static_cast<float>(buttonSize / 2) };
 	/*Then place all numbered tiles in the position they should be in*/
 	for (unsigned int i = 0; i < divisor - 1; i++) {
 		for (unsigned int j = 0; j < divisor - 1; j++) {
@@ -172,13 +192,17 @@ GameObjects::GameScene* SlidingTilesScenes::GameplayScene::createGameplayScene()
 			size_t val = SlidingTilesData::board.access(i, j);
 			if ((i + 1) * (j + 1) == (divisor - 1) * (divisor - 1)) { //If it's the bottom right tile
 				numberBox->changeText("Empty");
-				numberBox->setSize(sf::Vector2f(static_cast<float>(buttonSize), static_cast<float>(buttonSize)));
+				numberBox->setSize(
+					sf::Vector2f(static_cast<float>(buttonSize), static_cast<float>(buttonSize))
+				);
 				numberBox->setPosition(getBoardPosition(j, i));
 				numberBox->setFillColor(sf::Color(0, 0, 0, 51));
 			}
 			else { //Else, it is a numbered tile
 				numberBox->changeText(std::to_string(val));
-				numberBox->setSize(sf::Vector2f(static_cast<float>(buttonSize), static_cast<float>(buttonSize)));
+				numberBox->setSize(
+					sf::Vector2f(static_cast<float>(buttonSize), static_cast<float>(buttonSize))
+				);
 				numberBox->setPosition(getBoardPosition(j, i));
 				numberBox->setFillColor(sf::Color::Black);
 			}

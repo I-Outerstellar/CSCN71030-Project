@@ -1,10 +1,10 @@
 #include "SelectDifficulty.hpp"
-#include <SFML/Graphics.hpp>
-#include <iostream>
+#include "include/GameControllers.hpp"
 #include "../Project II Slider Game/SlidingTilesFunctions.hpp"
 #include "../Project II Slider Game/SlidingTilesData.hpp"
 #include "ScenesContainer.hpp"
 #include "GameplayScene.hpp"
+//#include <iostream>
 
 using namespace GameObjects;
 using namespace SlidingTilesScenes;
@@ -74,7 +74,7 @@ namespace {
     }
 }
 
-GameScene* SelectDifficulty::setup() {
+GameScene* SelectDifficulty::createSelectDifficultyScene() {
     if (created) return &scene;
 
     easy = createButton("Easy", { 250, 100 }, SlidingTilesEnums::Difficulty::EASY); 
