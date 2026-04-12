@@ -1,15 +1,28 @@
+////////////////////////////////////////////////////////////////////////////////
+///
+/// @file		Board.cpp
+/// @brief		File containing the initialization of all @ref Board methods.
+/// @details	This file contains the initialization of all @ref Board methods declared in
+///				@ref Board.hpp.
+/// @author		Rajdeep Chowdhury
+/// @author		Raj Bahadur Bhat
+/// @date		8.04.2026
+/// 
+/// @see		Board.hpp
+/// @see		SlidingTilesEnums.hpp
+///
+////////////////////////////////////////////////////////////////////////////////
 #include "Board.hpp"
+#include "SlidingTilesEnums.hpp"
 
 Board::Board() noexcept {}
 
-//Constructors for board difficulty
 Board::Board(SlidingTilesEnums::Difficulty difficulty) noexcept {
-	int size = static_cast <int> (difficulty);
+	int size = static_cast <int> (difficulty); //Convert the enum into the board size
 
+	//Build the board
 	board.resize(size);
-
 	int counter = 1;
-
 	for (int col = 0; col < size; col++) {
 		board.at(col).resize(size);
 
@@ -21,8 +34,8 @@ Board::Board(SlidingTilesEnums::Difficulty difficulty) noexcept {
 }
 
 bool Board::hasEmptyRow() const noexcept {
-	if (this->board.size() <= 0) return true;
-	for (int i = 0; i < board.size(); i++) {
+	if (this->board.size() <= 0) return true; //Check if board itself is empty
+	for (int i = 0; i < board.size(); i++) { //Check each row for an empty row
 		if (board.at(i).size() <= 0) return true;
 	}
 	return false;

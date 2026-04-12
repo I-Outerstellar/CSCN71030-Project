@@ -1,6 +1,27 @@
+////////////////////////////////////////////////////////////////////////////////
+///
+/// @file		SlidingTilesFunctions.cpp
+/// @brief		File containing the initialization of the @ref SlidingTilesFunctions functions.
+/// @details	This file contains the initialization of the @ref SlidingTilesFunctions functions 
+///				declared in @ref SlidingTilesFunctions.hpp.
+/// @author		Rajdeep Chowdhury
+/// @author		Fabio Bustamante Romillo
+/// @author		Raj Bahadur Bhat
+/// @date		9.04.2026
+/// 
+/// @see		SlidingTilesFunctions.hpp
+/// @see		SldingTilesFunctionsHelpers.hpp
+/// @see		SlidingTilesData.hpp
+/// @see		SlidingTilesEnums.hpp
+/// @see		Board.hpp
+/// @see		SlidingTilesData
+///
+////////////////////////////////////////////////////////////////////////////////
 #include "SlidingTilesFunctions.hpp"
 #include "SlidingTilesFunctionsHelpers.hpp"
 #include "SlidingTilesData.hpp"
+#include "SlidingTilesEnums.hpp"
+#include "Board.hpp"
 #include <vector>
 #include <fstream>
 #include <algorithm>
@@ -20,7 +41,8 @@ namespace SlidingTilesFunctions {
 	bool slide(SlidingTilesEnums::Direction direction) { 
 		using namespace SlidingTilesData;
 		bool canSlide = false;
-		if (board.hasEmptyRow()) return false;
+		//The main purpose of the below check is to ensure the board is not empty, meaning the default board is the current board.
+		if (board.hasEmptyRow()) return false; 
 
 		//Determine if a slide can occur in the desired direction
 		switch (direction) {

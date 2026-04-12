@@ -1,0 +1,91 @@
+\doxysection{User\+Functions.\+cpp}
+\hypertarget{_user_functions_8cpp_source}{}\label{_user_functions_8cpp_source}\index{UserFunctions.cpp@{UserFunctions.cpp}}
+\doxymbox{\hyperlink{_user_functions_8cpp}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{_user_functions_8cpp_source_l00001}00001\ }
+\DoxyCodeLine{\Hypertarget{_user_functions_8cpp_source_l00019}00019\ \textcolor{preprocessor}{\#include\ "{}\doxymbox{\hyperlink{_user_functions_8hpp}{UserFunctions.hpp}}"{}}}
+\DoxyCodeLine{\Hypertarget{_user_functions_8cpp_source_l00020}00020\ \textcolor{preprocessor}{\#include\ "{}\doxymbox{\hyperlink{_user_functions_helpers_8hpp}{UserFunctionsHelpers.hpp}}"{}}}
+\DoxyCodeLine{\Hypertarget{_user_functions_8cpp_source_l00021}00021\ \textcolor{preprocessor}{\#include\ "{}\doxymbox{\hyperlink{_sliding_tiles_functions_8hpp}{SlidingTilesFunctions.hpp}}"{}}}
+\DoxyCodeLine{\Hypertarget{_user_functions_8cpp_source_l00022}00022\ \textcolor{preprocessor}{\#include\ "{}\doxymbox{\hyperlink{_sliding_tiles_data_8hpp}{SlidingTilesData.hpp}}"{}}}
+\DoxyCodeLine{\Hypertarget{_user_functions_8cpp_source_l00023}00023\ \textcolor{preprocessor}{\#include\ "{}\doxymbox{\hyperlink{_sliding_tiles_enums_8hpp}{SlidingTilesEnums.hpp}}"{}}}
+\DoxyCodeLine{\Hypertarget{_user_functions_8cpp_source_l00024}00024\ \textcolor{preprocessor}{\#include\ <string>}}
+\DoxyCodeLine{\Hypertarget{_user_functions_8cpp_source_l00025}00025\ \textcolor{preprocessor}{\#include\ <iostream>}}
+\DoxyCodeLine{\Hypertarget{_user_functions_8cpp_source_l00026}00026\ \textcolor{preprocessor}{\#include\ <algorithm>}}
+\DoxyCodeLine{\Hypertarget{_user_functions_8cpp_source_l00027}00027\ }
+\DoxyCodeLine{\Hypertarget{_user_functions_8cpp_source_l00028}\doxymbox{\hyperlink{namespace_user_functions}{00028}}\ \textcolor{keyword}{namespace\ }\doxymbox{\hyperlink{namespace_user_functions}{UserFunctions}}\ \{}
+\DoxyCodeLine{\Hypertarget{_user_functions_8cpp_source_l00029}\doxymbox{\hyperlink{namespace_user_functions_acfbe1db2fbddc6ec169deec83b31cbd4}{00029}}\ \ \ \ \ \textcolor{keywordtype}{bool}\ \doxymbox{\hyperlink{namespace_user_functions_acfbe1db2fbddc6ec169deec83b31cbd4}{selectDifficulty}}()\ \{}
+\DoxyCodeLine{\Hypertarget{_user_functions_8cpp_source_l00030}00030\ \ \ \ \ \ \ \ \ \textcolor{comment}{//Infinute\ loop\ to\ ensure\ a\ valid\ option\ is\ picked}}
+\DoxyCodeLine{\Hypertarget{_user_functions_8cpp_source_l00031}00031\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{while}\ (\textcolor{keyword}{true})\ \{}
+\DoxyCodeLine{\Hypertarget{_user_functions_8cpp_source_l00032}00032\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//Get\ and\ transform\ user\ input}}
+\DoxyCodeLine{\Hypertarget{_user_functions_8cpp_source_l00033}00033\ \ \ \ \ \ \ \ \ \ \ \ \ std::string\ input;}
+\DoxyCodeLine{\Hypertarget{_user_functions_8cpp_source_l00034}00034\ \ \ \ \ \ \ \ \ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}SELECT:\ \ [Easy]\ \ [Medium]\ \ [Hard]\ \ [Insane]\ \ [Quit]\(\backslash\)n"{}}\ <<\ std::endl;}
+\DoxyCodeLine{\Hypertarget{_user_functions_8cpp_source_l00035}00035\ \ \ \ \ \ \ \ \ \ \ \ \ std::cin\ >>\ input;}
+\DoxyCodeLine{\Hypertarget{_user_functions_8cpp_source_l00036}00036\ \ \ \ \ \ \ \ \ \ \ \ \ std::transform(input.begin(),\ input.end(),\ input.begin(),}
+\DoxyCodeLine{\Hypertarget{_user_functions_8cpp_source_l00037}00037\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ [](\textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{char}\ character)\ \{\ return\ std::tolower(character);\ \});}
+\DoxyCodeLine{\Hypertarget{_user_functions_8cpp_source_l00038}00038\ }
+\DoxyCodeLine{\Hypertarget{_user_functions_8cpp_source_l00039}00039\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//Check\ if\ it\ is\ one\ of\ the\ options;}}
+\DoxyCodeLine{\Hypertarget{_user_functions_8cpp_source_l00040}00040\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (input\ ==\ \textcolor{stringliteral}{"{}easy"{}}\ ||\ input\ ==\ \textcolor{stringliteral}{"{}e"{}})\ \{}
+\DoxyCodeLine{\Hypertarget{_user_functions_8cpp_source_l00041}00041\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \doxymbox{\hyperlink{namespace_sliding_tiles_data_aa1c6c18059db9b79b1b904820c854bed}{SlidingTilesData::currentDifficulty}}\ =\ \doxymbox{\hyperlink{namespace_sliding_tiles_enums_ad28b6f37d88062f1b6e092bcb5a26047a6e5affbf5c08fef0e28c094856f94627}{SlidingTilesEnums::Difficulty::EASY}};}
+\DoxyCodeLine{\Hypertarget{_user_functions_8cpp_source_l00042}00042\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \doxymbox{\hyperlink{namespace_user_functions_helpers_ad935056eadd736ce49c39b2a7a5e4534}{UserFunctionsHelpers::startGame}}();}
+\DoxyCodeLine{\Hypertarget{_user_functions_8cpp_source_l00043}00043\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{true};}
+\DoxyCodeLine{\Hypertarget{_user_functions_8cpp_source_l00044}00044\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_user_functions_8cpp_source_l00045}00045\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}\ (input\ ==\ \textcolor{stringliteral}{"{}medium"{}}\ ||\ input\ ==\ \textcolor{stringliteral}{"{}m"{}})\ \{}
+\DoxyCodeLine{\Hypertarget{_user_functions_8cpp_source_l00046}00046\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \doxymbox{\hyperlink{namespace_sliding_tiles_data_aa1c6c18059db9b79b1b904820c854bed}{SlidingTilesData::currentDifficulty}}\ =\ \doxymbox{\hyperlink{namespace_sliding_tiles_enums_ad28b6f37d88062f1b6e092bcb5a26047ac87f3be66ffc3c0d4249f1c2cc5f3cce}{SlidingTilesEnums::Difficulty::MEDIUM}};}
+\DoxyCodeLine{\Hypertarget{_user_functions_8cpp_source_l00047}00047\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \doxymbox{\hyperlink{namespace_user_functions_helpers_ad935056eadd736ce49c39b2a7a5e4534}{UserFunctionsHelpers::startGame}}();}
+\DoxyCodeLine{\Hypertarget{_user_functions_8cpp_source_l00048}00048\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{true};}
+\DoxyCodeLine{\Hypertarget{_user_functions_8cpp_source_l00049}00049\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_user_functions_8cpp_source_l00050}00050\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}\ (input\ ==\ \textcolor{stringliteral}{"{}hard"{}}\ ||\ input\ ==\ \textcolor{stringliteral}{"{}h"{}})\ \{}
+\DoxyCodeLine{\Hypertarget{_user_functions_8cpp_source_l00051}00051\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \doxymbox{\hyperlink{namespace_sliding_tiles_data_aa1c6c18059db9b79b1b904820c854bed}{SlidingTilesData::currentDifficulty}}\ =\ \doxymbox{\hyperlink{namespace_sliding_tiles_enums_ad28b6f37d88062f1b6e092bcb5a26047a7c144eae2e08db14c82e376603cc01f4}{SlidingTilesEnums::Difficulty::HARD}};}
+\DoxyCodeLine{\Hypertarget{_user_functions_8cpp_source_l00052}00052\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \doxymbox{\hyperlink{namespace_user_functions_helpers_ad935056eadd736ce49c39b2a7a5e4534}{UserFunctionsHelpers::startGame}}();}
+\DoxyCodeLine{\Hypertarget{_user_functions_8cpp_source_l00053}00053\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{true};}
+\DoxyCodeLine{\Hypertarget{_user_functions_8cpp_source_l00054}00054\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_user_functions_8cpp_source_l00055}00055\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}\ (input\ ==\ \textcolor{stringliteral}{"{}insane"{}}\ ||\ input\ ==\ \textcolor{stringliteral}{"{}i"{}})\ \{}
+\DoxyCodeLine{\Hypertarget{_user_functions_8cpp_source_l00056}00056\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \doxymbox{\hyperlink{namespace_sliding_tiles_data_aa1c6c18059db9b79b1b904820c854bed}{SlidingTilesData::currentDifficulty}}\ =\ \doxymbox{\hyperlink{namespace_sliding_tiles_enums_ad28b6f37d88062f1b6e092bcb5a26047a388cab806b9cf0a7406a6f2b39360da8}{SlidingTilesEnums::Difficulty::INSANE}};}
+\DoxyCodeLine{\Hypertarget{_user_functions_8cpp_source_l00057}00057\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \doxymbox{\hyperlink{namespace_user_functions_helpers_ad935056eadd736ce49c39b2a7a5e4534}{UserFunctionsHelpers::startGame}}();}
+\DoxyCodeLine{\Hypertarget{_user_functions_8cpp_source_l00058}00058\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{true};}
+\DoxyCodeLine{\Hypertarget{_user_functions_8cpp_source_l00059}00059\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_user_functions_8cpp_source_l00060}00060\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}\ (input\ ==\ \textcolor{stringliteral}{"{}quit"{}}\ ||\ input\ ==\ \textcolor{stringliteral}{"{}q"{}})\ \{}
+\DoxyCodeLine{\Hypertarget{_user_functions_8cpp_source_l00061}00061\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{false};}
+\DoxyCodeLine{\Hypertarget{_user_functions_8cpp_source_l00062}00062\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_user_functions_8cpp_source_l00063}00063\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{else}\ std::cout\ <<\ \textcolor{stringliteral}{"{}Invalid\ option"{}}\ <<\ std::endl;}
+\DoxyCodeLine{\Hypertarget{_user_functions_8cpp_source_l00064}00064\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_user_functions_8cpp_source_l00065}00065\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_user_functions_8cpp_source_l00066}00066\ }
+\DoxyCodeLine{\Hypertarget{_user_functions_8cpp_source_l00067}\doxymbox{\hyperlink{namespace_user_functions_a6cd805109648a2bb19399d4b4337ec11}{00067}}\ \ \ \ \ \textcolor{keywordtype}{bool}\ \doxymbox{\hyperlink{namespace_user_functions_a6cd805109648a2bb19399d4b4337ec11}{performSlide}}()\ \{}
+\DoxyCodeLine{\Hypertarget{_user_functions_8cpp_source_l00068}00068\ \ \ \ \ \ \ \ \ \textcolor{comment}{//Infinute\ loop\ to\ ensure\ a\ valid\ option\ is\ picked}}
+\DoxyCodeLine{\Hypertarget{_user_functions_8cpp_source_l00069}00069\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{while}\ (\textcolor{keyword}{true})\ \{}
+\DoxyCodeLine{\Hypertarget{_user_functions_8cpp_source_l00070}00070\ \ \ \ \ \ \ \ \ \ \ \ \ \doxymbox{\hyperlink{namespace_user_functions_helpers_a5db64c864f1fde988f930a5776acc496}{UserFunctionsHelpers::printBoard}}();}
+\DoxyCodeLine{\Hypertarget{_user_functions_8cpp_source_l00071}00071\ }
+\DoxyCodeLine{\Hypertarget{_user_functions_8cpp_source_l00072}00072\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//Get\ and\ transform\ user\ inpupt}}
+\DoxyCodeLine{\Hypertarget{_user_functions_8cpp_source_l00073}00073\ \ \ \ \ \ \ \ \ \ \ \ \ std::string\ input;}
+\DoxyCodeLine{\Hypertarget{_user_functions_8cpp_source_l00074}00074\ \ \ \ \ \ \ \ \ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}SELECT:\ \ [LEFT/A]\ \ [RIGHT/D]\ \ [UP/W]\ \ [DOWN/S]\ \ [Quit]\(\backslash\)n"{}}\ <<\ std::endl;}
+\DoxyCodeLine{\Hypertarget{_user_functions_8cpp_source_l00075}00075\ \ \ \ \ \ \ \ \ \ \ \ \ std::cin\ >>\ input;}
+\DoxyCodeLine{\Hypertarget{_user_functions_8cpp_source_l00076}00076\ \ \ \ \ \ \ \ \ \ \ \ \ std::transform(input.begin(),\ input.end(),\ input.begin(),}
+\DoxyCodeLine{\Hypertarget{_user_functions_8cpp_source_l00077}00077\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ [](\textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{char}\ character)\ \{\ return\ std::tolower(character);\ \});}
+\DoxyCodeLine{\Hypertarget{_user_functions_8cpp_source_l00078}00078\ }
+\DoxyCodeLine{\Hypertarget{_user_functions_8cpp_source_l00079}00079\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//Check\ if\ it\ matches\ one\ of\ the\ options}}
+\DoxyCodeLine{\Hypertarget{_user_functions_8cpp_source_l00080}00080\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (input\ ==\ \textcolor{stringliteral}{"{}left"{}}\ ||\ input\ ==\ \textcolor{stringliteral}{"{}a"{}})\ \{}
+\DoxyCodeLine{\Hypertarget{_user_functions_8cpp_source_l00081}00081\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \doxymbox{\hyperlink{namespace_user_functions_helpers_af43f871f324f290f15483c1160ec7ed1}{UserFunctionsHelpers::trySlide}}(\doxymbox{\hyperlink{namespace_sliding_tiles_enums_a2e5ebc4f95f816af69be134baae440ffa684d325a7303f52e64011467ff5c5758}{SlidingTilesEnums::Direction::LEFT}});}
+\DoxyCodeLine{\Hypertarget{_user_functions_8cpp_source_l00082}00082\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \doxymbox{\hyperlink{namespace_user_functions_helpers_a3109d8051f6051fc2e19c2959f9c070c}{UserFunctionsHelpers::continueGame}}();}
+\DoxyCodeLine{\Hypertarget{_user_functions_8cpp_source_l00083}00083\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_user_functions_8cpp_source_l00084}00084\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}\ (input\ ==\ \textcolor{stringliteral}{"{}right"{}}\ ||\ input\ ==\ \textcolor{stringliteral}{"{}d"{}})\ \{}
+\DoxyCodeLine{\Hypertarget{_user_functions_8cpp_source_l00085}00085\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \doxymbox{\hyperlink{namespace_user_functions_helpers_af43f871f324f290f15483c1160ec7ed1}{UserFunctionsHelpers::trySlide}}(\doxymbox{\hyperlink{namespace_sliding_tiles_enums_a2e5ebc4f95f816af69be134baae440ffa21507b40c80068eda19865706fdc2403}{SlidingTilesEnums::Direction::RIGHT}});}
+\DoxyCodeLine{\Hypertarget{_user_functions_8cpp_source_l00086}00086\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \doxymbox{\hyperlink{namespace_user_functions_helpers_a3109d8051f6051fc2e19c2959f9c070c}{UserFunctionsHelpers::continueGame}}();}
+\DoxyCodeLine{\Hypertarget{_user_functions_8cpp_source_l00087}00087\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_user_functions_8cpp_source_l00088}00088\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}\ (input\ ==\ \textcolor{stringliteral}{"{}up"{}}\ ||\ input\ ==\ \textcolor{stringliteral}{"{}w"{}})\ \{}
+\DoxyCodeLine{\Hypertarget{_user_functions_8cpp_source_l00089}00089\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \doxymbox{\hyperlink{namespace_user_functions_helpers_af43f871f324f290f15483c1160ec7ed1}{UserFunctionsHelpers::trySlide}}(\doxymbox{\hyperlink{namespace_sliding_tiles_enums_a2e5ebc4f95f816af69be134baae440ffafbaedde498cdead4f2780217646e9ba1}{SlidingTilesEnums::Direction::UP}});}
+\DoxyCodeLine{\Hypertarget{_user_functions_8cpp_source_l00090}00090\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \doxymbox{\hyperlink{namespace_user_functions_helpers_a3109d8051f6051fc2e19c2959f9c070c}{UserFunctionsHelpers::continueGame}}();}
+\DoxyCodeLine{\Hypertarget{_user_functions_8cpp_source_l00091}00091\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_user_functions_8cpp_source_l00092}00092\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}\ (input\ ==\ \textcolor{stringliteral}{"{}down"{}}\ ||\ input\ ==\ \textcolor{stringliteral}{"{}s"{}})\ \{}
+\DoxyCodeLine{\Hypertarget{_user_functions_8cpp_source_l00093}00093\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \doxymbox{\hyperlink{namespace_user_functions_helpers_af43f871f324f290f15483c1160ec7ed1}{UserFunctionsHelpers::trySlide}}(\doxymbox{\hyperlink{namespace_sliding_tiles_enums_a2e5ebc4f95f816af69be134baae440ffac4e0e4e3118472beeb2ae75827450f1f}{SlidingTilesEnums::Direction::DOWN}});}
+\DoxyCodeLine{\Hypertarget{_user_functions_8cpp_source_l00094}00094\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \doxymbox{\hyperlink{namespace_user_functions_helpers_a3109d8051f6051fc2e19c2959f9c070c}{UserFunctionsHelpers::continueGame}}();}
+\DoxyCodeLine{\Hypertarget{_user_functions_8cpp_source_l00095}00095\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_user_functions_8cpp_source_l00096}00096\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}\ (input\ ==\ \textcolor{stringliteral}{"{}quit"{}})\ \{}
+\DoxyCodeLine{\Hypertarget{_user_functions_8cpp_source_l00097}00097\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{false};}
+\DoxyCodeLine{\Hypertarget{_user_functions_8cpp_source_l00098}00098\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_user_functions_8cpp_source_l00099}00099\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{else}\ std::cout\ <<\ \textcolor{stringliteral}{"{}Invalid\ option"{}}\ <<\ std::endl;}
+\DoxyCodeLine{\Hypertarget{_user_functions_8cpp_source_l00100}00100\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_user_functions_8cpp_source_l00101}00101\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_user_functions_8cpp_source_l00102}00102\ \}}
+
+\end{DoxyCode}

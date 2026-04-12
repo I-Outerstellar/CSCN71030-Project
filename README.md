@@ -25,8 +25,6 @@ This group consists of Rajdeep, Fabio, and Raj.
 - A website displays the leaderboard (HTML, CSS, JavaScript), retrieved through HTTP
 
 ##
-<<<<<<< HEAD
-=======
 
 # HOW TO SET UP SFML
 
@@ -41,7 +39,6 @@ This group consists of Rajdeep, Fabio, and Raj.
 8. Pull from the main branch to ensure everything of your version is updated.
 9. Paste all those .dll files into the solution/x64/debug folder.
 
->>>>>>> b6e491c53504e747c858603e695dbf6209d1395a
 ##
 
 # SFML Extension Framework Details
@@ -68,9 +65,4 @@ This group consists of Rajdeep, Fabio, and Raj.
 
 - Cannot make a derived class from GameScene, unless you are only changing a method's behaviour instead of adding a new attribute/method. Please use its properties map instead to achieve similar behaviour.
 
-<<<<<<< HEAD
 - Works alongside SFML methods rather than using new, original ones (this project was not made to reinvent the wheel)
-
-=======
-- Works alongside SFML methods rather than using new, original ones (this project was not made to reinvent the wheel)
->>>>>>> b6e491c53504e747c858603e695dbf6209d1395a

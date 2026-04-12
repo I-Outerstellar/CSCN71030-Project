@@ -1,0 +1,134 @@
+\doxysection{User\+Functions\+Helpers Namespace Reference}
+\hypertarget{namespace_user_functions_helpers}{}\label{namespace_user_functions_helpers}\index{UserFunctionsHelpers@{UserFunctionsHelpers}}
+
+
+Namespace containing helper functions used by {\ttfamily \doxylink{namespace_user_functions}{User\+Functions}}.  
+
+
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \doxymbox{\hyperlink{namespace_user_functions_helpers_ad935056eadd736ce49c39b2a7a5e4534}{start\+Game}} ()
+\begin{DoxyCompactList}\small\item\em Initializes data to start a game of Sliding Tiles. \end{DoxyCompactList}\item 
+void \doxymbox{\hyperlink{namespace_user_functions_helpers_af43f871f324f290f15483c1160ec7ed1}{try\+Slide}} (\doxymbox{\hyperlink{namespace_sliding_tiles_enums_a2e5ebc4f95f816af69be134baae440ff}{Sliding\+Tiles\+Enums::\+\+Direction}} direction)
+\begin{DoxyCompactList}\small\item\em Tries to slide the empty tile in the given direction. \end{DoxyCompactList}\item 
+void \doxymbox{\hyperlink{namespace_user_functions_helpers_a5db64c864f1fde988f930a5776acc496}{print\+Board}} ()
+\begin{DoxyCompactList}\small\item\em Print the Sliding Tiles board. \end{DoxyCompactList}\item 
+void \doxymbox{\hyperlink{namespace_user_functions_helpers_a9ae7be6cdd9dea4f17a725c5f91a5a67}{print\+Leaderboard}} ()
+\begin{DoxyCompactList}\small\item\em Print the Sliding Tiles leaderboard for the current difficulty. \end{DoxyCompactList}\item 
+bool \doxymbox{\hyperlink{namespace_user_functions_helpers_a3109d8051f6051fc2e19c2959f9c070c}{continue\+Game}} ()
+\begin{DoxyCompactList}\small\item\em Determines whether the Sliding Tiles game should continue. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Namespace containing helper functions that the functions of \doxylink{namespace_user_functions}{User\+Functions} use. \begin{DoxyAuthor}{Author}
+Rajdeep Chowdhury 
+\end{DoxyAuthor}
+\begin{DoxyDate}{Date}
+8.\+04.\+2026
+\end{DoxyDate}
+\begin{DoxySeeAlso}{See also}
+\doxylink{namespace_user_functions}{User\+Functions} 
+\end{DoxySeeAlso}
+
+
+\label{doc-func-members}
+\Hypertarget{namespace_user_functions_helpers_doc-func-members}
+\doxysubsection{Function Documentation}
+\Hypertarget{namespace_user_functions_helpers_a3109d8051f6051fc2e19c2959f9c070c}\index{UserFunctionsHelpers@{UserFunctionsHelpers}!continueGame@{continueGame}}
+\index{continueGame@{continueGame}!UserFunctionsHelpers@{UserFunctionsHelpers}}
+\doxysubsubsection{\texorpdfstring{continueGame()}{continueGame()}}
+{\footnotesize\ttfamily \label{namespace_user_functions_helpers_a3109d8051f6051fc2e19c2959f9c070c} 
+bool User\+Functions\+Helpers::\+continue\+Game (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+Determines whether the Sliding Tiles game should continue based on if the board is ordered or not. If the board is ordered, it will also handle applying the effect of winning the game. 
+\begin{DoxyRetVals}{Return values}
+{\em true} & If the game must still continue. \\
+\hline
+{\em false} & If the game should end. \\
+\hline
+\end{DoxyRetVals}
+\begin{DoxyAuthor}{Author}
+Rajdeep Chowdhury 
+\end{DoxyAuthor}
+\begin{DoxyDate}{Date}
+8.\+04.\+2026 
+\end{DoxyDate}
+
+
+Definition at line \doxymbox{\hyperlink{_user_functions_helpers_8cpp_source_l00062}{62}} of file \doxymbox{\hyperlink{_user_functions_helpers_8cpp_source}{User\+Functions\+Helpers.\+cpp}}.
+
+\Hypertarget{namespace_user_functions_helpers_a5db64c864f1fde988f930a5776acc496}\index{UserFunctionsHelpers@{UserFunctionsHelpers}!printBoard@{printBoard}}
+\index{printBoard@{printBoard}!UserFunctionsHelpers@{UserFunctionsHelpers}}
+\doxysubsubsection{\texorpdfstring{printBoard()}{printBoard()}}
+{\footnotesize\ttfamily \label{namespace_user_functions_helpers_a5db64c864f1fde988f930a5776acc496} 
+void User\+Functions\+Helpers::\+print\+Board (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+Displays all the tiles of the Sliding Tiles board onto the console. \begin{DoxyAuthor}{Author}
+Rajdeep Chowdhury 
+\end{DoxyAuthor}
+\begin{DoxyDate}{Date}
+8.\+04.\+2026 
+\end{DoxyDate}
+
+
+Definition at line \doxymbox{\hyperlink{_user_functions_helpers_8cpp_source_l00039}{39}} of file \doxymbox{\hyperlink{_user_functions_helpers_8cpp_source}{User\+Functions\+Helpers.\+cpp}}.
+
+\Hypertarget{namespace_user_functions_helpers_a9ae7be6cdd9dea4f17a725c5f91a5a67}\index{UserFunctionsHelpers@{UserFunctionsHelpers}!printLeaderboard@{printLeaderboard}}
+\index{printLeaderboard@{printLeaderboard}!UserFunctionsHelpers@{UserFunctionsHelpers}}
+\doxysubsubsection{\texorpdfstring{printLeaderboard()}{printLeaderboard()}}
+{\footnotesize\ttfamily \label{namespace_user_functions_helpers_a9ae7be6cdd9dea4f17a725c5f91a5a67} 
+void User\+Functions\+Helpers::\+print\+Leaderboard (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+Displays the top \doxylink{namespace_sliding_tiles_functions_helpers_ad9cd5ec97f400ba64f12a526a5efb65f}{Sliding\+Tiles\+Functions\+Helpers::\+\+LEADERBOARD\+\_\+\+SIZE} scores achieved for the \doxylink{namespace_sliding_tiles_data_aa1c6c18059db9b79b1b904820c854bed}{Sliding\+Tiles\+Data::\+current\+Difficulty} being played. \begin{DoxyAuthor}{Author}
+Rajdeep Chowdhury 
+\end{DoxyAuthor}
+\begin{DoxyDate}{Date}
+8.\+04.\+2026
+\end{DoxyDate}
+\begin{DoxySeeAlso}{See also}
+\doxylink{namespace_sliding_tiles_functions_helpers}{Sliding\+Tiles\+Functions\+Helpers} 
+
+\doxylink{namespace_sliding_tiles_data}{Sliding\+Tiles\+Data} 
+\end{DoxySeeAlso}
+
+
+Definition at line \doxymbox{\hyperlink{_user_functions_helpers_8cpp_source_l00052}{52}} of file \doxymbox{\hyperlink{_user_functions_helpers_8cpp_source}{User\+Functions\+Helpers.\+cpp}}.
+
+\Hypertarget{namespace_user_functions_helpers_ad935056eadd736ce49c39b2a7a5e4534}\index{UserFunctionsHelpers@{UserFunctionsHelpers}!startGame@{startGame}}
+\index{startGame@{startGame}!UserFunctionsHelpers@{UserFunctionsHelpers}}
+\doxysubsubsection{\texorpdfstring{startGame()}{startGame()}}
+{\footnotesize\ttfamily \label{namespace_user_functions_helpers_ad935056eadd736ce49c39b2a7a5e4534} 
+void User\+Functions\+Helpers::\+start\+Game (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+Uses functions from \doxylink{namespace_sliding_tiles_functions}{Sliding\+Tiles\+Functions} to initialize the data required to start a game of Sliding Tiles. \begin{DoxyAuthor}{Author}
+Rajdeep Chowdhury 
+\end{DoxyAuthor}
+\begin{DoxyDate}{Date}
+8.\+04.\+2026 
+\end{DoxyDate}
+
+
+Definition at line \doxymbox{\hyperlink{_user_functions_helpers_8cpp_source_l00026}{26}} of file \doxymbox{\hyperlink{_user_functions_helpers_8cpp_source}{User\+Functions\+Helpers.\+cpp}}.
+
+\Hypertarget{namespace_user_functions_helpers_af43f871f324f290f15483c1160ec7ed1}\index{UserFunctionsHelpers@{UserFunctionsHelpers}!trySlide@{trySlide}}
+\index{trySlide@{trySlide}!UserFunctionsHelpers@{UserFunctionsHelpers}}
+\doxysubsubsection{\texorpdfstring{trySlide()}{trySlide()}}
+{\footnotesize\ttfamily \label{namespace_user_functions_helpers_af43f871f324f290f15483c1160ec7ed1} 
+void User\+Functions\+Helpers::\+try\+Slide (\begin{DoxyParamCaption}\item[{\doxymbox{\hyperlink{namespace_sliding_tiles_enums_a2e5ebc4f95f816af69be134baae440ff}{Sliding\+Tiles\+Enums::\+\+Direction}}}]{direction}{}\end{DoxyParamCaption})}
+
+Tries to slide the empty tile in the given directionm handling both the success and failure cases. 
+\begin{DoxyParams}[1]{Parameters}
+\doxymbox{\texttt{in}}  & {\em direction} & The direction the slide will occur. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyAuthor}{Author}
+Rajdeep Chowdhury 
+\end{DoxyAuthor}
+\begin{DoxyDate}{Date}
+8.\+04.\+2026 
+\end{DoxyDate}
+
+
+Definition at line \doxymbox{\hyperlink{_user_functions_helpers_8cpp_source_l00032}{32}} of file \doxymbox{\hyperlink{_user_functions_helpers_8cpp_source}{User\+Functions\+Helpers.\+cpp}}.
+

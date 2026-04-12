@@ -1,0 +1,207 @@
+\doxysection{Sliding\+Tiles\+Functions Namespace Reference}
+\hypertarget{namespace_sliding_tiles_functions}{}\label{namespace_sliding_tiles_functions}\index{SlidingTilesFunctions@{SlidingTilesFunctions}}
+
+
+Namespace containing the functions used during a game of Sliding Tiles.  
+
+
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \doxymbox{\hyperlink{namespace_sliding_tiles_functions_a918d883024963062b337e4c349e74bd4}{start\+Game}} (\doxymbox{\hyperlink{namespace_sliding_tiles_enums_ad28b6f37d88062f1b6e092bcb5a26047}{Sliding\+Tiles\+Enums::\+\+Difficulty}} difficulty)
+\begin{DoxyCompactList}\small\item\em Sets up the data required to start a Sliding Tiles game. \end{DoxyCompactList}\item 
+bool \doxymbox{\hyperlink{namespace_sliding_tiles_functions_a98a0dab6a2ff2ccfac628207b0dfbcf2}{slide}} (\doxymbox{\hyperlink{namespace_sliding_tiles_enums_a2e5ebc4f95f816af69be134baae440ff}{Sliding\+Tiles\+Enums::\+\+Direction}} direction)
+\begin{DoxyCompactList}\small\item\em Attempts to slide the empty tile to an adjacent filled tile. \end{DoxyCompactList}\item 
+void \doxymbox{\hyperlink{namespace_sliding_tiles_functions_a83c453b1eb82f450bcd99b039af276b2}{shuffle}} ()
+\begin{DoxyCompactList}\small\item\em Shuffles the board. \end{DoxyCompactList}\item 
+bool \doxymbox{\hyperlink{namespace_sliding_tiles_functions_abca5c3303584a075ed79509f79bf5cf9}{is\+Board\+Ordered}} ()
+\begin{DoxyCompactList}\small\item\em Checks if all the board\textquotesingle{}s numbers are ordered. \end{DoxyCompactList}\item 
+void \doxymbox{\hyperlink{namespace_sliding_tiles_functions_ab9cd87d7615f8b40a3be2f79227e5014}{write\+Score}} (\doxymbox{\hyperlink{namespace_sliding_tiles_enums_ad28b6f37d88062f1b6e092bcb5a26047}{Sliding\+Tiles\+Enums::\+\+Difficulty}} difficulty)
+\begin{DoxyCompactList}\small\item\em Writes the number of slides to its associated leaderboard. \end{DoxyCompactList}\item 
+std::\+vector$<$ unsigned int $>$ \doxymbox{\hyperlink{namespace_sliding_tiles_functions_a3c8efb2507585bad1091a71b932c0153}{load\+Scores}} (\doxymbox{\hyperlink{namespace_sliding_tiles_enums_ad28b6f37d88062f1b6e092bcb5a26047}{Sliding\+Tiles\+Enums::\+\+Difficulty}} difficulty)
+\begin{DoxyCompactList}\small\item\em Loads the top scores from its associated leaderboard. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Namespace containing the functions which are called during a game of Sliding Tiles to change the properties of \doxylink{namespace_sliding_tiles_data}{Sliding\+Tiles\+Data}. \begin{DoxyAuthor}{Author}
+Rajdeep Chowdhury 
+\end{DoxyAuthor}
+\begin{DoxyDate}{Date}
+8.\+04.\+2026
+\end{DoxyDate}
+\begin{DoxySeeAlso}{See also}
+\doxylink{namespace_sliding_tiles_data}{Sliding\+Tiles\+Data} 
+\end{DoxySeeAlso}
+
+
+\label{doc-func-members}
+\Hypertarget{namespace_sliding_tiles_functions_doc-func-members}
+\doxysubsection{Function Documentation}
+\Hypertarget{namespace_sliding_tiles_functions_abca5c3303584a075ed79509f79bf5cf9}\index{SlidingTilesFunctions@{SlidingTilesFunctions}!isBoardOrdered@{isBoardOrdered}}
+\index{isBoardOrdered@{isBoardOrdered}!SlidingTilesFunctions@{SlidingTilesFunctions}}
+\doxysubsubsection{\texorpdfstring{isBoardOrdered()}{isBoardOrdered()}}
+{\footnotesize\ttfamily \label{namespace_sliding_tiles_functions_abca5c3303584a075ed79509f79bf5cf9} 
+bool Sliding\+Tiles\+Functions::\+is\+Board\+Ordered (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+Checks if all the board\textquotesingle{}s numbers are in their expected, ordered position, reading the board from left to right and from top to bottom. 
+\begin{DoxyRetVals}{Return values}
+{\em true} & If the board is ordered. \\
+\hline
+{\em false} & If the board is not ordered. \\
+\hline
+\end{DoxyRetVals}
+\begin{DoxyAuthor}{Author}
+Fabio Bustamante Romillo 
+\end{DoxyAuthor}
+\begin{DoxyDate}{Date}
+8.\+04.\+2026 
+\end{DoxyDate}
+
+
+Definition at line \doxymbox{\hyperlink{_sliding_tiles_functions_8cpp_source_l00114}{114}} of file \doxymbox{\hyperlink{_sliding_tiles_functions_8cpp_source}{Sliding\+Tiles\+Functions.\+cpp}}.
+
+\Hypertarget{namespace_sliding_tiles_functions_a3c8efb2507585bad1091a71b932c0153}\index{SlidingTilesFunctions@{SlidingTilesFunctions}!loadScores@{loadScores}}
+\index{loadScores@{loadScores}!SlidingTilesFunctions@{SlidingTilesFunctions}}
+\doxysubsubsection{\texorpdfstring{loadScores()}{loadScores()}}
+{\footnotesize\ttfamily \label{namespace_sliding_tiles_functions_a3c8efb2507585bad1091a71b932c0153} 
+std::\+vector$<$ unsigned int $>$ Sliding\+Tiles\+Functions::\+load\+Scores (\begin{DoxyParamCaption}\item[{\doxymbox{\hyperlink{namespace_sliding_tiles_enums_ad28b6f37d88062f1b6e092bcb5a26047}{Sliding\+Tiles\+Enums::\+\+Difficulty}}}]{difficulty}{}\end{DoxyParamCaption})}
+
+Loads all scores from a text file representing the leaderboard of the given {\ttfamily difficulty} into a vector, sorts them in ascneding order, then filters the scores to the top \doxylink{namespace_sliding_tiles_functions_helpers_ad9cd5ec97f400ba64f12a526a5efb65f}{Sliding\+Tiles\+Functions\+Helpers::\+\+LEADERBOARD\+\_\+\+SIZE} scores. 
+\begin{DoxyParams}[1]{Parameters}
+\doxymbox{\texttt{in}}  & {\em difficulty} & The difficulty of the Sliding Tiles game leaderboard. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+A vector of the top scores. 
+\end{DoxyReturn}
+\begin{DoxyAuthor}{Author}
+Raj Bahadur Bhat 
+\end{DoxyAuthor}
+\begin{DoxyDate}{Date}
+8.\+04.\+2026
+\end{DoxyDate}
+\begin{DoxySeeAlso}{See also}
+\doxylink{namespace_sliding_tiles_functions_helpers_ad9cd5ec97f400ba64f12a526a5efb65f}{Sliding\+Tiles\+Functions\+Helpers::\+\+LEADERBOARD\+\_\+\+SIZE} 
+\end{DoxySeeAlso}
+
+
+Definition at line \doxymbox{\hyperlink{_sliding_tiles_functions_8cpp_source_l00155}{155}} of file \doxymbox{\hyperlink{_sliding_tiles_functions_8cpp_source}{Sliding\+Tiles\+Functions.\+cpp}}.
+
+\Hypertarget{namespace_sliding_tiles_functions_a83c453b1eb82f450bcd99b039af276b2}\index{SlidingTilesFunctions@{SlidingTilesFunctions}!shuffle@{shuffle}}
+\index{shuffle@{shuffle}!SlidingTilesFunctions@{SlidingTilesFunctions}}
+\doxysubsubsection{\texorpdfstring{shuffle()}{shuffle()}}
+{\footnotesize\ttfamily \label{namespace_sliding_tiles_functions_a83c453b1eb82f450bcd99b039af276b2} 
+void Sliding\+Tiles\+Functions::\+shuffle (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+Shuffles \doxylink{namespace_sliding_tiles_data_aa8b2e966ce262f9a08dc3b159491fb24}{Sliding\+Tiles\+Data::\+board} by repeatedly calling \doxylink{namespace_sliding_tiles_functions_a98a0dab6a2ff2ccfac628207b0dfbcf2}{slide(\+Sliding\+Tiles\+Enums::\+\+Direction)} with a random direction. The shuffle will not immediately backtrack, meaning it can\textquotesingle{}t slide one direction and then slide back the opposite direction immediately afterwards. \begin{DoxyPrecond}{Precondition}
+\doxylink{namespace_sliding_tiles_data_aa8b2e966ce262f9a08dc3b159491fb24}{Sliding\+Tiles\+Data::\+board} is not empty and all rows contain at least one element. (i.\+e., the \doxylink{class_board_ae79027074c6db2fa29b0f62570aee7b8}{Board::\+has\+Empty\+Row()} call returns false.) 
+\end{DoxyPrecond}
+\begin{DoxyAuthor}{Author}
+Fabio Bustamante Romillo 
+\end{DoxyAuthor}
+\begin{DoxyDate}{Date}
+8.\+04.\+2026
+\end{DoxyDate}
+\begin{DoxyNote}{Note}
+If the pre-\/condition is not met, the function returns early without modifying the data. 
+
+The function Sliding\+Tiles\+Functions::\+\+Start\+Game(\+Sliding\+Tiles\+Enums::\+\+Difficulty) should be used before calling this function. 
+\end{DoxyNote}
+\begin{DoxyWarning}{Warning}
+If either one of the dimensions of the \doxylink{namespace_sliding_tiles_data_aa8b2e966ce262f9a08dc3b159491fb24}{Sliding\+Tiles\+Data::\+board} is somehow equal to 1, this function will enter an infinite loop due to its incapability to backtrack. This should be impossible at the moment, but it is worth noting if this code is to be expanded on.
+\end{DoxyWarning}
+\begin{DoxySeeAlso}{See also}
+\doxylink{namespace_sliding_tiles_functions_helpers}{Sliding\+Tiles\+Functions\+Helpers} 
+
+\doxylink{class_board_ae79027074c6db2fa29b0f62570aee7b8}{Board::\+has\+Empty\+Row()} 
+\end{DoxySeeAlso}
+
+
+Definition at line \doxymbox{\hyperlink{_sliding_tiles_functions_8cpp_source_l00087}{87}} of file \doxymbox{\hyperlink{_sliding_tiles_functions_8cpp_source}{Sliding\+Tiles\+Functions.\+cpp}}.
+
+\Hypertarget{namespace_sliding_tiles_functions_a98a0dab6a2ff2ccfac628207b0dfbcf2}\index{SlidingTilesFunctions@{SlidingTilesFunctions}!slide@{slide}}
+\index{slide@{slide}!SlidingTilesFunctions@{SlidingTilesFunctions}}
+\doxysubsubsection{\texorpdfstring{slide()}{slide()}}
+{\footnotesize\ttfamily \label{namespace_sliding_tiles_functions_a98a0dab6a2ff2ccfac628207b0dfbcf2} 
+bool Sliding\+Tiles\+Functions::\+slide (\begin{DoxyParamCaption}\item[{\doxymbox{\hyperlink{namespace_sliding_tiles_enums_a2e5ebc4f95f816af69be134baae440ff}{Sliding\+Tiles\+Enums::\+\+Direction}}}]{direction}{}\end{DoxyParamCaption})}
+
+Attempts to swap the empty tile with an adjacent filled tile based on the {\ttfamily direction} given. A slide will fail if the direction of slide given would cause the empty tile to slide outside the board. \begin{DoxyPrecond}{Precondition}
+\doxylink{namespace_sliding_tiles_data_aa8b2e966ce262f9a08dc3b159491fb24}{Sliding\+Tiles\+Data::\+board} is not empty and all rows contain at least one element. (i.\+e., the \doxylink{class_board_ae79027074c6db2fa29b0f62570aee7b8}{Board::\+has\+Empty\+Row()} call returns false.) 
+\end{DoxyPrecond}
+
+\begin{DoxyParams}[1]{Parameters}
+\doxymbox{\texttt{in}}  & {\em direction} & The direction that the slide will occur. \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyRetVals}{Return values}
+{\em true} & If the slide succeeds. \\
+\hline
+{\em false} & If the slide fails. \\
+\hline
+{\em false} & If the pre-\/condition is not met. \\
+\hline
+\end{DoxyRetVals}
+\begin{DoxyAuthor}{Author}
+Rajdeep Chowdhury 
+\end{DoxyAuthor}
+\begin{DoxyDate}{Date}
+8.\+04.\+2026
+\end{DoxyDate}
+\begin{DoxyNote}{Note}
+If the pre-\/condition is not met, the function returns early without attempting to modify the data. 
+
+This function does not increment \doxylink{namespace_sliding_tiles_data_a62f6cffec476a8e68fe9017fa48b739d}{Sliding\+Tiles\+Data::\+slides}. The caller is recommended to increment it based on if this function is true. 
+\end{DoxyNote}
+
+
+Definition at line \doxymbox{\hyperlink{_sliding_tiles_functions_8cpp_source_l00041}{41}} of file \doxymbox{\hyperlink{_sliding_tiles_functions_8cpp_source}{Sliding\+Tiles\+Functions.\+cpp}}.
+
+\Hypertarget{namespace_sliding_tiles_functions_a918d883024963062b337e4c349e74bd4}\index{SlidingTilesFunctions@{SlidingTilesFunctions}!startGame@{startGame}}
+\index{startGame@{startGame}!SlidingTilesFunctions@{SlidingTilesFunctions}}
+\doxysubsubsection{\texorpdfstring{startGame()}{startGame()}}
+{\footnotesize\ttfamily \label{namespace_sliding_tiles_functions_a918d883024963062b337e4c349e74bd4} 
+void Sliding\+Tiles\+Functions::\+start\+Game (\begin{DoxyParamCaption}\item[{\doxymbox{\hyperlink{namespace_sliding_tiles_enums_ad28b6f37d88062f1b6e092bcb5a26047}{Sliding\+Tiles\+Enums::\+\+Difficulty}}}]{difficulty}{}\end{DoxyParamCaption})}
+
+Reintializes the data in \doxylink{namespace_sliding_tiles_data}{Sliding\+Tiles\+Data} to a reset state based on the {\ttfamily difficulty}, allowing for a new game of Sliding Tiles to be played. 
+\begin{DoxyParams}[1]{Parameters}
+\doxymbox{\texttt{in}}  & {\em difficulty} & The difficulty of the Sliding Tiles game being started. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyAuthor}{Author}
+Rajdeep Chowdhury 
+\end{DoxyAuthor}
+\begin{DoxyDate}{Date}
+8.\+04.\+2026
+\end{DoxyDate}
+\begin{DoxySeeAlso}{See also}
+\doxylink{namespace_sliding_tiles_data}{Sliding\+Tiles\+Data} 
+\end{DoxySeeAlso}
+
+
+Definition at line \doxymbox{\hyperlink{_sliding_tiles_functions_8cpp_source_l00031}{31}} of file \doxymbox{\hyperlink{_sliding_tiles_functions_8cpp_source}{Sliding\+Tiles\+Functions.\+cpp}}.
+
+\Hypertarget{namespace_sliding_tiles_functions_ab9cd87d7615f8b40a3be2f79227e5014}\index{SlidingTilesFunctions@{SlidingTilesFunctions}!writeScore@{writeScore}}
+\index{writeScore@{writeScore}!SlidingTilesFunctions@{SlidingTilesFunctions}}
+\doxysubsubsection{\texorpdfstring{writeScore()}{writeScore()}}
+{\footnotesize\ttfamily \label{namespace_sliding_tiles_functions_ab9cd87d7615f8b40a3be2f79227e5014} 
+void Sliding\+Tiles\+Functions::\+write\+Score (\begin{DoxyParamCaption}\item[{\doxymbox{\hyperlink{namespace_sliding_tiles_enums_ad28b6f37d88062f1b6e092bcb5a26047}{Sliding\+Tiles\+Enums::\+\+Difficulty}}}]{difficulty}{}\end{DoxyParamCaption})}
+
+Appends the current number of \doxylink{namespace_sliding_tiles_data_a62f6cffec476a8e68fe9017fa48b739d}{Sliding\+Tiles\+Data::\+slides} to the end of a text file representing the leaderboard of the given {\ttfamily difficulty}. 
+\begin{DoxyParams}[1]{Parameters}
+\doxymbox{\texttt{in}}  & {\em difficulty} & The difficulty of the Sliding Tiles game being played. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyAuthor}{Author}
+Raj Bahadur Bhat 
+\end{DoxyAuthor}
+\begin{DoxyDate}{Date}
+8.\+04.\+2026
+\end{DoxyDate}
+\begin{DoxyNote}{Note}
+The amount of scores that can be in a leaderboard text file has no limit. 
+\end{DoxyNote}
+
+
+Definition at line \doxymbox{\hyperlink{_sliding_tiles_functions_8cpp_source_l00129}{129}} of file \doxymbox{\hyperlink{_sliding_tiles_functions_8cpp_source}{Sliding\+Tiles\+Functions.\+cpp}}.
+
