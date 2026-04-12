@@ -1,6 +1,7 @@
 #include "GameplayScene.hpp"
 #include "include/GameObjects.hpp"
 #include "include/GameControllers.hpp"
+#include "../Project II Slider Game/Board.hpp"
 #include "../Project II Slider Game/SlidingTilesData.hpp"
 #include "../Project II Slider Game/SlidingTilesFunctions.hpp"
 #include "ScenesContainer.hpp"
