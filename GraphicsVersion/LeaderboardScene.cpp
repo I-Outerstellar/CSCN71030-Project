@@ -1,5 +1,9 @@
 #include "LeaderboardScene.hpp"
-#include <iostream>
+#include "ScenesContainer.hpp"
+#include "include/GameControllers.hpp"
+#include "../Project II Slider Game/SlidingTilesFunctions.hpp"
+#include "../Project II Slider Game/SlidingTilesData.hpp"
+//#include <iostream>
 #include <string>
 #include <vector>
 
@@ -59,49 +63,45 @@ namespace {
 
         return button;
     }
+
+    void updateScores() {
+        // Load scores for current difficulty
+        std::vector<unsigned int> scores = SlidingTilesFunctions::loadScores(currentDifficulty);
+
+        // Update title to show current difficulty
+        titleText->changeText("LEADERBOARD - " + getDifficultyName(currentDifficulty));
+
+        // Clear previous score displays
+        for (int i = 0; i < 10; i++) {
+            if (scoreList[i]) {
+                scoreList[i]->changeText("");
+            }
+        }
+
+        // Display top 10 scores
+        for (int i = 0; i < scores.size() && i < 10; i++) {
+            std::string entry = std::to_string(i + 1) + ". " + std::to_string(scores[i]) + " moves";
+            scoreList[i]->changeText(entry);
+        }
+
+        // If no scores, show message
+        if (scores.empty()) {
+            scoreList[0]->changeText("No scores yet! Play a game first.");
+        }
+    }
 }
 
 namespace SlidingTilesScenes {
     namespace LeaderboardScene {
-
-        void updateScores() {
-            // Load scores for current difficulty
-            std::vector<unsigned int> scores = SlidingTilesFunctions::loadScores(currentDifficulty);
-
-            // Update title to show current difficulty
-            titleText->changeText("LEADERBOARD - " + getDifficultyName(currentDifficulty));
-
-            // Clear previous score displays
-            for (int i = 0; i < 10; i++) {
-                if (scoreList[i]) {
-                    scoreList[i]->changeText("");
-                }
-            }
-
-            // Display top 10 scores
-            for (int i = 0; i < scores.size() && i < 10; i++) {
-                std::string entry = std::to_string(i + 1) + ". " + std::to_string(scores[i]) + " moves";
-                scoreList[i]->changeText(entry);
-            }
-
-            // If no scores, show message
-            if (scores.empty()) {
-                scoreList[0]->changeText("No scores yet! Play a game first.");
-            }
-        }
 
         void switchDifficulty(SlidingTilesEnums::Difficulty difficulty) {
             currentDifficulty = difficulty;
             updateScores();
         }
 
-        void setBackButtonCallback(std::function<void()> callback) {
-            backButtonCallback = callback;
-        }
-
-        GameScene& create() {
-            if (created) return scene;
-
+        GameScene* createLeaderboardScene() {
+            if (created) return &scene;
+            
             // Get screen size
             float screenWidth = static_cast<float>(sf::VideoMode::getDesktopMode().size.x);
             float screenHeight = static_cast<float>(sf::VideoMode::getDesktopMode().size.y);
@@ -162,14 +162,14 @@ namespace SlidingTilesScenes {
             }
 
             // ========== BACK BUTTON ==========
-            backButton = createButton("BACK TO MENU", { screenWidth / 2 - 100, screenHeight - 100 }, sf::Color::Yellow);
+            backButton = createButton(
+                "BACK TO MENU", { screenWidth / 2 - 100, screenHeight - 100 }, sf::Color::Yellow
+            );
             backButton->setSize({ 200, 50 });
             backButton->onClick = [](sf::Mouse::Button btn) {
                 if (btn == sf::Mouse::Button::Left) {
-                    if (backButtonCallback) {
-                        backButtonCallback();
-                    }
-                    std::cout << "Returning to menu..." << std::endl;
+                    SceneControl::switchScene(*ScenesContainer::selectDiffScene);
+                    //std::cout << "Returning to menu..." << std::endl;
                 }
                 };
             scene.add(backButton);
@@ -178,7 +178,7 @@ namespace SlidingTilesScenes {
             updateScores();
 
             created = true;
-            return scene;
+            return &scene;
         }
     }
 }

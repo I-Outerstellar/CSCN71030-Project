@@ -3,6 +3,6 @@
 
 namespace SlidingTilesScenes {
 	namespace GameplayScene {
-		GameObjects::GameScene& createGameplayScene();
+		GameObjects::GameScene* createGameplayScene();
 	}
 }
