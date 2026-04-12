@@ -10,8 +10,7 @@ GameObjects::GameScene* ScenesContainer::selectDiffScene = nullptr;
 GameObjects::GameScene* ScenesContainer::gameplayScene = nullptr;
 GameObjects::GameScene* ScenesContainer::leaderboardScene = nullptr;
 
-int main()
-{
+int main() {
     ScenesContainer::selectDiffScene = SlidingTilesScenes::SelectDifficulty::createSelectDifficultyScene();
     ScenesContainer::gameplayScene = SlidingTilesScenes::GameplayScene::createGameplayScene();
     ScenesContainer::leaderboardScene = SlidingTilesScenes::LeaderboardScene::createLeaderboardScene();
