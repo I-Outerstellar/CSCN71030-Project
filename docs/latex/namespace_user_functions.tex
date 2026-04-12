@@ -1,0 +1,76 @@
+\doxysection{User\+Functions Namespace Reference}
+\hypertarget{namespace_user_functions}{}\label{namespace_user_functions}\index{UserFunctions@{UserFunctions}}
+
+
+Namespace containing functions that the user interacts with.  
+
+
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+bool \doxymbox{\hyperlink{namespace_user_functions_acfbe1db2fbddc6ec169deec83b31cbd4}{select\+Difficulty}} ()
+\begin{DoxyCompactList}\small\item\em Allows the user to select their Sliding Tiles game difficulty. \end{DoxyCompactList}\item 
+bool \doxymbox{\hyperlink{namespace_user_functions_a6cd805109648a2bb19399d4b4337ec11}{perform\+Slide}} ()
+\begin{DoxyCompactList}\small\item\em Allows the user to perform a slide in a Sliding Tiles game. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Namespace containing functions that turn user input into output. It is the module that users directly interact with. \begin{DoxyAuthor}{Author}
+Rajdeep Chowdhury 
+\end{DoxyAuthor}
+\begin{DoxyDate}{Date}
+8.\+04.\+2026 
+\end{DoxyDate}
+
+
+\label{doc-func-members}
+\Hypertarget{namespace_user_functions_doc-func-members}
+\doxysubsection{Function Documentation}
+\Hypertarget{namespace_user_functions_a6cd805109648a2bb19399d4b4337ec11}\index{UserFunctions@{UserFunctions}!performSlide@{performSlide}}
+\index{performSlide@{performSlide}!UserFunctions@{UserFunctions}}
+\doxysubsubsection{\texorpdfstring{performSlide()}{performSlide()}}
+{\footnotesize\ttfamily \label{namespace_user_functions_a6cd805109648a2bb19399d4b4337ec11} 
+bool User\+Functions::\+perform\+Slide (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+Prompts the user to slide the empty tile in all \doxylink{namespace_sliding_tiles_enums_a2e5ebc4f95f816af69be134baae440ff}{Sliding\+Tiles\+Enums::\+\+Direction} available or to quit the game they are currently in. Sliding will affect the game state and end the game if the win condition is met. 
+\begin{DoxyRetVals}{Return values}
+{\em true} & If quit is not selected or the game is not over. \\
+\hline
+{\em false} & If quit is selected \\
+\hline
+{\em false} & If the game determines it can end. \\
+\hline
+\end{DoxyRetVals}
+\begin{DoxyAuthor}{Author}
+Rajdeep Chowdhury 
+\end{DoxyAuthor}
+\begin{DoxyDate}{Date}
+8.\+04.\+2026 
+\end{DoxyDate}
+
+
+Definition at line \doxymbox{\hyperlink{_user_functions_8cpp_source_l00067}{67}} of file \doxymbox{\hyperlink{_user_functions_8cpp_source}{User\+Functions.\+cpp}}.
+
+\Hypertarget{namespace_user_functions_acfbe1db2fbddc6ec169deec83b31cbd4}\index{UserFunctions@{UserFunctions}!selectDifficulty@{selectDifficulty}}
+\index{selectDifficulty@{selectDifficulty}!UserFunctions@{UserFunctions}}
+\doxysubsubsection{\texorpdfstring{selectDifficulty()}{selectDifficulty()}}
+{\footnotesize\ttfamily \label{namespace_user_functions_acfbe1db2fbddc6ec169deec83b31cbd4} 
+bool User\+Functions::\+select\+Difficulty (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+Prompts the user to select their \doxylink{namespace_sliding_tiles_enums_ad28b6f37d88062f1b6e092bcb5a26047}{Sliding\+Tiles\+Enums::\+\+Difficulty} or to quit. Selecting a difficulty will begin a game afterwards. Quitting will end program execution. 
+\begin{DoxyRetVals}{Return values}
+{\em true} & If quit is not selected. \\
+\hline
+{\em false} & If quit is selected. \\
+\hline
+\end{DoxyRetVals}
+\begin{DoxyAuthor}{Author}
+Rajdeep Chowdhury 
+\end{DoxyAuthor}
+\begin{DoxyDate}{Date}
+8.\+04.\+2026 
+\end{DoxyDate}
+
+
+Definition at line \doxymbox{\hyperlink{_user_functions_8cpp_source_l00029}{29}} of file \doxymbox{\hyperlink{_user_functions_8cpp_source}{User\+Functions.\+cpp}}.
+

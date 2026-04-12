@@ -1,7 +1,26 @@
+////////////////////////////////////////////////////////////////////////////////
+///
+/// @file		UserFunctions.cpp
+/// @brief		File containing the initialization of the @ref UserFunctions functions.
+/// @details	This file contains the initialization of the @ref UserFunctions functions 
+///				declared in @ref UserFunctions.hpp.
+/// @author		Rajdeep Chowdhury
+/// @date		9.04.2026
+/// 
+/// @see		UserFunctions.hpp
+/// @see		UserFunctionsHelpers.hpp
+/// @see		SlidingTilesFunctions.hpp
+/// @see		SlidingTilesData.hpp
+/// @see		SlidingTilesEnums.hpp
+/// @see		Main.cpp
+/// @see		UserFunctionsHelpers
+///
+////////////////////////////////////////////////////////////////////////////////
 #include "UserFunctions.hpp"
 #include "UserFunctionsHelpers.hpp"
 #include "SlidingTilesFunctions.hpp"
 #include "SlidingTilesData.hpp"
+#include "SlidingTilesEnums.hpp"
 #include <string>
 #include <iostream>
 #include <algorithm>

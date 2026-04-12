@@ -1,0 +1,110 @@
+\doxysection{Sliding\+Tiles\+Functions\+Helpers Namespace Reference}
+\hypertarget{namespace_sliding_tiles_functions_helpers}{}\label{namespace_sliding_tiles_functions_helpers}\index{SlidingTilesFunctionsHelpers@{SlidingTilesFunctionsHelpers}}
+
+
+Namespace containing helper functions and a constant expression used by {\ttfamily \doxylink{namespace_sliding_tiles_functions}{Sliding\+Tiles\+Functions}}.  
+
+
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\doxymbox{\hyperlink{namespace_sliding_tiles_enums_a2e5ebc4f95f816af69be134baae440ff}{Sliding\+Tiles\+Enums::\+\+Direction}} \doxymbox{\hyperlink{namespace_sliding_tiles_functions_helpers_a9c93f9a5ddf3518dc76857872e78b693}{get\+Random\+Direction}} ()
+\begin{DoxyCompactList}\small\item\em Generates a random direction. \end{DoxyCompactList}\item 
+\doxymbox{\hyperlink{namespace_sliding_tiles_enums_a2e5ebc4f95f816af69be134baae440ff}{Sliding\+Tiles\+Enums::\+\+Direction}} \doxymbox{\hyperlink{namespace_sliding_tiles_functions_helpers_a4671e04a476fed96081311039aad426e}{get\+Opposite}} (\doxymbox{\hyperlink{namespace_sliding_tiles_enums_a2e5ebc4f95f816af69be134baae440ff}{Sliding\+Tiles\+Enums::\+\+Direction}} dir)
+\begin{DoxyCompactList}\small\item\em Converts the direction given into its opposite direction. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+constexpr unsigned short \doxymbox{\hyperlink{namespace_sliding_tiles_functions_helpers_ad9cd5ec97f400ba64f12a526a5efb65f}{LEADERBOARD\+\_\+\+SIZE}} = 10
+\begin{DoxyCompactList}\small\item\em Constant representing the size of the leaderboard. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Namespace of helper functions and a {\ttfamily constexpr} integer that the functions of \doxylink{namespace_sliding_tiles_functions}{Sliding\+Tiles\+Functions} use. \begin{DoxyAuthor}{Author}
+Rajdeep Chowdhury 
+\end{DoxyAuthor}
+\begin{DoxyDate}{Date}
+8.\+04.\+2026
+\end{DoxyDate}
+\begin{DoxySeeAlso}{See also}
+\doxylink{namespace_sliding_tiles_functions}{Sliding\+Tiles\+Functions} 
+\end{DoxySeeAlso}
+
+
+\label{doc-func-members}
+\Hypertarget{namespace_sliding_tiles_functions_helpers_doc-func-members}
+\doxysubsection{Function Documentation}
+\Hypertarget{namespace_sliding_tiles_functions_helpers_a4671e04a476fed96081311039aad426e}\index{SlidingTilesFunctionsHelpers@{SlidingTilesFunctionsHelpers}!getOpposite@{getOpposite}}
+\index{getOpposite@{getOpposite}!SlidingTilesFunctionsHelpers@{SlidingTilesFunctionsHelpers}}
+\doxysubsubsection{\texorpdfstring{getOpposite()}{getOpposite()}}
+{\footnotesize\ttfamily \label{namespace_sliding_tiles_functions_helpers_a4671e04a476fed96081311039aad426e} 
+\doxymbox{\hyperlink{namespace_sliding_tiles_enums_a2e5ebc4f95f816af69be134baae440ff}{Sliding\+Tiles\+Enums::\+\+Direction}} Sliding\+Tiles\+Functions\+Helpers::\+get\+Opposite (\begin{DoxyParamCaption}\item[{\doxymbox{\hyperlink{namespace_sliding_tiles_enums_a2e5ebc4f95f816af69be134baae440ff}{Sliding\+Tiles\+Enums::\+\+Direction}}}]{dir}{}\end{DoxyParamCaption})}
+
+Converts {\ttfamily dir} into the \doxylink{namespace_sliding_tiles_enums_a2e5ebc4f95f816af69be134baae440ff}{Sliding\+Tiles\+Enums::\+\+Direction} representation of the logical/\+common-\/sense opposite direction. 
+\begin{DoxyParams}[1]{Parameters}
+\doxymbox{\texttt{in}}  & {\em dir} & The direction which will be converted. \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyRetVals}{Return values}
+{\em \doxylink{namespace_sliding_tiles_enums_a2e5ebc4f95f816af69be134baae440ffafbaedde498cdead4f2780217646e9ba1}{Sliding\+Tiles\+Enums::\+\+Direction::\+\+UP}} & If the direction given is {\ttfamily \doxylink{namespace_sliding_tiles_enums_a2e5ebc4f95f816af69be134baae440ffac4e0e4e3118472beeb2ae75827450f1f}{Sliding\+Tiles\+Enums::\+\+Direction::\+\+DOWN}} \\
+\hline
+{\em \doxylink{namespace_sliding_tiles_enums_a2e5ebc4f95f816af69be134baae440ffac4e0e4e3118472beeb2ae75827450f1f}{Sliding\+Tiles\+Enums::\+\+Direction::\+\+DOWN}} & If the direction given is {\ttfamily \doxylink{namespace_sliding_tiles_enums_a2e5ebc4f95f816af69be134baae440ffafbaedde498cdead4f2780217646e9ba1}{Sliding\+Tiles\+Enums::\+\+Direction::\+\+UP}} \\
+\hline
+{\em \doxylink{namespace_sliding_tiles_enums_a2e5ebc4f95f816af69be134baae440ffa684d325a7303f52e64011467ff5c5758}{Sliding\+Tiles\+Enums::\+\+Direction::\+\+LEFT}} & If the direction given is {\ttfamily \doxylink{namespace_sliding_tiles_enums_a2e5ebc4f95f816af69be134baae440ffa21507b40c80068eda19865706fdc2403}{Sliding\+Tiles\+Enums::\+\+Direction::\+\+RIGHT}} \\
+\hline
+{\em \doxylink{namespace_sliding_tiles_enums_a2e5ebc4f95f816af69be134baae440ffa21507b40c80068eda19865706fdc2403}{Sliding\+Tiles\+Enums::\+\+Direction::\+\+RIGHT}} & If the direction given is {\ttfamily \doxylink{namespace_sliding_tiles_enums_a2e5ebc4f95f816af69be134baae440ffa684d325a7303f52e64011467ff5c5758}{Sliding\+Tiles\+Enums::\+\+Direction::\+\+LEFT}} \\
+\hline
+\end{DoxyRetVals}
+\begin{DoxyAuthor}{Author}
+Fabio Bustamante Romillo 
+\end{DoxyAuthor}
+\begin{DoxyDate}{Date}
+8.\+04.\+2026 
+\end{DoxyDate}
+
+
+Definition at line \doxymbox{\hyperlink{_sliding_tiles_functions_helpers_8cpp_source_l00026}{26}} of file \doxymbox{\hyperlink{_sliding_tiles_functions_helpers_8cpp_source}{Sliding\+Tiles\+Functions\+Helpers.\+cpp}}.
+
+\Hypertarget{namespace_sliding_tiles_functions_helpers_a9c93f9a5ddf3518dc76857872e78b693}\index{SlidingTilesFunctionsHelpers@{SlidingTilesFunctionsHelpers}!getRandomDirection@{getRandomDirection}}
+\index{getRandomDirection@{getRandomDirection}!SlidingTilesFunctionsHelpers@{SlidingTilesFunctionsHelpers}}
+\doxysubsubsection{\texorpdfstring{getRandomDirection()}{getRandomDirection()}}
+{\footnotesize\ttfamily \label{namespace_sliding_tiles_functions_helpers_a9c93f9a5ddf3518dc76857872e78b693} 
+\doxymbox{\hyperlink{namespace_sliding_tiles_enums_a2e5ebc4f95f816af69be134baae440ff}{Sliding\+Tiles\+Enums::\+\+Direction}} Sliding\+Tiles\+Functions\+Helpers::\+get\+Random\+Direction (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+Generates a random \doxylink{namespace_sliding_tiles_enums_a2e5ebc4f95f816af69be134baae440ff}{Sliding\+Tiles\+Enums::\+\+Direction} 
+\begin{DoxyRetVals}{Return values}
+{\em \doxylink{namespace_sliding_tiles_enums_a2e5ebc4f95f816af69be134baae440ffafbaedde498cdead4f2780217646e9ba1}{Sliding\+Tiles\+Enums::\+\+Direction::\+\+UP}} & 1/\+4 chance. \\
+\hline
+{\em \doxylink{namespace_sliding_tiles_enums_a2e5ebc4f95f816af69be134baae440ffac4e0e4e3118472beeb2ae75827450f1f}{Sliding\+Tiles\+Enums::\+\+Direction::\+\+DOWN}} & 1/\+4 chance. \\
+\hline
+{\em \doxylink{namespace_sliding_tiles_enums_a2e5ebc4f95f816af69be134baae440ffa684d325a7303f52e64011467ff5c5758}{Sliding\+Tiles\+Enums::\+\+Direction::\+\+LEFT}} & 1/\+4 chance. \\
+\hline
+{\em \doxylink{namespace_sliding_tiles_enums_a2e5ebc4f95f816af69be134baae440ffa21507b40c80068eda19865706fdc2403}{Sliding\+Tiles\+Enums::\+\+Direction::\+\+RIGHT}} & 1/\+4 chance. \\
+\hline
+\end{DoxyRetVals}
+\begin{DoxyAuthor}{Author}
+Fabio Bustamante Romillo 
+\end{DoxyAuthor}
+\begin{DoxyDate}{Date}
+8.\+04.\+2026 
+\end{DoxyDate}
+
+
+Definition at line \doxymbox{\hyperlink{_sliding_tiles_functions_helpers_8cpp_source_l00021}{21}} of file \doxymbox{\hyperlink{_sliding_tiles_functions_helpers_8cpp_source}{Sliding\+Tiles\+Functions\+Helpers.\+cpp}}.
+
+
+
+\label{doc-var-members}
+\Hypertarget{namespace_sliding_tiles_functions_helpers_doc-var-members}
+\doxysubsection{Variable Documentation}
+\Hypertarget{namespace_sliding_tiles_functions_helpers_ad9cd5ec97f400ba64f12a526a5efb65f}\index{SlidingTilesFunctionsHelpers@{SlidingTilesFunctionsHelpers}!LEADERBOARD\_SIZE@{LEADERBOARD\_SIZE}}
+\index{LEADERBOARD\_SIZE@{LEADERBOARD\_SIZE}!SlidingTilesFunctionsHelpers@{SlidingTilesFunctionsHelpers}}
+\doxysubsubsection{\texorpdfstring{LEADERBOARD\_SIZE}{LEADERBOARD\_SIZE}}
+{\footnotesize\ttfamily \label{namespace_sliding_tiles_functions_helpers_ad9cd5ec97f400ba64f12a526a5efb65f} 
+unsigned short Sliding\+Tiles\+Functions\+Helpers::\+\+LEADERBOARD\+\_\+\+SIZE = 10\hspace{0.3cm}{\ttfamily [constexpr]}}
+
+Constant integer representing how many scores are loaded by the leaderboard. 
+
+Definition at line \doxymbox{\hyperlink{_sliding_tiles_functions_helpers_8hpp_source_l00032}{32}} of file \doxymbox{\hyperlink{_sliding_tiles_functions_helpers_8hpp_source}{Sliding\+Tiles\+Functions\+Helpers.\+hpp}}.
+

@@ -1,0 +1,183 @@
+\doxysection{Sliding\+Tiles\+Functions.\+cpp}
+\hypertarget{_sliding_tiles_functions_8cpp_source}{}\label{_sliding_tiles_functions_8cpp_source}\index{SlidingTilesFunctions.cpp@{SlidingTilesFunctions.cpp}}
+\doxymbox{\hyperlink{_sliding_tiles_functions_8cpp}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{_sliding_tiles_functions_8cpp_source_l00001}00001\ }
+\DoxyCodeLine{\Hypertarget{_sliding_tiles_functions_8cpp_source_l00020}00020\ \textcolor{preprocessor}{\#include\ "{}\doxymbox{\hyperlink{_sliding_tiles_functions_8hpp}{SlidingTilesFunctions.hpp}}"{}}}
+\DoxyCodeLine{\Hypertarget{_sliding_tiles_functions_8cpp_source_l00021}00021\ \textcolor{preprocessor}{\#include\ "{}\doxymbox{\hyperlink{_sliding_tiles_functions_helpers_8hpp}{SlidingTilesFunctionsHelpers.hpp}}"{}}}
+\DoxyCodeLine{\Hypertarget{_sliding_tiles_functions_8cpp_source_l00022}00022\ \textcolor{preprocessor}{\#include\ "{}\doxymbox{\hyperlink{_sliding_tiles_data_8hpp}{SlidingTilesData.hpp}}"{}}}
+\DoxyCodeLine{\Hypertarget{_sliding_tiles_functions_8cpp_source_l00023}00023\ \textcolor{preprocessor}{\#include\ "{}\doxymbox{\hyperlink{_sliding_tiles_enums_8hpp}{SlidingTilesEnums.hpp}}"{}}}
+\DoxyCodeLine{\Hypertarget{_sliding_tiles_functions_8cpp_source_l00024}00024\ \textcolor{preprocessor}{\#include\ "{}\doxymbox{\hyperlink{_board_8hpp}{Board.hpp}}"{}}}
+\DoxyCodeLine{\Hypertarget{_sliding_tiles_functions_8cpp_source_l00025}00025\ \textcolor{preprocessor}{\#include\ <vector>}}
+\DoxyCodeLine{\Hypertarget{_sliding_tiles_functions_8cpp_source_l00026}00026\ \textcolor{preprocessor}{\#include\ <fstream>}}
+\DoxyCodeLine{\Hypertarget{_sliding_tiles_functions_8cpp_source_l00027}00027\ \textcolor{preprocessor}{\#include\ <algorithm>}}
+\DoxyCodeLine{\Hypertarget{_sliding_tiles_functions_8cpp_source_l00028}00028\ }
+\DoxyCodeLine{\Hypertarget{_sliding_tiles_functions_8cpp_source_l00029}\doxymbox{\hyperlink{namespace_sliding_tiles_functions}{00029}}\ \textcolor{keyword}{namespace\ }\doxymbox{\hyperlink{namespace_sliding_tiles_functions}{SlidingTilesFunctions}}\ \{}
+\DoxyCodeLine{\Hypertarget{_sliding_tiles_functions_8cpp_source_l00030}00030\ }
+\DoxyCodeLine{\Hypertarget{_sliding_tiles_functions_8cpp_source_l00031}\doxymbox{\hyperlink{namespace_sliding_tiles_functions_a918d883024963062b337e4c349e74bd4}{00031}}\ \ \ \ \ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{namespace_sliding_tiles_functions_a918d883024963062b337e4c349e74bd4}{startGame}}(\doxymbox{\hyperlink{namespace_sliding_tiles_enums_ad28b6f37d88062f1b6e092bcb5a26047}{SlidingTilesEnums::Difficulty}}\ difficulty)\ \{}
+\DoxyCodeLine{\Hypertarget{_sliding_tiles_functions_8cpp_source_l00032}00032\ \ \ \ \ \ \ \ \ \doxymbox{\hyperlink{namespace_sliding_tiles_data_aa8b2e966ce262f9a08dc3b159491fb24}{SlidingTilesData::board}}\ =\ \doxymbox{\hyperlink{class_board}{Board}}(difficulty);}
+\DoxyCodeLine{\Hypertarget{_sliding_tiles_functions_8cpp_source_l00033}00033\ \ \ \ \ \ \ \ \ \doxymbox{\hyperlink{namespace_sliding_tiles_data_ae4eabea76d3ee5024c01fae8bbcf608a}{SlidingTilesData::boardSize}}\ =\ \textcolor{keyword}{static\_cast<}\textcolor{keywordtype}{int}\textcolor{keyword}{>}(difficulty);}
+\DoxyCodeLine{\Hypertarget{_sliding_tiles_functions_8cpp_source_l00034}00034\ \ \ \ \ \ \ \ \ \doxymbox{\hyperlink{namespace_sliding_tiles_data_a8a8bf45aa1e8b2be5a711defe67b128d}{SlidingTilesData::currentColumn}}\ =}
+\DoxyCodeLine{\Hypertarget{_sliding_tiles_functions_8cpp_source_l00035}00035\ \ \ \ \ \ \ \ \ \ \ \ \ \doxymbox{\hyperlink{namespace_sliding_tiles_data_aa67abf58f275712f76d301fb7b3ff4be}{SlidingTilesData::currentRow}}\ =}
+\DoxyCodeLine{\Hypertarget{_sliding_tiles_functions_8cpp_source_l00036}00036\ \ \ \ \ \ \ \ \ \ \ \ \ \doxymbox{\hyperlink{namespace_sliding_tiles_data_ae4eabea76d3ee5024c01fae8bbcf608a}{SlidingTilesData::boardSize}}\ -\/\ 1;}
+\DoxyCodeLine{\Hypertarget{_sliding_tiles_functions_8cpp_source_l00037}00037\ \ \ \ \ \ \ \ \ \doxymbox{\hyperlink{namespace_sliding_tiles_data_a62f6cffec476a8e68fe9017fa48b739d}{SlidingTilesData::slides}}\ =\ 0;}
+\DoxyCodeLine{\Hypertarget{_sliding_tiles_functions_8cpp_source_l00038}00038\ \ \ \ \ \ \ \ \ \doxymbox{\hyperlink{namespace_sliding_tiles_data_aa1c6c18059db9b79b1b904820c854bed}{SlidingTilesData::currentDifficulty}}\ =\ difficulty;}
+\DoxyCodeLine{\Hypertarget{_sliding_tiles_functions_8cpp_source_l00039}00039\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_sliding_tiles_functions_8cpp_source_l00040}00040\ }
+\DoxyCodeLine{\Hypertarget{_sliding_tiles_functions_8cpp_source_l00041}\doxymbox{\hyperlink{namespace_sliding_tiles_functions_a98a0dab6a2ff2ccfac628207b0dfbcf2}{00041}}\ \ \ \ \ \textcolor{keywordtype}{bool}\ \doxymbox{\hyperlink{namespace_sliding_tiles_functions_a98a0dab6a2ff2ccfac628207b0dfbcf2}{slide}}(\doxymbox{\hyperlink{namespace_sliding_tiles_enums_a2e5ebc4f95f816af69be134baae440ff}{SlidingTilesEnums::Direction}}\ direction)\ \{\ }
+\DoxyCodeLine{\Hypertarget{_sliding_tiles_functions_8cpp_source_l00042}00042\ \ \ \ \ \ \ \ \ \textcolor{keyword}{using\ namespace\ }\doxymbox{\hyperlink{namespace_sliding_tiles_data}{SlidingTilesData}};}
+\DoxyCodeLine{\Hypertarget{_sliding_tiles_functions_8cpp_source_l00043}00043\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{bool}\ canSlide\ =\ \textcolor{keyword}{false};}
+\DoxyCodeLine{\Hypertarget{_sliding_tiles_functions_8cpp_source_l00044}00044\ \ \ \ \ \ \ \ \ \textcolor{comment}{//The\ main\ purpose\ of\ the\ below\ check\ is\ to\ ensure\ the\ board\ is\ not\ empty,\ meaning\ the\ default\ board\ is\ the\ current\ board.}}
+\DoxyCodeLine{\Hypertarget{_sliding_tiles_functions_8cpp_source_l00045}00045\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (\doxymbox{\hyperlink{namespace_sliding_tiles_data_aa8b2e966ce262f9a08dc3b159491fb24}{board}}.hasEmptyRow())\ \textcolor{keywordflow}{return}\ \textcolor{keyword}{false};\ }
+\DoxyCodeLine{\Hypertarget{_sliding_tiles_functions_8cpp_source_l00046}00046\ }
+\DoxyCodeLine{\Hypertarget{_sliding_tiles_functions_8cpp_source_l00047}00047\ \ \ \ \ \ \ \ \ \textcolor{comment}{//Determine\ if\ a\ slide\ can\ occur\ in\ the\ desired\ direction}}
+\DoxyCodeLine{\Hypertarget{_sliding_tiles_functions_8cpp_source_l00048}00048\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{switch}\ (direction)\ \{}
+\DoxyCodeLine{\Hypertarget{_sliding_tiles_functions_8cpp_source_l00049}00049\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ \doxymbox{\hyperlink{namespace_sliding_tiles_enums_a2e5ebc4f95f816af69be134baae440ffac4e0e4e3118472beeb2ae75827450f1f}{SlidingTilesEnums::Direction::DOWN}}:}
+\DoxyCodeLine{\Hypertarget{_sliding_tiles_functions_8cpp_source_l00050}00050\ \ \ \ \ \ \ \ \ \ \ \ \ canSlide\ =\ \doxymbox{\hyperlink{namespace_sliding_tiles_data_aa8b2e966ce262f9a08dc3b159491fb24}{board}}.canAccess(\doxymbox{\hyperlink{namespace_sliding_tiles_data_aa67abf58f275712f76d301fb7b3ff4be}{currentRow}}\ +\ 1,\ \doxymbox{\hyperlink{namespace_sliding_tiles_data_a8a8bf45aa1e8b2be5a711defe67b128d}{currentColumn}});}
+\DoxyCodeLine{\Hypertarget{_sliding_tiles_functions_8cpp_source_l00051}00051\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\Hypertarget{_sliding_tiles_functions_8cpp_source_l00052}00052\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ \doxymbox{\hyperlink{namespace_sliding_tiles_enums_a2e5ebc4f95f816af69be134baae440ffafbaedde498cdead4f2780217646e9ba1}{SlidingTilesEnums::Direction::UP}}:}
+\DoxyCodeLine{\Hypertarget{_sliding_tiles_functions_8cpp_source_l00053}00053\ \ \ \ \ \ \ \ \ \ \ \ \ canSlide\ =\ \doxymbox{\hyperlink{namespace_sliding_tiles_data_aa8b2e966ce262f9a08dc3b159491fb24}{board}}.canAccess(\doxymbox{\hyperlink{namespace_sliding_tiles_data_aa67abf58f275712f76d301fb7b3ff4be}{currentRow}}\ -\/\ 1,\ \doxymbox{\hyperlink{namespace_sliding_tiles_data_a8a8bf45aa1e8b2be5a711defe67b128d}{currentColumn}});}
+\DoxyCodeLine{\Hypertarget{_sliding_tiles_functions_8cpp_source_l00054}00054\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\Hypertarget{_sliding_tiles_functions_8cpp_source_l00055}00055\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ \doxymbox{\hyperlink{namespace_sliding_tiles_enums_a2e5ebc4f95f816af69be134baae440ffa684d325a7303f52e64011467ff5c5758}{SlidingTilesEnums::Direction::LEFT}}:}
+\DoxyCodeLine{\Hypertarget{_sliding_tiles_functions_8cpp_source_l00056}00056\ \ \ \ \ \ \ \ \ \ \ \ \ canSlide\ =\ \doxymbox{\hyperlink{namespace_sliding_tiles_data_aa8b2e966ce262f9a08dc3b159491fb24}{board}}.canAccess(\doxymbox{\hyperlink{namespace_sliding_tiles_data_aa67abf58f275712f76d301fb7b3ff4be}{currentRow}},\ \doxymbox{\hyperlink{namespace_sliding_tiles_data_a8a8bf45aa1e8b2be5a711defe67b128d}{currentColumn}}\ -\/\ 1);}
+\DoxyCodeLine{\Hypertarget{_sliding_tiles_functions_8cpp_source_l00057}00057\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\Hypertarget{_sliding_tiles_functions_8cpp_source_l00058}00058\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ \doxymbox{\hyperlink{namespace_sliding_tiles_enums_a2e5ebc4f95f816af69be134baae440ffa21507b40c80068eda19865706fdc2403}{SlidingTilesEnums::Direction::RIGHT}}:}
+\DoxyCodeLine{\Hypertarget{_sliding_tiles_functions_8cpp_source_l00059}00059\ \ \ \ \ \ \ \ \ \ \ \ \ canSlide\ =\ \doxymbox{\hyperlink{namespace_sliding_tiles_data_aa8b2e966ce262f9a08dc3b159491fb24}{board}}.canAccess(\doxymbox{\hyperlink{namespace_sliding_tiles_data_aa67abf58f275712f76d301fb7b3ff4be}{currentRow}},\ \doxymbox{\hyperlink{namespace_sliding_tiles_data_a8a8bf45aa1e8b2be5a711defe67b128d}{currentColumn}}\ +\ 1);}
+\DoxyCodeLine{\Hypertarget{_sliding_tiles_functions_8cpp_source_l00060}00060\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\Hypertarget{_sliding_tiles_functions_8cpp_source_l00061}00061\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_sliding_tiles_functions_8cpp_source_l00062}00062\ }
+\DoxyCodeLine{\Hypertarget{_sliding_tiles_functions_8cpp_source_l00063}00063\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (!canSlide)\ \textcolor{keywordflow}{return}\ \textcolor{keyword}{false};}
+\DoxyCodeLine{\Hypertarget{_sliding_tiles_functions_8cpp_source_l00064}00064\ }
+\DoxyCodeLine{\Hypertarget{_sliding_tiles_functions_8cpp_source_l00065}00065\ \ \ \ \ \ \ \ \ \textcolor{comment}{//Slide\ the\ desired\ square\ to\ the\ empty\ square}}
+\DoxyCodeLine{\Hypertarget{_sliding_tiles_functions_8cpp_source_l00066}00066\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{switch}\ (direction)\ \{}
+\DoxyCodeLine{\Hypertarget{_sliding_tiles_functions_8cpp_source_l00067}00067\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ \doxymbox{\hyperlink{namespace_sliding_tiles_enums_a2e5ebc4f95f816af69be134baae440ffac4e0e4e3118472beeb2ae75827450f1f}{SlidingTilesEnums::Direction::DOWN}}:}
+\DoxyCodeLine{\Hypertarget{_sliding_tiles_functions_8cpp_source_l00068}00068\ \ \ \ \ \ \ \ \ \ \ \ \ std::swap(\doxymbox{\hyperlink{namespace_sliding_tiles_data_aa8b2e966ce262f9a08dc3b159491fb24}{board}}.access(\doxymbox{\hyperlink{namespace_sliding_tiles_data_aa67abf58f275712f76d301fb7b3ff4be}{currentRow}},\ \doxymbox{\hyperlink{namespace_sliding_tiles_data_a8a8bf45aa1e8b2be5a711defe67b128d}{currentColumn}}),\ \doxymbox{\hyperlink{namespace_sliding_tiles_data_aa8b2e966ce262f9a08dc3b159491fb24}{board}}.access(\doxymbox{\hyperlink{namespace_sliding_tiles_data_aa67abf58f275712f76d301fb7b3ff4be}{currentRow}}\ +\ 1,\ \doxymbox{\hyperlink{namespace_sliding_tiles_data_a8a8bf45aa1e8b2be5a711defe67b128d}{currentColumn}}));}
+\DoxyCodeLine{\Hypertarget{_sliding_tiles_functions_8cpp_source_l00069}00069\ \ \ \ \ \ \ \ \ \ \ \ \ \doxymbox{\hyperlink{namespace_sliding_tiles_data_aa67abf58f275712f76d301fb7b3ff4be}{currentRow}}\ +=\ 1;}
+\DoxyCodeLine{\Hypertarget{_sliding_tiles_functions_8cpp_source_l00070}00070\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\Hypertarget{_sliding_tiles_functions_8cpp_source_l00071}00071\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ \doxymbox{\hyperlink{namespace_sliding_tiles_enums_a2e5ebc4f95f816af69be134baae440ffafbaedde498cdead4f2780217646e9ba1}{SlidingTilesEnums::Direction::UP}}:}
+\DoxyCodeLine{\Hypertarget{_sliding_tiles_functions_8cpp_source_l00072}00072\ \ \ \ \ \ \ \ \ \ \ \ \ std::swap(\doxymbox{\hyperlink{namespace_sliding_tiles_data_aa8b2e966ce262f9a08dc3b159491fb24}{board}}.access(\doxymbox{\hyperlink{namespace_sliding_tiles_data_aa67abf58f275712f76d301fb7b3ff4be}{currentRow}},\ \doxymbox{\hyperlink{namespace_sliding_tiles_data_a8a8bf45aa1e8b2be5a711defe67b128d}{currentColumn}}),\ \doxymbox{\hyperlink{namespace_sliding_tiles_data_aa8b2e966ce262f9a08dc3b159491fb24}{board}}.access(\doxymbox{\hyperlink{namespace_sliding_tiles_data_aa67abf58f275712f76d301fb7b3ff4be}{currentRow}}\ -\/\ 1,\ \doxymbox{\hyperlink{namespace_sliding_tiles_data_a8a8bf45aa1e8b2be5a711defe67b128d}{currentColumn}}));}
+\DoxyCodeLine{\Hypertarget{_sliding_tiles_functions_8cpp_source_l00073}00073\ \ \ \ \ \ \ \ \ \ \ \ \ \doxymbox{\hyperlink{namespace_sliding_tiles_data_aa67abf58f275712f76d301fb7b3ff4be}{currentRow}}\ -\/=\ 1;}
+\DoxyCodeLine{\Hypertarget{_sliding_tiles_functions_8cpp_source_l00074}00074\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\Hypertarget{_sliding_tiles_functions_8cpp_source_l00075}00075\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ \doxymbox{\hyperlink{namespace_sliding_tiles_enums_a2e5ebc4f95f816af69be134baae440ffa684d325a7303f52e64011467ff5c5758}{SlidingTilesEnums::Direction::LEFT}}:}
+\DoxyCodeLine{\Hypertarget{_sliding_tiles_functions_8cpp_source_l00076}00076\ \ \ \ \ \ \ \ \ \ \ \ \ std::swap(\doxymbox{\hyperlink{namespace_sliding_tiles_data_aa8b2e966ce262f9a08dc3b159491fb24}{board}}.access(\doxymbox{\hyperlink{namespace_sliding_tiles_data_aa67abf58f275712f76d301fb7b3ff4be}{currentRow}},\ \doxymbox{\hyperlink{namespace_sliding_tiles_data_a8a8bf45aa1e8b2be5a711defe67b128d}{currentColumn}}),\ \doxymbox{\hyperlink{namespace_sliding_tiles_data_aa8b2e966ce262f9a08dc3b159491fb24}{board}}.access(\doxymbox{\hyperlink{namespace_sliding_tiles_data_aa67abf58f275712f76d301fb7b3ff4be}{currentRow}},\ \doxymbox{\hyperlink{namespace_sliding_tiles_data_a8a8bf45aa1e8b2be5a711defe67b128d}{currentColumn}}\ -\/\ 1));}
+\DoxyCodeLine{\Hypertarget{_sliding_tiles_functions_8cpp_source_l00077}00077\ \ \ \ \ \ \ \ \ \ \ \ \ \doxymbox{\hyperlink{namespace_sliding_tiles_data_a8a8bf45aa1e8b2be5a711defe67b128d}{currentColumn}}\ -\/=\ 1;}
+\DoxyCodeLine{\Hypertarget{_sliding_tiles_functions_8cpp_source_l00078}00078\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\Hypertarget{_sliding_tiles_functions_8cpp_source_l00079}00079\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ \doxymbox{\hyperlink{namespace_sliding_tiles_enums_a2e5ebc4f95f816af69be134baae440ffa21507b40c80068eda19865706fdc2403}{SlidingTilesEnums::Direction::RIGHT}}:}
+\DoxyCodeLine{\Hypertarget{_sliding_tiles_functions_8cpp_source_l00080}00080\ \ \ \ \ \ \ \ \ \ \ \ \ std::swap(\doxymbox{\hyperlink{namespace_sliding_tiles_data_aa8b2e966ce262f9a08dc3b159491fb24}{board}}.access(\doxymbox{\hyperlink{namespace_sliding_tiles_data_aa67abf58f275712f76d301fb7b3ff4be}{currentRow}},\ \doxymbox{\hyperlink{namespace_sliding_tiles_data_a8a8bf45aa1e8b2be5a711defe67b128d}{currentColumn}}),\ \doxymbox{\hyperlink{namespace_sliding_tiles_data_aa8b2e966ce262f9a08dc3b159491fb24}{board}}.access(\doxymbox{\hyperlink{namespace_sliding_tiles_data_aa67abf58f275712f76d301fb7b3ff4be}{currentRow}},\ \doxymbox{\hyperlink{namespace_sliding_tiles_data_a8a8bf45aa1e8b2be5a711defe67b128d}{currentColumn}}\ +\ 1));}
+\DoxyCodeLine{\Hypertarget{_sliding_tiles_functions_8cpp_source_l00081}00081\ \ \ \ \ \ \ \ \ \ \ \ \ \doxymbox{\hyperlink{namespace_sliding_tiles_data_a8a8bf45aa1e8b2be5a711defe67b128d}{currentColumn}}\ +=\ 1;}
+\DoxyCodeLine{\Hypertarget{_sliding_tiles_functions_8cpp_source_l00082}00082\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\Hypertarget{_sliding_tiles_functions_8cpp_source_l00083}00083\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_sliding_tiles_functions_8cpp_source_l00084}00084\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{true};}
+\DoxyCodeLine{\Hypertarget{_sliding_tiles_functions_8cpp_source_l00085}00085\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_sliding_tiles_functions_8cpp_source_l00086}00086\ }
+\DoxyCodeLine{\Hypertarget{_sliding_tiles_functions_8cpp_source_l00087}\doxymbox{\hyperlink{namespace_sliding_tiles_functions_a83c453b1eb82f450bcd99b039af276b2}{00087}}\ \ \ \ \ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{namespace_sliding_tiles_functions_a83c453b1eb82f450bcd99b039af276b2}{shuffle}}()\ \{}
+\DoxyCodeLine{\Hypertarget{_sliding_tiles_functions_8cpp_source_l00088}00088\ \ \ \ \ \ \ \ \ std::srand(\textcolor{keyword}{static\_cast<}\textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{int}\textcolor{keyword}{>}(std::time(\textcolor{keyword}{nullptr})));}
+\DoxyCodeLine{\Hypertarget{_sliding_tiles_functions_8cpp_source_l00089}00089\ }
+\DoxyCodeLine{\Hypertarget{_sliding_tiles_functions_8cpp_source_l00090}00090\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{size\_t}\ moves\ =\ \doxymbox{\hyperlink{namespace_sliding_tiles_data_ae4eabea76d3ee5024c01fae8bbcf608a}{SlidingTilesData::boardSize}}\ *\ \doxymbox{\hyperlink{namespace_sliding_tiles_data_ae4eabea76d3ee5024c01fae8bbcf608a}{SlidingTilesData::boardSize}}\ *\ 10;}
+\DoxyCodeLine{\Hypertarget{_sliding_tiles_functions_8cpp_source_l00091}00091\ }
+\DoxyCodeLine{\Hypertarget{_sliding_tiles_functions_8cpp_source_l00092}00092\ \ \ \ \ \ \ \ \ \doxymbox{\hyperlink{namespace_sliding_tiles_enums_a2e5ebc4f95f816af69be134baae440ff}{SlidingTilesEnums::Direction}}\ lastMove\ =\ \doxymbox{\hyperlink{namespace_sliding_tiles_enums_a2e5ebc4f95f816af69be134baae440ffafbaedde498cdead4f2780217646e9ba1}{SlidingTilesEnums::Direction::UP}};}
+\DoxyCodeLine{\Hypertarget{_sliding_tiles_functions_8cpp_source_l00093}00093\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{bool}\ hasLastMove\ =\ \textcolor{keyword}{false};}
+\DoxyCodeLine{\Hypertarget{_sliding_tiles_functions_8cpp_source_l00094}00094\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ i\ =\ 0;}
+\DoxyCodeLine{\Hypertarget{_sliding_tiles_functions_8cpp_source_l00095}00095\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{while}\ (i\ <\ moves)\ \{}
+\DoxyCodeLine{\Hypertarget{_sliding_tiles_functions_8cpp_source_l00096}00096\ \ \ \ \ \ \ \ \ \ \ \ \ \doxymbox{\hyperlink{namespace_sliding_tiles_enums_a2e5ebc4f95f816af69be134baae440ff}{SlidingTilesEnums::Direction}}\ move\ =\ \doxymbox{\hyperlink{namespace_sliding_tiles_functions_helpers_a9c93f9a5ddf3518dc76857872e78b693}{SlidingTilesFunctionsHelpers::getRandomDirection}}();}
+\DoxyCodeLine{\Hypertarget{_sliding_tiles_functions_8cpp_source_l00097}00097\ }
+\DoxyCodeLine{\Hypertarget{_sliding_tiles_functions_8cpp_source_l00098}00098\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ validMove\ =\ true\ only\ if\ move\ is\ not\ opposite\ and\ slide\ succeeds}}
+\DoxyCodeLine{\Hypertarget{_sliding_tiles_functions_8cpp_source_l00099}00099\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{bool}\ validMove\ =\ (!hasLastMove\ ||\ move\ !=\ \doxymbox{\hyperlink{namespace_sliding_tiles_functions_helpers_a4671e04a476fed96081311039aad426e}{SlidingTilesFunctionsHelpers::getOpposite}}(lastMove))\ \&\&\ \doxymbox{\hyperlink{namespace_sliding_tiles_functions_a98a0dab6a2ff2ccfac628207b0dfbcf2}{slide}}(move);}
+\DoxyCodeLine{\Hypertarget{_sliding_tiles_functions_8cpp_source_l00100}00100\ }
+\DoxyCodeLine{\Hypertarget{_sliding_tiles_functions_8cpp_source_l00101}00101\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ increment\ counter\ if\ valid}}
+\DoxyCodeLine{\Hypertarget{_sliding_tiles_functions_8cpp_source_l00102}00102\ \ \ \ \ \ \ \ \ \ \ \ \ i\ +=\ validMove;\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ true\ =\ 1,\ false\ =\ 0}}
+\DoxyCodeLine{\Hypertarget{_sliding_tiles_functions_8cpp_source_l00103}00103\ \ \ \ \ \ \ \ \ \ \ \ \ lastMove\ =\ validMove\ ?\ move\ :\ lastMove;\ \ \ \textcolor{comment}{//\ update\ lastMove\ only\ if\ valid}}
+\DoxyCodeLine{\Hypertarget{_sliding_tiles_functions_8cpp_source_l00104}00104\ \ \ \ \ \ \ \ \ \ \ \ \ hasLastMove\ =\ hasLastMove\ ||\ validMove;\ \ \ \textcolor{comment}{//\ mark\ hasLastMove\ if\ any\ move\ succeeded}}
+\DoxyCodeLine{\Hypertarget{_sliding_tiles_functions_8cpp_source_l00105}00105\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_sliding_tiles_functions_8cpp_source_l00106}00106\ }
+\DoxyCodeLine{\Hypertarget{_sliding_tiles_functions_8cpp_source_l00107}00107\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Move\ empty\ tile\ to\ bottom\ right}}
+\DoxyCodeLine{\Hypertarget{_sliding_tiles_functions_8cpp_source_l00108}00108\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{while}\ (\doxymbox{\hyperlink{namespace_sliding_tiles_data_aa67abf58f275712f76d301fb7b3ff4be}{SlidingTilesData::currentRow}}\ <\ \doxymbox{\hyperlink{namespace_sliding_tiles_data_ae4eabea76d3ee5024c01fae8bbcf608a}{SlidingTilesData::boardSize}}\ -\/\ 1)}
+\DoxyCodeLine{\Hypertarget{_sliding_tiles_functions_8cpp_source_l00109}00109\ \ \ \ \ \ \ \ \ \ \ \ \ \doxymbox{\hyperlink{namespace_sliding_tiles_functions_a98a0dab6a2ff2ccfac628207b0dfbcf2}{slide}}(\doxymbox{\hyperlink{namespace_sliding_tiles_enums_a2e5ebc4f95f816af69be134baae440ffac4e0e4e3118472beeb2ae75827450f1f}{SlidingTilesEnums::Direction::DOWN}});}
+\DoxyCodeLine{\Hypertarget{_sliding_tiles_functions_8cpp_source_l00110}00110\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{while}\ (\doxymbox{\hyperlink{namespace_sliding_tiles_data_a8a8bf45aa1e8b2be5a711defe67b128d}{SlidingTilesData::currentColumn}}\ <\ \doxymbox{\hyperlink{namespace_sliding_tiles_data_ae4eabea76d3ee5024c01fae8bbcf608a}{SlidingTilesData::boardSize}}\ -\/\ 1)}
+\DoxyCodeLine{\Hypertarget{_sliding_tiles_functions_8cpp_source_l00111}00111\ \ \ \ \ \ \ \ \ \ \ \ \ \doxymbox{\hyperlink{namespace_sliding_tiles_functions_a98a0dab6a2ff2ccfac628207b0dfbcf2}{slide}}(\doxymbox{\hyperlink{namespace_sliding_tiles_enums_a2e5ebc4f95f816af69be134baae440ffa21507b40c80068eda19865706fdc2403}{SlidingTilesEnums::Direction::RIGHT}});}
+\DoxyCodeLine{\Hypertarget{_sliding_tiles_functions_8cpp_source_l00112}00112\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_sliding_tiles_functions_8cpp_source_l00113}00113\ }
+\DoxyCodeLine{\Hypertarget{_sliding_tiles_functions_8cpp_source_l00114}\doxymbox{\hyperlink{namespace_sliding_tiles_functions_abca5c3303584a075ed79509f79bf5cf9}{00114}}\ \ \ \ \ \textcolor{keywordtype}{bool}\ \doxymbox{\hyperlink{namespace_sliding_tiles_functions_abca5c3303584a075ed79509f79bf5cf9}{isBoardOrdered}}()\ \{}
+\DoxyCodeLine{\Hypertarget{_sliding_tiles_functions_8cpp_source_l00115}00115\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{bool}\ isOrdered\ =\ \textcolor{keyword}{true};}
+\DoxyCodeLine{\Hypertarget{_sliding_tiles_functions_8cpp_source_l00116}00116\ }
+\DoxyCodeLine{\Hypertarget{_sliding_tiles_functions_8cpp_source_l00117}00117\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{size\_t}\ row\ =\ 0;\ row\ <\ \doxymbox{\hyperlink{namespace_sliding_tiles_data_ae4eabea76d3ee5024c01fae8bbcf608a}{SlidingTilesData::boardSize}};\ row++)\ \{}
+\DoxyCodeLine{\Hypertarget{_sliding_tiles_functions_8cpp_source_l00118}00118\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{size\_t}\ col\ =\ 0;\ col\ <\ \doxymbox{\hyperlink{namespace_sliding_tiles_data_ae4eabea76d3ee5024c01fae8bbcf608a}{SlidingTilesData::boardSize}};\ col++)\ \{}
+\DoxyCodeLine{\Hypertarget{_sliding_tiles_functions_8cpp_source_l00119}00119\ }
+\DoxyCodeLine{\Hypertarget{_sliding_tiles_functions_8cpp_source_l00120}00120\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{size\_t}\ expectedValue\ =\ row\ *\ \doxymbox{\hyperlink{namespace_sliding_tiles_data_ae4eabea76d3ee5024c01fae8bbcf608a}{SlidingTilesData::boardSize}}\ +\ col\ +\ 1;}
+\DoxyCodeLine{\Hypertarget{_sliding_tiles_functions_8cpp_source_l00121}00121\ }
+\DoxyCodeLine{\Hypertarget{_sliding_tiles_functions_8cpp_source_l00122}00122\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ isOrdered\ =\ isOrdered\ \&\&\ (\doxymbox{\hyperlink{namespace_sliding_tiles_data_aa8b2e966ce262f9a08dc3b159491fb24}{SlidingTilesData::board}}.access(row,\ col)\ ==\ expectedValue);}
+\DoxyCodeLine{\Hypertarget{_sliding_tiles_functions_8cpp_source_l00123}00123\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_sliding_tiles_functions_8cpp_source_l00124}00124\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_sliding_tiles_functions_8cpp_source_l00125}00125\ }
+\DoxyCodeLine{\Hypertarget{_sliding_tiles_functions_8cpp_source_l00126}00126\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ isOrdered;}
+\DoxyCodeLine{\Hypertarget{_sliding_tiles_functions_8cpp_source_l00127}00127\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_sliding_tiles_functions_8cpp_source_l00128}00128\ }
+\DoxyCodeLine{\Hypertarget{_sliding_tiles_functions_8cpp_source_l00129}\doxymbox{\hyperlink{namespace_sliding_tiles_functions_ab9cd87d7615f8b40a3be2f79227e5014}{00129}}\ \ \ \ \ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{namespace_sliding_tiles_functions_ab9cd87d7615f8b40a3be2f79227e5014}{writeScore}}(\doxymbox{\hyperlink{namespace_sliding_tiles_enums_ad28b6f37d88062f1b6e092bcb5a26047}{SlidingTilesEnums::Difficulty}}\ difficulty)\ \{}
+\DoxyCodeLine{\Hypertarget{_sliding_tiles_functions_8cpp_source_l00130}00130\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Get\ filename\ based\ on\ difficulty}}
+\DoxyCodeLine{\Hypertarget{_sliding_tiles_functions_8cpp_source_l00131}00131\ \ \ \ \ \ \ \ \ std::string\ filename;}
+\DoxyCodeLine{\Hypertarget{_sliding_tiles_functions_8cpp_source_l00132}00132\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{switch}\ (difficulty)\ \{}
+\DoxyCodeLine{\Hypertarget{_sliding_tiles_functions_8cpp_source_l00133}00133\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ \doxymbox{\hyperlink{namespace_sliding_tiles_enums_ad28b6f37d88062f1b6e092bcb5a26047a6e5affbf5c08fef0e28c094856f94627}{SlidingTilesEnums::Difficulty::EASY}}:}
+\DoxyCodeLine{\Hypertarget{_sliding_tiles_functions_8cpp_source_l00134}00134\ \ \ \ \ \ \ \ \ \ \ \ \ filename\ =\ \textcolor{stringliteral}{"{}scores\_easy.txt"{}};}
+\DoxyCodeLine{\Hypertarget{_sliding_tiles_functions_8cpp_source_l00135}00135\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\Hypertarget{_sliding_tiles_functions_8cpp_source_l00136}00136\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ \doxymbox{\hyperlink{namespace_sliding_tiles_enums_ad28b6f37d88062f1b6e092bcb5a26047ac87f3be66ffc3c0d4249f1c2cc5f3cce}{SlidingTilesEnums::Difficulty::MEDIUM}}:}
+\DoxyCodeLine{\Hypertarget{_sliding_tiles_functions_8cpp_source_l00137}00137\ \ \ \ \ \ \ \ \ \ \ \ \ filename\ =\ \textcolor{stringliteral}{"{}scores\_medium.txt"{}};}
+\DoxyCodeLine{\Hypertarget{_sliding_tiles_functions_8cpp_source_l00138}00138\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\Hypertarget{_sliding_tiles_functions_8cpp_source_l00139}00139\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ \doxymbox{\hyperlink{namespace_sliding_tiles_enums_ad28b6f37d88062f1b6e092bcb5a26047a7c144eae2e08db14c82e376603cc01f4}{SlidingTilesEnums::Difficulty::HARD}}:}
+\DoxyCodeLine{\Hypertarget{_sliding_tiles_functions_8cpp_source_l00140}00140\ \ \ \ \ \ \ \ \ \ \ \ \ filename\ =\ \textcolor{stringliteral}{"{}scores\_hard.txt"{}};}
+\DoxyCodeLine{\Hypertarget{_sliding_tiles_functions_8cpp_source_l00141}00141\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\Hypertarget{_sliding_tiles_functions_8cpp_source_l00142}00142\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ \doxymbox{\hyperlink{namespace_sliding_tiles_enums_ad28b6f37d88062f1b6e092bcb5a26047a388cab806b9cf0a7406a6f2b39360da8}{SlidingTilesEnums::Difficulty::INSANE}}:}
+\DoxyCodeLine{\Hypertarget{_sliding_tiles_functions_8cpp_source_l00143}00143\ \ \ \ \ \ \ \ \ \ \ \ \ filename\ =\ \textcolor{stringliteral}{"{}scores\_insane.txt"{}};}
+\DoxyCodeLine{\Hypertarget{_sliding_tiles_functions_8cpp_source_l00144}00144\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\Hypertarget{_sliding_tiles_functions_8cpp_source_l00145}00145\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_sliding_tiles_functions_8cpp_source_l00146}00146\ }
+\DoxyCodeLine{\Hypertarget{_sliding_tiles_functions_8cpp_source_l00147}00147\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Open\ file\ to\ append\ score}}
+\DoxyCodeLine{\Hypertarget{_sliding_tiles_functions_8cpp_source_l00148}00148\ \ \ \ \ \ \ \ \ std::ofstream\ outFile(filename,\ std::ios::app);}
+\DoxyCodeLine{\Hypertarget{_sliding_tiles_functions_8cpp_source_l00149}00149\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (outFile.is\_open())\ \{}
+\DoxyCodeLine{\Hypertarget{_sliding_tiles_functions_8cpp_source_l00150}00150\ \ \ \ \ \ \ \ \ \ \ \ \ outFile\ <<\ \doxymbox{\hyperlink{namespace_sliding_tiles_data_a62f6cffec476a8e68fe9017fa48b739d}{SlidingTilesData::slides}}\ <<\ std::endl;}
+\DoxyCodeLine{\Hypertarget{_sliding_tiles_functions_8cpp_source_l00151}00151\ \ \ \ \ \ \ \ \ \ \ \ \ outFile.close();}
+\DoxyCodeLine{\Hypertarget{_sliding_tiles_functions_8cpp_source_l00152}00152\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_sliding_tiles_functions_8cpp_source_l00153}00153\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_sliding_tiles_functions_8cpp_source_l00154}00154\ }
+\DoxyCodeLine{\Hypertarget{_sliding_tiles_functions_8cpp_source_l00155}\doxymbox{\hyperlink{namespace_sliding_tiles_functions_a3c8efb2507585bad1091a71b932c0153}{00155}}\ \ \ \ \ std::vector<unsigned\ int>\ \doxymbox{\hyperlink{namespace_sliding_tiles_functions_a3c8efb2507585bad1091a71b932c0153}{loadScores}}(\doxymbox{\hyperlink{namespace_sliding_tiles_enums_ad28b6f37d88062f1b6e092bcb5a26047}{SlidingTilesEnums::Difficulty}}\ difficulty)\ \{}
+\DoxyCodeLine{\Hypertarget{_sliding_tiles_functions_8cpp_source_l00156}00156\ \ \ \ \ \ \ \ \ std::vector<unsigned\ int>\ scores;}
+\DoxyCodeLine{\Hypertarget{_sliding_tiles_functions_8cpp_source_l00157}00157\ }
+\DoxyCodeLine{\Hypertarget{_sliding_tiles_functions_8cpp_source_l00158}00158\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Get\ filename\ based\ on\ difficulty}}
+\DoxyCodeLine{\Hypertarget{_sliding_tiles_functions_8cpp_source_l00159}00159\ \ \ \ \ \ \ \ \ std::string\ filename;}
+\DoxyCodeLine{\Hypertarget{_sliding_tiles_functions_8cpp_source_l00160}00160\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{switch}\ (difficulty)\ \{}
+\DoxyCodeLine{\Hypertarget{_sliding_tiles_functions_8cpp_source_l00161}00161\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ \doxymbox{\hyperlink{namespace_sliding_tiles_enums_ad28b6f37d88062f1b6e092bcb5a26047a6e5affbf5c08fef0e28c094856f94627}{SlidingTilesEnums::Difficulty::EASY}}:}
+\DoxyCodeLine{\Hypertarget{_sliding_tiles_functions_8cpp_source_l00162}00162\ \ \ \ \ \ \ \ \ \ \ \ \ filename\ =\ \textcolor{stringliteral}{"{}scores\_easy.txt"{}};}
+\DoxyCodeLine{\Hypertarget{_sliding_tiles_functions_8cpp_source_l00163}00163\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\Hypertarget{_sliding_tiles_functions_8cpp_source_l00164}00164\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ \doxymbox{\hyperlink{namespace_sliding_tiles_enums_ad28b6f37d88062f1b6e092bcb5a26047ac87f3be66ffc3c0d4249f1c2cc5f3cce}{SlidingTilesEnums::Difficulty::MEDIUM}}:}
+\DoxyCodeLine{\Hypertarget{_sliding_tiles_functions_8cpp_source_l00165}00165\ \ \ \ \ \ \ \ \ \ \ \ \ filename\ =\ \textcolor{stringliteral}{"{}scores\_medium.txt"{}};}
+\DoxyCodeLine{\Hypertarget{_sliding_tiles_functions_8cpp_source_l00166}00166\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\Hypertarget{_sliding_tiles_functions_8cpp_source_l00167}00167\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ \doxymbox{\hyperlink{namespace_sliding_tiles_enums_ad28b6f37d88062f1b6e092bcb5a26047a7c144eae2e08db14c82e376603cc01f4}{SlidingTilesEnums::Difficulty::HARD}}:}
+\DoxyCodeLine{\Hypertarget{_sliding_tiles_functions_8cpp_source_l00168}00168\ \ \ \ \ \ \ \ \ \ \ \ \ filename\ =\ \textcolor{stringliteral}{"{}scores\_hard.txt"{}};}
+\DoxyCodeLine{\Hypertarget{_sliding_tiles_functions_8cpp_source_l00169}00169\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\Hypertarget{_sliding_tiles_functions_8cpp_source_l00170}00170\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ \doxymbox{\hyperlink{namespace_sliding_tiles_enums_ad28b6f37d88062f1b6e092bcb5a26047a388cab806b9cf0a7406a6f2b39360da8}{SlidingTilesEnums::Difficulty::INSANE}}:}
+\DoxyCodeLine{\Hypertarget{_sliding_tiles_functions_8cpp_source_l00171}00171\ \ \ \ \ \ \ \ \ \ \ \ \ filename\ =\ \textcolor{stringliteral}{"{}scores\_insane.txt"{}};}
+\DoxyCodeLine{\Hypertarget{_sliding_tiles_functions_8cpp_source_l00172}00172\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\Hypertarget{_sliding_tiles_functions_8cpp_source_l00173}00173\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_sliding_tiles_functions_8cpp_source_l00174}00174\ }
+\DoxyCodeLine{\Hypertarget{_sliding_tiles_functions_8cpp_source_l00175}00175\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Read\ all\ scores\ from\ file}}
+\DoxyCodeLine{\Hypertarget{_sliding_tiles_functions_8cpp_source_l00176}00176\ \ \ \ \ \ \ \ \ std::ifstream\ inFile(filename);}
+\DoxyCodeLine{\Hypertarget{_sliding_tiles_functions_8cpp_source_l00177}00177\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (inFile.is\_open())\ \{}
+\DoxyCodeLine{\Hypertarget{_sliding_tiles_functions_8cpp_source_l00178}00178\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{int}\ score;}
+\DoxyCodeLine{\Hypertarget{_sliding_tiles_functions_8cpp_source_l00179}00179\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{while}\ (inFile\ >>\ score)\ \{}
+\DoxyCodeLine{\Hypertarget{_sliding_tiles_functions_8cpp_source_l00180}00180\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ scores.push\_back(score);}
+\DoxyCodeLine{\Hypertarget{_sliding_tiles_functions_8cpp_source_l00181}00181\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_sliding_tiles_functions_8cpp_source_l00182}00182\ \ \ \ \ \ \ \ \ \ \ \ \ inFile.close();}
+\DoxyCodeLine{\Hypertarget{_sliding_tiles_functions_8cpp_source_l00183}00183\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_sliding_tiles_functions_8cpp_source_l00184}00184\ }
+\DoxyCodeLine{\Hypertarget{_sliding_tiles_functions_8cpp_source_l00185}00185\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Sort\ scores\ (lowest\ is\ best)}}
+\DoxyCodeLine{\Hypertarget{_sliding_tiles_functions_8cpp_source_l00186}00186\ \ \ \ \ \ \ \ \ std::sort(scores.begin(),\ scores.end());}
+\DoxyCodeLine{\Hypertarget{_sliding_tiles_functions_8cpp_source_l00187}00187\ }
+\DoxyCodeLine{\Hypertarget{_sliding_tiles_functions_8cpp_source_l00188}00188\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Keep\ only\ top\ 10}}
+\DoxyCodeLine{\Hypertarget{_sliding_tiles_functions_8cpp_source_l00189}00189\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (scores.size()\ >\ \doxymbox{\hyperlink{namespace_sliding_tiles_functions_helpers_ad9cd5ec97f400ba64f12a526a5efb65f}{SlidingTilesFunctionsHelpers::LEADERBOARD\_SIZE}})\ \{}
+\DoxyCodeLine{\Hypertarget{_sliding_tiles_functions_8cpp_source_l00190}00190\ \ \ \ \ \ \ \ \ \ \ \ \ scores.resize(\doxymbox{\hyperlink{namespace_sliding_tiles_functions_helpers_ad9cd5ec97f400ba64f12a526a5efb65f}{SlidingTilesFunctionsHelpers::LEADERBOARD\_SIZE}});}
+\DoxyCodeLine{\Hypertarget{_sliding_tiles_functions_8cpp_source_l00191}00191\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_sliding_tiles_functions_8cpp_source_l00192}00192\ }
+\DoxyCodeLine{\Hypertarget{_sliding_tiles_functions_8cpp_source_l00193}00193\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ scores;}
+\DoxyCodeLine{\Hypertarget{_sliding_tiles_functions_8cpp_source_l00194}00194\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_sliding_tiles_functions_8cpp_source_l00195}00195\ \}}
+
+\end{DoxyCode}

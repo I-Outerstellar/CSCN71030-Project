@@ -1,4 +1,20 @@
+////////////////////////////////////////////////////////////////////////////////
+///
+/// @file		SlidingTilesFunctionsHelpers.cpp
+/// @brief		File containing the initialization of the @ref SlidingTilesFunctionsHelpers functions.
+/// @details	This file contains the initialization of the @ref SlidingTilesFunctionsHelpers helper functions 
+///				declared in @ref SlidingTilesFunctionsHelpers.hpp.
+/// @author		Rajdeep Chowdhury
+/// @author		Fabio Bustamante Romillo
+/// @date		8.04.2026
+/// 
+/// @see		SlidingTilesFunctionsHelpers.hpp
+/// @see		SlidingTilesEnums.hpp
+/// @see		SlidingTilesFunctions
+///
+////////////////////////////////////////////////////////////////////////////////
 #include "SlidingTilesFunctionsHelpers.hpp"
+#include "SlidingTilesEnums.hpp"
 #include <algorithm>
 
 namespace SlidingTilesFunctionsHelpers {

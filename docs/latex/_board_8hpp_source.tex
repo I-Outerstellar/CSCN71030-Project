@@ -1,0 +1,35 @@
+\doxysection{Board.\+hpp}
+\hypertarget{_board_8hpp_source}{}\label{_board_8hpp_source}\index{Board.hpp@{Board.hpp}}
+\doxymbox{\hyperlink{_board_8hpp}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{_board_8hpp_source_l00001}00001\ }
+\DoxyCodeLine{\Hypertarget{_board_8hpp_source_l00013}00013\ \textcolor{preprocessor}{\#pragma\ once}}
+\DoxyCodeLine{\Hypertarget{_board_8hpp_source_l00014}00014\ \textcolor{preprocessor}{\#include\ <vector>}}
+\DoxyCodeLine{\Hypertarget{_board_8hpp_source_l00015}00015\ }
+\DoxyCodeLine{\Hypertarget{_board_8hpp_source_l00016}00016\ \textcolor{comment}{//Forward\ declaration}}
+\DoxyCodeLine{\Hypertarget{_board_8hpp_source_l00017}00017\ }
+\DoxyCodeLine{\Hypertarget{_board_8hpp_source_l00018}\doxymbox{\hyperlink{namespace_sliding_tiles_enums}{00018}}\ \textcolor{keyword}{namespace\ }\doxymbox{\hyperlink{namespace_sliding_tiles_enums}{SlidingTilesEnums}}\ \{}
+\DoxyCodeLine{\Hypertarget{_board_8hpp_source_l00019}00019\ \ \ \ \ \textcolor{keyword}{enum\ class}\ \doxymbox{\hyperlink{namespace_sliding_tiles_enums_ad28b6f37d88062f1b6e092bcb5a26047}{Difficulty}};}
+\DoxyCodeLine{\Hypertarget{_board_8hpp_source_l00020}00020\ \}}
+\DoxyCodeLine{\Hypertarget{_board_8hpp_source_l00021}00021\ }
+\DoxyCodeLine{\Hypertarget{_board_8hpp_source_l00026}\doxymbox{\hyperlink{class_board}{00026}}\ \textcolor{keyword}{class\ }\doxymbox{\hyperlink{class_board_aa3104072ed9b8e9f928b9311a5b62914}{Board}}\ \{}
+\DoxyCodeLine{\Hypertarget{_board_8hpp_source_l00027}00027\ \textcolor{keyword}{protected}:}
+\DoxyCodeLine{\Hypertarget{_board_8hpp_source_l00030}\doxymbox{\hyperlink{class_board_a8b944be9a66f4d25b081bcc37731ee62}{00030}}\ \ \ \ \ std::vector<std::vector<size\_t>>\ \doxymbox{\hyperlink{class_board_a8b944be9a66f4d25b081bcc37731ee62}{board}}\{\};}
+\DoxyCodeLine{\Hypertarget{_board_8hpp_source_l00031}00031\ }
+\DoxyCodeLine{\Hypertarget{_board_8hpp_source_l00032}00032\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{\Hypertarget{_board_8hpp_source_l00037}00037\ \ \ \ \ \doxymbox{\hyperlink{class_board_aa3104072ed9b8e9f928b9311a5b62914}{Board}}()\ noexcept;}
+\DoxyCodeLine{\Hypertarget{_board_8hpp_source_l00038}00038\ }
+\DoxyCodeLine{\Hypertarget{_board_8hpp_source_l00047}00047\ \ \ \ \ \doxymbox{\hyperlink{class_board}{Board}}(\doxymbox{\hyperlink{namespace_sliding_tiles_enums}{SlidingTilesEnums}}::Difficulty\ difficulty)\ noexcept;}
+\DoxyCodeLine{\Hypertarget{_board_8hpp_source_l00048}00048\ }
+\DoxyCodeLine{\Hypertarget{_board_8hpp_source_l00057}00057\ \ \ \ \ \textcolor{keywordtype}{bool}\ \doxymbox{\hyperlink{class_board_ae79027074c6db2fa29b0f62570aee7b8}{hasEmptyRow}}()\ const\ noexcept;}
+\DoxyCodeLine{\Hypertarget{_board_8hpp_source_l00058}00058\ }
+\DoxyCodeLine{\Hypertarget{_board_8hpp_source_l00068}00068\ \ \ \ \ \textcolor{keywordtype}{bool}\ \doxymbox{\hyperlink{class_board_a25f2fb64e2a4ef6c3f3b16ad8b3db8b7}{canAccess}}(\textcolor{keywordtype}{size\_t}\ row,\ \textcolor{keywordtype}{size\_t}\ column)\ const\ noexcept;}
+\DoxyCodeLine{\Hypertarget{_board_8hpp_source_l00069}00069\ }
+\DoxyCodeLine{\Hypertarget{_board_8hpp_source_l00078}00078\ \ \ \ \ \textcolor{keywordtype}{bool}\ \doxymbox{\hyperlink{class_board_a25f2fb64e2a4ef6c3f3b16ad8b3db8b7}{canAccess}}(\textcolor{keywordtype}{size\_t}\ row)\ const\ noexcept;}
+\DoxyCodeLine{\Hypertarget{_board_8hpp_source_l00079}00079\ }
+\DoxyCodeLine{\Hypertarget{_board_8hpp_source_l00093}00093\ \ \ \ \ \textcolor{keywordtype}{size\_t}\&\ \doxymbox{\hyperlink{class_board_abcf5a89b16aad1d29a60862f06fcea86}{access}}(\textcolor{keywordtype}{size\_t}\ row,\ \textcolor{keywordtype}{size\_t}\ column);}
+\DoxyCodeLine{\Hypertarget{_board_8hpp_source_l00094}00094\ }
+\DoxyCodeLine{\Hypertarget{_board_8hpp_source_l00107}00107\ \ \ \ \ std::vector<\textcolor{keywordtype}{size\_t}>\&\ \doxymbox{\hyperlink{class_board_abcf5a89b16aad1d29a60862f06fcea86}{access}}(\textcolor{keywordtype}{size\_t}\ row);}
+\DoxyCodeLine{\Hypertarget{_board_8hpp_source_l00108}00108\ \};}
+
+\end{DoxyCode}

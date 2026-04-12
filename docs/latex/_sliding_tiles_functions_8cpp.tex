@@ -1,0 +1,72 @@
+\doxysection{Sliding\+Tiles\+Functions.\+cpp File Reference}
+\hypertarget{_sliding_tiles_functions_8cpp}{}\label{_sliding_tiles_functions_8cpp}\index{SlidingTilesFunctions.cpp@{SlidingTilesFunctions.cpp}}
+
+
+File containing the initialization of the \doxylink{namespace_sliding_tiles_functions}{Sliding\+Tiles\+Functions} functions.  
+
+
+{\ttfamily \+\#include "{}Sliding\+Tiles\+Functions.\+hpp"{}}\newline
+{\ttfamily \+\#include "{}Sliding\+Tiles\+Functions\+Helpers.\+hpp"{}}\newline
+{\ttfamily \+\#include "{}Sliding\+Tiles\+Data.\+hpp"{}}\newline
+{\ttfamily \+\#include "{}Sliding\+Tiles\+Enums.\+hpp"{}}\newline
+{\ttfamily \+\#include "{}Board.\+hpp"{}}\newline
+{\ttfamily \+\#include $<$vector$>$}\newline
+{\ttfamily \+\#include $<$fstream$>$}\newline
+{\ttfamily \+\#include $<$algorithm$>$}\newline
+Include dependency graph for Sliding\+Tiles\+Functions.\+cpp:\+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{_sliding_tiles_functions_8cpp__incl}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Namespaces}
+\begin{DoxyCompactItemize}
+\item 
+namespace \doxymbox{\hyperlink{namespace_sliding_tiles_functions}{Sliding\+Tiles\+Functions}}
+\begin{DoxyCompactList}\small\item\em Namespace containing the functions used during a game of Sliding Tiles. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \doxymbox{\hyperlink{namespace_sliding_tiles_functions_a918d883024963062b337e4c349e74bd4}{Sliding\+Tiles\+Functions::\+start\+Game}} (\doxymbox{\hyperlink{namespace_sliding_tiles_enums_ad28b6f37d88062f1b6e092bcb5a26047}{Sliding\+Tiles\+Enums::\+\+Difficulty}} difficulty)
+\begin{DoxyCompactList}\small\item\em Sets up the data required to start a Sliding Tiles game. \end{DoxyCompactList}\item 
+bool \doxymbox{\hyperlink{namespace_sliding_tiles_functions_a98a0dab6a2ff2ccfac628207b0dfbcf2}{Sliding\+Tiles\+Functions::\+slide}} (\doxymbox{\hyperlink{namespace_sliding_tiles_enums_a2e5ebc4f95f816af69be134baae440ff}{Sliding\+Tiles\+Enums::\+\+Direction}} direction)
+\begin{DoxyCompactList}\small\item\em Attempts to slide the empty tile to an adjacent filled tile. \end{DoxyCompactList}\item 
+void \doxymbox{\hyperlink{namespace_sliding_tiles_functions_a83c453b1eb82f450bcd99b039af276b2}{Sliding\+Tiles\+Functions::\+shuffle}} ()
+\begin{DoxyCompactList}\small\item\em Shuffles the board. \end{DoxyCompactList}\item 
+bool \doxymbox{\hyperlink{namespace_sliding_tiles_functions_abca5c3303584a075ed79509f79bf5cf9}{Sliding\+Tiles\+Functions::\+is\+Board\+Ordered}} ()
+\begin{DoxyCompactList}\small\item\em Checks if all the board\textquotesingle{}s numbers are ordered. \end{DoxyCompactList}\item 
+void \doxymbox{\hyperlink{namespace_sliding_tiles_functions_ab9cd87d7615f8b40a3be2f79227e5014}{Sliding\+Tiles\+Functions::\+write\+Score}} (\doxymbox{\hyperlink{namespace_sliding_tiles_enums_ad28b6f37d88062f1b6e092bcb5a26047}{Sliding\+Tiles\+Enums::\+\+Difficulty}} difficulty)
+\begin{DoxyCompactList}\small\item\em Writes the number of slides to its associated leaderboard. \end{DoxyCompactList}\item 
+std::\+vector$<$ unsigned int $>$ \doxymbox{\hyperlink{namespace_sliding_tiles_functions_a3c8efb2507585bad1091a71b932c0153}{Sliding\+Tiles\+Functions::\+load\+Scores}} (\doxymbox{\hyperlink{namespace_sliding_tiles_enums_ad28b6f37d88062f1b6e092bcb5a26047}{Sliding\+Tiles\+Enums::\+\+Difficulty}} difficulty)
+\begin{DoxyCompactList}\small\item\em Loads the top scores from its associated leaderboard. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+This file contains the initialization of the \doxylink{namespace_sliding_tiles_functions}{Sliding\+Tiles\+Functions} functions declared in \doxylink{_sliding_tiles_functions_8hpp}{Sliding\+Tiles\+Functions.\+hpp}. \begin{DoxyAuthor}{Author}
+Rajdeep Chowdhury 
+
+Fabio Bustamante Romillo 
+
+Raj Bahadur Bhat 
+\end{DoxyAuthor}
+\begin{DoxyDate}{Date}
+9.\+04.\+2026
+\end{DoxyDate}
+\begin{DoxySeeAlso}{See also}
+\doxylink{_sliding_tiles_functions_8hpp}{Sliding\+Tiles\+Functions.\+hpp} 
+
+Slding\+Tiles\+Functions\+Helpers.\+hpp 
+
+\doxylink{_sliding_tiles_data_8hpp}{Sliding\+Tiles\+Data.\+hpp} 
+
+\doxylink{_sliding_tiles_enums_8hpp}{Sliding\+Tiles\+Enums.\+hpp} 
+
+\doxylink{_board_8hpp}{Board.\+hpp} 
+
+\doxylink{namespace_sliding_tiles_data}{Sliding\+Tiles\+Data} 
+\end{DoxySeeAlso}
+
+
+Definition in file \doxymbox{\hyperlink{_sliding_tiles_functions_8cpp_source}{Sliding\+Tiles\+Functions.\+cpp}}.
+
