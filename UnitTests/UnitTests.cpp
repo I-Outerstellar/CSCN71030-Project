@@ -7,7 +7,7 @@
 #include "../Project II Slider Game/SlidingTilesFunctionsHelpers.hpp"
 #include "../Project II Slider Game/UserFunctionsHelpers.hpp"
 #include "SlidingTilesFunctionsMock.hpp"
-#include "UserFunctionsHelperMock.hpp"
+#include "UserFunctionsHelpersMock.hpp"
 
 
 using namespace Microsoft::VisualStudio::CppUnitTestFramework;
@@ -367,4 +367,74 @@ namespace UnitTests {
 
 	};
 
+}
+
+namespace IntegrationTests {
+	
+
+	TEST_CLASS(ContinueGame) {
+		TEST_METHOD(BoardUnordered_FirstReturn) {
+			const char* fileName = "continue_game_no_successes_path_1.txt";
+			std::remove(fileName);
+			SlidingTilesFunctions::startGame(SlidingTilesEnums::Difficulty::HARD);
+			SlidingTilesFunctions::slide(SlidingTilesEnums::Direction::UP);
+
+			bool success = UserFunctionsHelpersMock::continueGame(fileName);
+
+			Assert::IsTrue(success);
+			Assert::AreEqual(static_cast<size_t>(30), SlidingTilesData::board.access(5, 5));
+
+			std::vector<unsigned int> scores = SlidingTilesFunctionsMock::loadScores(fileName);
+
+			Assert::AreEqual(static_cast<size_t>(0), scores.size());
+		}
+
+		TEST_METHOD(BoardUnordered_SecondReturn) {
+			const char* fileName = "continue_game_no_successes_path_2.txt";
+			std::remove(fileName);
+			SlidingTilesFunctions::startGame(SlidingTilesEnums::Difficulty::HARD);
+			SlidingTilesFunctions::slide(SlidingTilesEnums::Direction::UP);
+			SlidingTilesFunctions::slide(SlidingTilesEnums::Direction::LEFT);
+			SlidingTilesFunctions::slide(SlidingTilesEnums::Direction::DOWN);
+			SlidingTilesFunctions::slide(SlidingTilesEnums::Direction::RIGHT);
+
+			bool success = UserFunctionsHelpersMock::continueGame(fileName);
+
+			Assert::IsTrue(success);
+			Assert::AreEqual(static_cast<size_t>(36), SlidingTilesData::board.access(5, 5));
+
+			std::vector<unsigned int> scores = SlidingTilesFunctionsMock::loadScores(fileName);
+
+			Assert::AreEqual(static_cast<size_t>(0), scores.size());
+		}
+
+		TEST_METHOD(BoardOrdered) {
+			const char* fileName = "continue_game_successes.txt";
+			std::remove(fileName);
+			SlidingTilesFunctions::startGame(SlidingTilesEnums::Difficulty::HARD);
+			
+			SlidingTilesData::slides = 243;
+			bool success1 = UserFunctionsHelpersMock::continueGame(fileName);
+
+			SlidingTilesData::slides = 208;
+			bool success2 = UserFunctionsHelpersMock::continueGame(fileName);
+
+			for (int i = 0; i < 3; i++) {
+				UserFunctionsHelpersMock::trySlide(SlidingTilesEnums::Direction::UP);
+				UserFunctionsHelpersMock::trySlide(SlidingTilesEnums::Direction::LEFT);
+				UserFunctionsHelpersMock::trySlide(SlidingTilesEnums::Direction::DOWN);
+				UserFunctionsHelpersMock::trySlide(SlidingTilesEnums::Direction::RIGHT);
+			}
+			bool success3 = UserFunctionsHelpersMock::continueGame(fileName); //Slide count after is 220
+
+			Assert::IsFalse(success1);
+			Assert::IsFalse(success2);
+			Assert::IsFalse(success3);
+
+			std::vector<unsigned int> scores = SlidingTilesFunctionsMock::loadScores(fileName);
+			Assert::AreEqual(208u, scores.at(0));
+			Assert::AreEqual(220u, scores.at(1));
+			Assert::AreEqual(243u, scores.at(2));
+		}
+	};
 }
