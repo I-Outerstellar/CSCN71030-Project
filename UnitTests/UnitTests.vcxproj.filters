@@ -39,7 +39,10 @@
     <ClCompile Include="SlidingTilesFunctionsMock.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="UserFunctionsHelperMock.cpp">
+    <ClCompile Include="UserFunctionsHelpersMock.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="BoardMock.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
@@ -47,7 +50,10 @@
     <ClInclude Include="SlidingTilesFunctionsMock.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="UserFunctionsHelperMock.hpp">
+    <ClInclude Include="UserFunctionsHelpersMock.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="BoardMock.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
