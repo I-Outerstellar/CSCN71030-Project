@@ -370,7 +370,47 @@ namespace UnitTests {
 }
 
 namespace IntegrationTests {
-	
+	TEST_CLASS(TrySlide) {
+		TEST_METHOD(SlidesIncrease) {
+			SlidingTilesFunctions::startGame(SlidingTilesEnums::Difficulty::HARD);
+			UserFunctionsHelpersMock::trySlide(SlidingTilesEnums::Direction::UP);
+			UserFunctionsHelpersMock::trySlide(SlidingTilesEnums::Direction::LEFT);
+			UserFunctionsHelpersMock::trySlide(SlidingTilesEnums::Direction::UP);
+			UserFunctionsHelpersMock::trySlide(SlidingTilesEnums::Direction::UP);
+			UserFunctionsHelpersMock::trySlide(SlidingTilesEnums::Direction::LEFT);
+			UserFunctionsHelpersMock::trySlide(SlidingTilesEnums::Direction::DOWN);
+			UserFunctionsHelpersMock::trySlide(SlidingTilesEnums::Direction::RIGHT);
+
+			unsigned int expected = 7;
+			Assert::AreEqual(expected, SlidingTilesData::slides);
+		}
+
+		TEST_METHOD(SlidesDoNotIncrease) {
+			SlidingTilesFunctions::startGame(SlidingTilesEnums::Difficulty::HARD);
+			UserFunctionsHelpersMock::trySlide(SlidingTilesEnums::Direction::DOWN);
+			UserFunctionsHelpersMock::trySlide(SlidingTilesEnums::Direction::RIGHT);
+			UserFunctionsHelpersMock::trySlide(SlidingTilesEnums::Direction::DOWN);
+			UserFunctionsHelpersMock::trySlide(SlidingTilesEnums::Direction::RIGHT);
+			UserFunctionsHelpersMock::trySlide(SlidingTilesEnums::Direction::RIGHT);
+			UserFunctionsHelpersMock::trySlide(SlidingTilesEnums::Direction::DOWN);
+
+			unsigned int expected = 0;
+			Assert::AreEqual(expected, SlidingTilesData::slides);
+		}
+
+		TEST_METHOD(SlidesIncreaseAndDoNotIncrease) {
+			SlidingTilesFunctions::startGame(SlidingTilesEnums::Difficulty::HARD);
+			UserFunctionsHelpersMock::trySlide(SlidingTilesEnums::Direction::DOWN); //Fails
+			UserFunctionsHelpersMock::trySlide(SlidingTilesEnums::Direction::UP); //Succeeds
+			UserFunctionsHelpersMock::trySlide(SlidingTilesEnums::Direction::LEFT); //Succeeds
+			UserFunctionsHelpersMock::trySlide(SlidingTilesEnums::Direction::RIGHT); //Succeeds
+			UserFunctionsHelpersMock::trySlide(SlidingTilesEnums::Direction::RIGHT); //Fails
+			UserFunctionsHelpersMock::trySlide(SlidingTilesEnums::Direction::DOWN); //Succeeds
+
+			unsigned int expected = 4;
+			Assert::AreEqual(expected, SlidingTilesData::slides);
+		}
+	};
 
 	TEST_CLASS(ContinueGame) {
 		TEST_METHOD(BoardUnordered_FirstReturn) {
