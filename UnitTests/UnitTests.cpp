@@ -685,6 +685,7 @@ namespace IntegrationTests {
 			Assert::IsFalse(success3);
 
 			std::vector<unsigned int> scores = SlidingTilesFunctionsMock::loadScores(fileName);
+			Assert::AreEqual(static_cast<size_t>(3), scores.size());
 			Assert::AreEqual(208u, scores.at(0));
 			Assert::AreEqual(220u, scores.at(1));
 			Assert::AreEqual(243u, scores.at(2));
