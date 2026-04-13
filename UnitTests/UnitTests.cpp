@@ -7,12 +7,219 @@
 #include "../Project II Slider Game/SlidingTilesFunctionsHelpers.hpp"
 #include "../Project II Slider Game/UserFunctionsHelpers.hpp"
 #include "SlidingTilesFunctionsMock.hpp"
-#include "UserFunctionsHelperMock.hpp"
+#include "UserFunctionsHelpersMock.hpp"
+#include "BoardMock.hpp"
 
 
 using namespace Microsoft::VisualStudio::CppUnitTestFramework;
 
 namespace UnitTests {
+	TEST_CLASS(BoardConstructors) {
+	private:
+
+	public:
+		TEST_METHOD(DefaultConstructor) {
+			BoardMock board;
+			size_t expected = 0;
+			size_t actual = board.accessBoard().size();
+
+			Assert::AreEqual(expected, actual);
+		}
+
+		TEST_METHOD(ParameterizedConstructor_EASY) {
+			BoardMock board(SlidingTilesEnums::Difficulty::EASY);
+			size_t expectedSize = 3;
+			size_t actualSize = board.accessBoard().size();
+
+			Assert::AreEqual(expectedSize, actualSize);
+
+			for (int i = 0; i < expectedSize; i++) {
+				actualSize = board.accessBoard().at(i).size();
+				Assert::AreEqual(expectedSize, actualSize);
+
+				for (int j = 0; j < expectedSize; j++) {
+					size_t expectedNumber = i * expectedSize + j + 1;
+					size_t actualNumber = board.accessBoard().at(i).at(j);
+					Assert::AreEqual(expectedNumber, actualNumber);
+				}
+			}
+		}
+
+		TEST_METHOD(ParameterizedConstructor_MEDIUM) {
+			BoardMock board(SlidingTilesEnums::Difficulty::MEDIUM);
+			size_t expectedSize = 4;
+			size_t actualSize = board.accessBoard().size();
+
+			Assert::AreEqual(expectedSize, actualSize);
+
+			for (int i = 0; i < expectedSize; i++) {
+				actualSize = board.accessBoard().at(i).size();
+				Assert::AreEqual(expectedSize, actualSize);
+
+				for (int j = 0; j < expectedSize; j++) {
+					size_t expectedNumber = i * expectedSize + j + 1;
+					size_t actualNumber = board.accessBoard().at(i).at(j);
+					Assert::AreEqual(expectedNumber, actualNumber);
+				}
+			}
+		}
+
+		TEST_METHOD(ParameterizedConstructor_HARD) {
+			BoardMock board(SlidingTilesEnums::Difficulty::HARD);
+			size_t expectedSize = 6;
+			size_t actualSize = board.accessBoard().size();
+
+			Assert::AreEqual(expectedSize, actualSize);
+
+			for (int i = 0; i < expectedSize; i++) {
+				actualSize = board.accessBoard().at(i).size();
+				Assert::AreEqual(expectedSize, actualSize);
+
+				for (int j = 0; j < expectedSize; j++) {
+					size_t expectedNumber = i * expectedSize + j + 1;
+					size_t actualNumber = board.accessBoard().at(i).at(j);
+					Assert::AreEqual(expectedNumber, actualNumber);
+				}
+			}
+		}
+
+		TEST_METHOD(ParameterizedConstructor_INSANE) {
+			BoardMock board(SlidingTilesEnums::Difficulty::INSANE);
+			size_t expectedSize = 9;
+			size_t actualSize = board.accessBoard().size();
+
+			Assert::AreEqual(expectedSize, actualSize);
+
+			for (int i = 0; i < expectedSize; i++) {
+				actualSize = board.accessBoard().at(i).size();
+				Assert::AreEqual(expectedSize, actualSize);
+
+				for (int j = 0; j < expectedSize; j++) {
+					size_t expectedNumber = i * expectedSize + j + 1;
+					size_t actualNumber = board.accessBoard().at(i).at(j);
+					Assert::AreEqual(expectedNumber, actualNumber);
+				}
+			}
+		}
+	};
+
+	TEST_CLASS(BoardCanAccess) {
+	private:
+
+	public:
+		TEST_METHOD(TrueForRows) {
+			BoardMock board(SlidingTilesEnums::Difficulty::EASY);
+			int size = 3;
+
+			for (int i = 0; i < size; i++) {
+				Assert::IsTrue(board.canAccess(i));
+			}
+		}
+
+		TEST_METHOD(TrueForRowsAndColumns) {
+			BoardMock board(SlidingTilesEnums::Difficulty::EASY);
+			int size = 3;
+
+			for (int i = 0; i < size; i++) {
+				for (int j = 0; j < size; j++) {
+					Assert::IsTrue(board.canAccess(i, j));
+				}
+			}
+		}
+
+		TEST_METHOD(FalseForRows) {
+			BoardMock board(SlidingTilesEnums::Difficulty::INSANE);
+
+			Assert::IsFalse(board.canAccess(10));
+		}
+
+		TEST_METHOD(FalseForRowIndex) {
+			BoardMock board(SlidingTilesEnums::Difficulty::INSANE);
+
+			Assert::IsFalse(board.canAccess(10, 0));
+		}
+
+		TEST_METHOD(FalseForColumnIndex) {
+			BoardMock board(SlidingTilesEnums::Difficulty::INSANE);
+
+			Assert::IsFalse(board.canAccess(0, 10));
+		}
+
+		TEST_METHOD(FalseForRowsAndColumnIndex) {
+			BoardMock board(SlidingTilesEnums::Difficulty::INSANE);
+
+			Assert::IsFalse(board.canAccess(10, 10));
+		}
+	};
+
+	TEST_CLASS(BoardAccess) {
+	private:
+
+	public:
+		TEST_METHOD(AccessesRows) {
+			BoardMock board(SlidingTilesEnums::Difficulty::EASY);
+			int size = 3;
+
+			std::vector<size_t> expected1{ 1, 2, 3 };
+			std::vector<size_t> expected2{ 4, 5, 6 };
+			std::vector<size_t> expected3{ 7, 8, 9 };
+			std::vector<size_t> actual1 = board.access(0);
+			std::vector<size_t> actual2 = board.access(1);
+			std::vector<size_t> actual3 = board.access(2);
+
+			for (int i = 0; i < size; i++) {
+				Assert::AreEqual(expected1.at(i), actual1.at(i));
+				Assert::AreEqual(expected2.at(i), actual2.at(i));
+				Assert::AreEqual(expected3.at(i), actual3.at(i));
+			}
+		}
+
+		TEST_METHOD(AccessIndexes) {
+			BoardMock board(SlidingTilesEnums::Difficulty::MEDIUM);
+			int size = 4;
+
+			for (int i = 0; i < size; i++) {
+				for (int j = 0; j < size; j++) {
+					size_t expectedNumber = i * size + j + 1;
+					size_t actualNumber = board.access(i, j);
+					Assert::AreEqual(expectedNumber, actualNumber);
+				}
+			}
+		}
+
+		TEST_METHOD(AccessRowThrows) {
+			BoardMock board(SlidingTilesEnums::Difficulty::INSANE);
+			Assert::ExpectException<std::out_of_range>([&]() {
+					board.access(10);
+				}
+			);
+		}
+
+		TEST_METHOD(AccessRowIndexThrows) {
+			BoardMock board(SlidingTilesEnums::Difficulty::INSANE);
+			Assert::ExpectException<std::out_of_range>([&]() {
+				board.access(10, 0);
+				}
+			);
+		}
+
+		TEST_METHOD(AccessColumnIndexThrows) {
+			BoardMock board(SlidingTilesEnums::Difficulty::INSANE);
+			Assert::ExpectException<std::out_of_range>([&]() {
+				board.access(0, 10);
+				}
+			);
+		}
+
+		TEST_METHOD(AccessRowAndColumnIndexThrows) {
+			BoardMock board(SlidingTilesEnums::Difficulty::INSANE);
+			Assert::ExpectException<std::out_of_range>([&]() {
+				board.access(10, 10);
+				}
+			);
+		}
+	};
+
 	TEST_CLASS(GetOppositeDirection) {
 	private:
 
@@ -367,4 +574,121 @@ namespace UnitTests {
 
 	};
 
+}
+
+namespace IntegrationTests {
+	TEST_CLASS(TrySlide) {
+	private:
+
+	public:
+		TEST_METHOD(SlidesIncrease) {
+			SlidingTilesFunctions::startGame(SlidingTilesEnums::Difficulty::HARD);
+			UserFunctionsHelpersMock::trySlide(SlidingTilesEnums::Direction::UP);
+			UserFunctionsHelpersMock::trySlide(SlidingTilesEnums::Direction::LEFT);
+			UserFunctionsHelpersMock::trySlide(SlidingTilesEnums::Direction::UP);
+			UserFunctionsHelpersMock::trySlide(SlidingTilesEnums::Direction::UP);
+			UserFunctionsHelpersMock::trySlide(SlidingTilesEnums::Direction::LEFT);
+			UserFunctionsHelpersMock::trySlide(SlidingTilesEnums::Direction::DOWN);
+			UserFunctionsHelpersMock::trySlide(SlidingTilesEnums::Direction::RIGHT);
+
+			unsigned int expected = 7;
+			Assert::AreEqual(expected, SlidingTilesData::slides);
+		}
+
+		TEST_METHOD(SlidesDoNotIncrease) {
+			SlidingTilesFunctions::startGame(SlidingTilesEnums::Difficulty::HARD);
+			UserFunctionsHelpersMock::trySlide(SlidingTilesEnums::Direction::DOWN);
+			UserFunctionsHelpersMock::trySlide(SlidingTilesEnums::Direction::RIGHT);
+			UserFunctionsHelpersMock::trySlide(SlidingTilesEnums::Direction::DOWN);
+			UserFunctionsHelpersMock::trySlide(SlidingTilesEnums::Direction::RIGHT);
+			UserFunctionsHelpersMock::trySlide(SlidingTilesEnums::Direction::RIGHT);
+			UserFunctionsHelpersMock::trySlide(SlidingTilesEnums::Direction::DOWN);
+
+			unsigned int expected = 0;
+			Assert::AreEqual(expected, SlidingTilesData::slides);
+		}
+
+		TEST_METHOD(SlidesIncreaseAndDoNotIncrease) {
+			SlidingTilesFunctions::startGame(SlidingTilesEnums::Difficulty::HARD);
+			UserFunctionsHelpersMock::trySlide(SlidingTilesEnums::Direction::DOWN); //Fails
+			UserFunctionsHelpersMock::trySlide(SlidingTilesEnums::Direction::UP); //Succeeds
+			UserFunctionsHelpersMock::trySlide(SlidingTilesEnums::Direction::LEFT); //Succeeds
+			UserFunctionsHelpersMock::trySlide(SlidingTilesEnums::Direction::RIGHT); //Succeeds
+			UserFunctionsHelpersMock::trySlide(SlidingTilesEnums::Direction::RIGHT); //Fails
+			UserFunctionsHelpersMock::trySlide(SlidingTilesEnums::Direction::DOWN); //Succeeds
+
+			unsigned int expected = 4;
+			Assert::AreEqual(expected, SlidingTilesData::slides);
+		}
+	};
+
+	TEST_CLASS(ContinueGame) {
+	private:
+
+	public:
+		TEST_METHOD(BoardUnordered_FirstReturn) {
+			const char* fileName = "continue_game_no_successes_path_1.txt";
+			std::remove(fileName);
+			SlidingTilesFunctions::startGame(SlidingTilesEnums::Difficulty::HARD);
+			SlidingTilesFunctions::slide(SlidingTilesEnums::Direction::UP);
+
+			bool success = UserFunctionsHelpersMock::continueGame(fileName);
+
+			Assert::IsTrue(success);
+			Assert::AreEqual(static_cast<size_t>(30), SlidingTilesData::board.access(5, 5));
+
+			std::vector<unsigned int> scores = SlidingTilesFunctionsMock::loadScores(fileName);
+
+			Assert::AreEqual(static_cast<size_t>(0), scores.size());
+		}
+
+		TEST_METHOD(BoardUnordered_SecondReturn) {
+			const char* fileName = "continue_game_no_successes_path_2.txt";
+			std::remove(fileName);
+			SlidingTilesFunctions::startGame(SlidingTilesEnums::Difficulty::HARD);
+			SlidingTilesFunctions::slide(SlidingTilesEnums::Direction::UP);
+			SlidingTilesFunctions::slide(SlidingTilesEnums::Direction::LEFT);
+			SlidingTilesFunctions::slide(SlidingTilesEnums::Direction::DOWN);
+			SlidingTilesFunctions::slide(SlidingTilesEnums::Direction::RIGHT);
+
+			bool success = UserFunctionsHelpersMock::continueGame(fileName);
+
+			Assert::IsTrue(success);
+			Assert::AreEqual(static_cast<size_t>(36), SlidingTilesData::board.access(5, 5));
+
+			std::vector<unsigned int> scores = SlidingTilesFunctionsMock::loadScores(fileName);
+
+			Assert::AreEqual(static_cast<size_t>(0), scores.size());
+		}
+
+		TEST_METHOD(BoardOrdered) {
+			const char* fileName = "continue_game_successes.txt";
+			std::remove(fileName);
+			SlidingTilesFunctions::startGame(SlidingTilesEnums::Difficulty::HARD);
+			
+			SlidingTilesData::slides = 243;
+			bool success1 = UserFunctionsHelpersMock::continueGame(fileName);
+
+			SlidingTilesData::slides = 208;
+			bool success2 = UserFunctionsHelpersMock::continueGame(fileName);
+
+			for (int i = 0; i < 3; i++) {
+				UserFunctionsHelpersMock::trySlide(SlidingTilesEnums::Direction::UP);
+				UserFunctionsHelpersMock::trySlide(SlidingTilesEnums::Direction::LEFT);
+				UserFunctionsHelpersMock::trySlide(SlidingTilesEnums::Direction::DOWN);
+				UserFunctionsHelpersMock::trySlide(SlidingTilesEnums::Direction::RIGHT);
+			}
+			bool success3 = UserFunctionsHelpersMock::continueGame(fileName); //Slide count after is 220
+
+			Assert::IsFalse(success1);
+			Assert::IsFalse(success2);
+			Assert::IsFalse(success3);
+
+			std::vector<unsigned int> scores = SlidingTilesFunctionsMock::loadScores(fileName);
+			Assert::AreEqual(static_cast<size_t>(3), scores.size());
+			Assert::AreEqual(208u, scores.at(0));
+			Assert::AreEqual(220u, scores.at(1));
+			Assert::AreEqual(243u, scores.at(2));
+		}
+	};
 }
