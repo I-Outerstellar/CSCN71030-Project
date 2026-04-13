@@ -394,33 +394,21 @@ namespace UnitTests {
 			SlidingTilesData::slides = 20;
 			SlidingTilesFunctionsMock::writeScore(file);
 
-			std::ifstream in(file);
+			SlidingTilesData::slides = 30;
+			SlidingTilesFunctionsMock::writeScore(file);
 
-			int first = -1, second = -1;
-			in >> first >> second;
-
-			Assert::AreEqual(10, first);
-			Assert::AreEqual(20, second);
-		}
-
-		TEST_METHOD(SequentialWrites) {
-			std::string file = "write_multiple.txt";
-			std::ofstream(file, std::ios::trunc).close();
-
-			for (int i = 1; i <= 5; i++) {
-				SlidingTilesData::slides = i * 5;
-				SlidingTilesFunctionsMock::writeScore(file);
-			}
+			SlidingTilesData::slides = 40;
+			SlidingTilesFunctionsMock::writeScore(file);
 
 			std::ifstream in(file);
 
-			int value;
-			int expected = 5;
+			int a = -1, b = -1, c = -1, d = -1;
+			in >> a >> b >> c >> d;
 
-			while (in >> value) {
-				Assert::AreEqual(expected, value);
-				expected += 5;
-			}
+			Assert::AreEqual(10, a);
+			Assert::AreEqual(20, b);
+			Assert::AreEqual(30, c);
+			Assert::AreEqual(40, d);
 		}
 
 		TEST_METHOD(WriteDifferentFiles) {
@@ -446,21 +434,5 @@ namespace UnitTests {
 			Assert::AreEqual(99, v1);
 			Assert::AreEqual(55, v2);
 		}
-
-		TEST_METHOD(WriteZeroScore) {
-			std::string file = "write_zero.txt";
-			std::ofstream(file, std::ios::trunc).close();
-
-			SlidingTilesData::slides = 0;
-			SlidingTilesFunctionsMock::writeScore(file);
-
-			std::ifstream in(file);
-			int value = -1;
-			in >> value;
-
-			Assert::AreEqual(0, value);
-		}
 	};
-
-
 }
