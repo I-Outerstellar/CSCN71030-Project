@@ -367,4 +367,100 @@ namespace UnitTests {
 
 	};
 
+	TEST_CLASS(WriteScores) {
+	public:
+
+		TEST_METHOD(WritesSingleScore) {
+			std::string file = "write_single.txt";
+			std::ofstream(file, std::ios::trunc).close();
+
+			SlidingTilesData::slides = 42;
+			SlidingTilesFunctionsMock::writeScore(file);
+
+			std::ifstream in(file);
+			int value = -1;
+			in >> value;
+
+			Assert::AreEqual(42, value);
+		}
+
+		TEST_METHOD(AppendsScores) {
+			std::string file = "write_append.txt";
+			std::ofstream(file, std::ios::trunc).close();
+
+			SlidingTilesData::slides = 10;
+			SlidingTilesFunctionsMock::writeScore(file);
+
+			SlidingTilesData::slides = 20;
+			SlidingTilesFunctionsMock::writeScore(file);
+
+			std::ifstream in(file);
+
+			int first = -1, second = -1;
+			in >> first >> second;
+
+			Assert::AreEqual(10, first);
+			Assert::AreEqual(20, second);
+		}
+
+		TEST_METHOD(SequentialWrites) {
+			std::string file = "write_multiple.txt";
+			std::ofstream(file, std::ios::trunc).close();
+
+			for (int i = 1; i <= 5; i++) {
+				SlidingTilesData::slides = i * 5;
+				SlidingTilesFunctionsMock::writeScore(file);
+			}
+
+			std::ifstream in(file);
+
+			int value;
+			int expected = 5;
+
+			while (in >> value) {
+				Assert::AreEqual(expected, value);
+				expected += 5;
+			}
+		}
+
+		TEST_METHOD(WriteDifferentFiles) {
+			std::string file1 = "write_file1.txt";
+			std::string file2 = "write_file2.txt";
+
+			std::ofstream(file1, std::ios::trunc).close();
+			std::ofstream(file2, std::ios::trunc).close();
+
+			SlidingTilesData::slides = 99;
+			SlidingTilesFunctionsMock::writeScore(file1);
+
+			SlidingTilesData::slides = 55;
+			SlidingTilesFunctionsMock::writeScore(file2);
+
+			std::ifstream in1(file1);
+			std::ifstream in2(file2);
+
+			int v1 = -1, v2 = -1;
+			in1 >> v1;
+			in2 >> v2;
+
+			Assert::AreEqual(99, v1);
+			Assert::AreEqual(55, v2);
+		}
+
+		TEST_METHOD(WriteZeroScore) {
+			std::string file = "write_zero.txt";
+			std::ofstream(file, std::ios::trunc).close();
+
+			SlidingTilesData::slides = 0;
+			SlidingTilesFunctionsMock::writeScore(file);
+
+			std::ifstream in(file);
+			int value = -1;
+			in >> value;
+
+			Assert::AreEqual(0, value);
+		}
+	};
+
+
 }

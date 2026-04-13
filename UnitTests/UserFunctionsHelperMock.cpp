@@ -1,6 +1,7 @@
 #include "UserFunctionsHelperMock.hpp"
 #include "../Project II Slider Game/SlidingTilesData.hpp"
 #include "../Project II Slider Game/SlidingTilesFunctions.hpp"
+#include "../Project II Slider Game/Board.hpp"
 
 namespace UserFunctionsHelperMock {
 	bool continueGame() {
