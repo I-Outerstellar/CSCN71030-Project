@@ -220,6 +220,24 @@ namespace UnitTests {
 				);
 			}
 		};
+
+		TEST_CLASS(IsRowEmpty) {
+			TEST_METHOD(False) {
+				BoardMock board(SlidingTilesEnums::Difficulty::EASY);
+				Assert::IsFalse(board.hasEmptyRow());
+			}
+
+			TEST_METHOD(True_RowEmpty) {
+				BoardMock board(SlidingTilesEnums::Difficulty::EASY);
+				board.accessBoard().push_back(std::vector<size_t>());
+				Assert::IsTrue(board.hasEmptyRow());
+			}
+
+			TEST_METHOD(True_BoardEmpty) {
+				BoardMock board;
+				Assert::IsTrue(board.hasEmptyRow());
+			}
+		};
 	}
 
 	namespace SlidingTilesFunctionsHelpersTests {
