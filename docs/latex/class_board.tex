@@ -120,10 +120,10 @@ Rajdeep Chowdhury
 8.\+04.\+2026
 \end{DoxyDate}
 \begin{DoxyNote}{Note}
-The user should use the can\+Access(size\+\_\+t) method before using this method to avoid the exception being thrown. 
+The user should use the \doxylink{class_board_af63c0e91a226e80489e4c856cc12a783}{Board::\+can\+Access(size\+\_\+t) const} method before using this method to avoid the exception being thrown. 
 \end{DoxyNote}
 \begin{DoxySeeAlso}{See also}
-can\+Access(size\+\_\+t) 
+\doxylink{class_board_af63c0e91a226e80489e4c856cc12a783}{Board::\+can\+Access(size\+\_\+t) const } 
 \end{DoxySeeAlso}
 
 
@@ -157,10 +157,10 @@ Rajdeep Chowdhury
 8.\+04.\+2026
 \end{DoxyDate}
 \begin{DoxyNote}{Note}
-The user should use the can\+Access(size\+\_\+t, size\+\_\+t) method before using this method to avoid the exception being thrown. 
+The user should use the \doxylink{class_board_a25f2fb64e2a4ef6c3f3b16ad8b3db8b7}{Board::\+can\+Access(size\+\_\+t, size\+\_\+t) const} method before using this method to avoid the exception being thrown. 
 \end{DoxyNote}
 \begin{DoxySeeAlso}{See also}
-can\+Access(size\+\_\+t, size\+\_\+t) 
+\doxylink{class_board_a25f2fb64e2a4ef6c3f3b16ad8b3db8b7}{Board::\+can\+Access(size\+\_\+t, size\+\_\+t) const } 
 \end{DoxySeeAlso}
 
 
@@ -172,7 +172,7 @@ Definition at line \doxymbox{\hyperlink{_board_8cpp_source_l00048}{48}} of file 
 {\footnotesize\ttfamily \label{class_board_af63c0e91a226e80489e4c856cc12a783} 
 bool Board::\+can\+Access (\begin{DoxyParamCaption}\item[{size\+\_\+t}]{row}{}\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [noexcept]}}
 
-Checks if a {\ttfamily \doxylink{class_board}{Board}} row can exist in accordance to the size of the vector representing the board rows. Index starts at 0. 
+Checks if a {\ttfamily \doxylink{class_board}{Board}} row can exist in accordance to the size of the vector representing the board rows. Index starts at 0. This method is made to compliment using \doxylink{class_board_ab73d3649216011f53d3d292f907f5fdf}{Board::\+access(size\+\_\+t)} to prevent an exception being thrown. 
 \begin{DoxyParams}[1]{Parameters}
 \doxymbox{\texttt{in}}  & {\em row} & The row of the board being accessed. \\
 \hline
@@ -189,8 +189,11 @@ Checks if a {\ttfamily \doxylink{class_board}{Board}} row can exist in accordanc
 Rajdeep Chowdhury 
 \end{DoxyAuthor}
 \begin{DoxyDate}{Date}
-8.\+04.\+2026 
+8.\+04.\+2026
 \end{DoxyDate}
+\begin{DoxySeeAlso}{See also}
+\doxylink{class_board_ab73d3649216011f53d3d292f907f5fdf}{Board::\+access(size\+\_\+t)} 
+\end{DoxySeeAlso}
 
 
 Definition at line \doxymbox{\hyperlink{_board_8cpp_source_l00052}{52}} of file \doxymbox{\hyperlink{_board_8cpp_source}{Board.\+cpp}}.
@@ -201,7 +204,7 @@ Definition at line \doxymbox{\hyperlink{_board_8cpp_source_l00052}{52}} of file 
 {\footnotesize\ttfamily \label{class_board_a25f2fb64e2a4ef6c3f3b16ad8b3db8b7} 
 bool Board::\+can\+Access (\begin{DoxyParamCaption}\item[{size\+\_\+t}]{row}{, }\item[{size\+\_\+t}]{column}{}\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [noexcept]}}
 
-Checks if a {\ttfamily \doxylink{class_board}{Board}} index can exist in accordance to the size of the vectors representing the board. Index starts at 0. 
+Checks if a {\ttfamily \doxylink{class_board}{Board}} index can exist in accordance to the size of the vectors representing the board. Index starts at 0. This method is made to compliment using \doxylink{class_board_abcf5a89b16aad1d29a60862f06fcea86}{Board::\+access(size\+\_\+t, size\+\_\+t)} to prevent an exception being thrown. 
 \begin{DoxyParams}[1]{Parameters}
 \doxymbox{\texttt{in}}  & {\em row} & The row of the board being accessed. \\
 \hline
@@ -219,8 +222,11 @@ Checks if a {\ttfamily \doxylink{class_board}{Board}} index can exist in accorda
 Rajdeep Chowdhury 
 \end{DoxyAuthor}
 \begin{DoxyDate}{Date}
-8.\+04.\+2026 
+8.\+04.\+2026
 \end{DoxyDate}
+\begin{DoxySeeAlso}{See also}
+\doxylink{class_board_ab73d3649216011f53d3d292f907f5fdf}{Board::\+access(size\+\_\+t)} 
+\end{DoxySeeAlso}
 
 
 Definition at line \doxymbox{\hyperlink{_board_8cpp_source_l00056}{56}} of file \doxymbox{\hyperlink{_board_8cpp_source}{Board.\+cpp}}.
