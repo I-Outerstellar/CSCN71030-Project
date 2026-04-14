@@ -58,23 +58,29 @@ public:
 
 	/// @brief		Checks if a @c Board index can be accessed. Index starts at 0.
 	/// @details	Checks if a @c Board index can exist in accordance to the size of the vectors 
-	///				representing the board. Index starts at 0.
+	///				representing the board. Index starts at 0. This method is made to compliment using
+	///				@ref Board::access(size_t, size_t) to prevent an exception being thrown.
 	/// @param[in]	row	The row of the board being accessed.
 	/// @param[in]	column The coloum of the board being accessed.
 	/// @retval		true If the index exists.
 	/// @retval		false If the index does not exist.
 	/// @author		Rajdeep Chowdhury
 	/// @date		8.04.2026
+	/// 
+	/// @see		Board::access(size_t)
 	bool canAccess(size_t row, size_t column) const noexcept;
 
 	/// @brief		Checks if a @c Board row can be accessed. Index starts at 0.
 	/// @details	Checks if a @c Board row can exist in accordance to the size of the vector 
-	///				representing the board rows. Index starts at 0.
+	///				representing the board rows. Index starts at 0. This method is made to compliment using
+	///				@ref Board::access(size_t) to prevent an exception being thrown.
 	/// @param[in]	row The row of the board being accessed.
 	/// @retval		true If the row exists.     
 	/// @retval		false If the row does not exist.
 	/// @author		Rajdeep Chowdhury
 	/// @date		8.04.2026
+	/// 
+	/// @see		Board::access(size_t)
 	bool canAccess(size_t row) const noexcept;
 
 	/// @brief		Accesses an integer in the board. Indexing starts at 0.
@@ -87,9 +93,9 @@ public:
 	/// @author		Rajdeep Chowdhury
 	/// @date		8.04.2026
 	/// 
-	/// @note		The user should use the @ref canAccess(size_t, size_t) method before
+	/// @note		The user should use the @ref Board::canAccess(size_t, size_t) const method before
 	///				using this method to avoid the exception being thrown.
-	/// @see		canAccess(size_t, size_t)
+	/// @see		Board::canAccess(size_t, size_t) const
 	size_t& access(size_t row, size_t column);
 
 	/// @brief		Accesses a row in the board. Indexing starts at 0.
@@ -101,8 +107,8 @@ public:
 	/// @author		Rajdeep Chowdhury
 	/// @date		8.04.2026
 	/// 
-	/// @note		The user should use the @ref canAccess(size_t) method before
+	/// @note		The user should use the @ref Board::canAccess(size_t) const method before
 	///				using this method to avoid the exception being thrown.
-	/// @see		canAccess(size_t)
+	/// @see		Board::canAccess(size_t) const
 	std::vector<size_t>& access(size_t row);
 };
